@@ -17,5 +17,156 @@
     </script>
 </head>
 
+<div class="wrapper">
+    <nav class="navbar navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="images/logo_landscape.png" height="80" alt="Ngeprint Logo" loading="lazy" />
+            </a>
+        </div>
+    </nav>
+    <h1 class="h1" align="center">Halo, Admin!</h1>
 
-<h1>halo admin</h1>
+    <div class="content">
+        <div class="col text-center">
+            <button type="button" class="btn btn-warning btn-lg btn-block">New Orders</button>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <td>Order #</td>
+                        <td>Customer</td>
+                        <td>Invoice No</td>
+                        <td>Product ID</td>
+                        <td>Qty</td>
+                        <td>Size</td>
+                        <td>Status</td>
+                        <td>Transaction Photo</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Customer A</td>
+                        <td>001</td>
+                        <td>PD001</td>
+                        <td>20</td>
+                        <td>20cm</td>
+                        <td>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Pending</option>
+                                <option value="1">Ready</option>
+                            </select>
+                        </td>
+                        <td>Foto Transaksi</td>
+                        <td>
+                            <div class="col text-center">
+                                <button type="button" class="btn btn-warning btn-sm" id="button_save">Save</button>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>2</td>
+                        <td>Customer B</td>
+                        <td>002</td>
+                        <td>PD002</td>
+                        <td>20</td>
+                        <td>20cm</td>
+                        <td>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Pending</option>
+                                <option value="1">Ready</option>
+                            </select>
+                        </td>
+                        <td>Foto Transaksi</td>
+                        <td>
+                            <div class="col text-center">
+                                <button type="button" class="btn btn-warning btn-sm" id="button_save">Save</button>
+                            </div>
+                        </td>
+                    </tr>
+                    </tr>
+
+                    <tr>
+                        <td>3</td>
+                        <td>Customer C</td>
+                        <td>003</td>
+                        <td>PD003</td>
+                        <td>20</td>
+                        <td>20cm</td>
+                        <td>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Pending</option>
+                                <option value="1">Ready</option>
+                            </select>
+                        </td>
+                        <td>Foto Transaksi</td>
+                        <td>
+                            <div class="col text-center">
+                                <button type="button" class="btn btn-warning btn-sm" id="button_save">Save</button>
+                            </div>
+                        </td>
+                    </tr>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer class="bg-light text-center text-lg-start">
+        <!-- Copyright -->
+        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2022 Copyright:
+            <a class="text-dark" href="#">Ngeprint</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+</div>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .wrapper {
+        width: 85%;
+        margin: 0 auto;
+    }
+
+    .container {
+        border-bottom: 2px solid orange;
+        margin-bottom: 1rem;
+    }
+
+    thead td {
+        font-weight: bolder;
+        font-size: 1.5rem;
+    }
+
+    tbody {
+        font-size: 1.3rem;
+    }
+
+    .content button {
+        padding: 1rem;
+        font-weight: bold;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+        font-size: 16px;
+    }
+
+    .content tbody button {
+        padding: 0 0.5rem;
+        margin: 0;
+    }
+
+    footer {
+        margin-top: 1.5rem;
+        font-size: 1.3rem;
+    }
+</style>

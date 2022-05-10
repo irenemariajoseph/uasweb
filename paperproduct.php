@@ -1,3 +1,22 @@
+<?php
+require "conn.php";
+
+
+
+// session_start();
+// if (!isset($_SESSION['username'])) {
+//     header('Location: login.php');
+// }
+
+
+$sql = "SELECT * FROM tbl_produk WHERE prod_category = 'paper';";
+$con = GetConnection();
+
+$hasil = $con->prepare($sql);
+$hasil->execute();
+?>
+
+
 <!DOCTYPE html>
 <html>
 
@@ -125,248 +144,115 @@
 
     <div class="pilproduk" id="">
         <h1>Our <span>Paper</span> Digital Printing Product</h1>
+
         <div class="row">
-            <div class="col-sm-4">
-                <div class="jenis">
-                    <div class="card-img-top  align-items-center">
-                        <div>
-                            <img class="img-fluid" id="pilprodukimg" src="images/paper_businesscard.png" alt="Card image cap">
-                        </div>
-                    </div>
-                    <br>
-                    <h3>Business Card</h3>
-                    <br>
-                    <form>
-                        <div class="form-group">
-                            <h4>Pilih Jenis Kertas</h4>
-                            <div class="form-group col-md-11">
-                                <select id="inputdropdown" class="form-control">
-                                    <option selected>Matte</option>
-                                    <option>Glossy</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <h4>Ukuran Kertas</h4>
-                            <div class="form-group col-md-11">
-                                <select id="inputdropdown" class="form-control">
-                                    <option selected>A4</option>
-                                    <option>A5</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <h4>Jumlah Kertas</h4>
-                            <div class="form-group col-md-11">
-                                <input type="number" class="form-control" id="jumlahp" name="name">
+
+            <?php
+            $i = 1;
+            while ($row = $hasil->fetch()) :
+            ?>
+                <div class="col-sm-3" style="margin-bottom: 1.5rem;">
+                    <div class="jenis">
+                        <div class="card-img-top  align-items-center">
+                            <div>
+                                <img class="img-fluid" id="pilprodukimg" src="images/paper_businesscard.png" alt="Card image cap">
                             </div>
                         </div>
 
-                        <div class="produkbutton">
-                            <button type="button">ADD TO CART</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <!-- aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa -->
-            <div class="col-sm-4">
-                <div class="jenis">
-                    <div class="card-img-top  align-items-center">
-                        <div>
-                            <img class="img-fluid" id="pilprodukimg" src="images/paper_businesscard.png" alt="Card image cap">
-                        </div>
-                    </div>
-                    <br>
-                    <h3>Business Card</h3>
-                    <br>
-                    <form>
-                        <div class="form-group">
-                            <h4>Pilih Jenis Kertas</h4>
-                            <div class="form-group col-md-11">
-                                <select id="inputdropdown" class="form-control">
-                                    <option selected>Matte</option>
-                                    <option>Glossy</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <h4>Ukuran Kertas</h4>
-                            <div class="form-group col-md-11">
-                                <select id="inputdropdown" class="form-control">
-                                    <option selected>A4</option>
-                                    <option>A5</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <h4>Jumlah Kertas</h4>
-                            <div class="form-group col-md-11">
-                                <input type="number" class="form-control" id="jumlahp" name="name">
-                            </div>
-                        </div>
-
-                        <div class="produkbutton">
-                            <button type="button">ADD TO CART</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <!-- aaaaaaaaaaaaaaaaaaaaaaaaaaaaa -->
-            <div class="col-sm-4">
-                <div class="jenis">
-                    <div class="card-img-top  align-items-center">
-                        <div>
-                            <img class="img-fluid" id="pilprodukimg" src="images/paper_businesscard.png" alt="Card image cap">
-                        </div>
-                    </div>
-                    <br>
-                    <h3>Business Card</h3>
-                    <br>
-                    <form>
-                        <div class="form-group">
-                            <h4>Pilih Jenis Kertas</h4>
-                            <div class="form-group col-md-11">
-                                <select id="inputdropdown" class="form-control">
-                                    <option selected>Matte</option>
-                                    <option>Glossy</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <h4>Ukuran Kertas</h4>
-                            <div class="form-group col-md-11">
-                                <select id="inputdropdown" class="form-control">
-                                    <option selected>A4</option>
-                                    <option>A5</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <h4>Jumlah Kertas</h4>
-                            <div class="form-group col-md-11">
-                                <input type="number" class="form-control" id="jumlahp" name="name">
-                            </div>
-                        </div>
-
-                        <div class="produkbutton">
-                            <button type="button">ADD TO CART</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="simulation" id="simulate">
-            <br>
-            <br>
-            <h1>Not Sure it’s easy and fast?<br>
-                <span>SIMULATE IT!</span>
-            </h1>
-
-            <div class="formsimulate">
-                <form>
-                    <div class="form-row">
-                        <form class="form-horizontal">
-                            <div class="control-group">
-                                <label class="control-label" for="inputType">Jenis Produk</label>
-                                <div class="controls">
-                                    <input type="text" class="input-simulate" id="jenisproduk" placeholder="Paper - Brosur ">
+                        <br>
+                        <h3> <?php echo $row['prod_name'] ?></h3>
+                        <br>
+                        <form>
+                            <div class="form-group">
+                                <h4>Pilih Jenis Kertas</h4>
+                                <div class="form-group col-md-11">
+                                    <h4 id="inputdropdown" style="margin-right:3rem;" class="form-control">
+                                        <?php echo $row['type_ppr'] ?>
+                                    </h4>
                                 </div>
                             </div>
-
-                            <div class="control-group">
-                                <label class="control-label" for="inputType">Ukuran</label>
-                                <div class="controls">
-                                    <input type="text" class="input-simulate" id="ukuran" placeholder="A4">
+                            <div class="form-group">
+                                <h4>Ukuran Kertas</h4>
+                                <div class="form-group col-md-11">
+                                    <h4 id="inputdropdown" style="margin-right:3rem;" class="form-control">
+                                        <?php echo $row['uk_ppr'] ?>
+                                    </h4>
                                 </div>
                             </div>
-
-                            <div class="control-group">
-                                <label class="control-label" for="inputType">Jenis Kertas</label>
-                                <div class="controls">
-                                    <input type="text" class="input-simulate" id="jeniskertas" placeholder="Vinyl">
+                            <div class="form-group">
+                                <h4>Harga</h4>
+                                <div class="form-group col-md-11">
+                                    <h4 id="inputdropdown" style="margin-right:3rem;" class="form-control">
+                                        <?php echo $row['price'] ?>
+                                    </h4>
                                 </div>
                             </div>
-
-                            <div class="control-group">
-                                <label class="control-label" for="inputType">Jumlah Cetakan</label>
-                                <div class="controls">
-                                    <input type="text" class="input-simulate" id="jumlahcetakan" placeholder="300 RIM">
+                            <div class="form-group">
+                                <h4>Jumlah Kertas</h4>
+                                <div class="form-group col-md-11">
+                                    <input type="number" class="form-control" id="jumlahp" name="name">
                                 </div>
                             </div>
 
                             <div class="produkbutton">
-                                <button type="button" onclick="simulate()">SIMULATE IT</button>
+                                <button type="button">ADD TO CART</button>
                             </div>
-
                         </form>
 
-
-
-                    </div>
-                </form>
-            </div>
-        </div>
-
-        <section id=result>
-            <div id=resulthours>
-
-            </div>
-
-        </section>
-
-
-
-
-
-
-
-        <footer class="text-lg-start text-muted" id="footerkonten">
-            <section class="">
-                <div class="container text-center text-md-start ">
-                    <!-- Grid row -->
-                    <div class="row mt-3">
-                        <!-- Grid column -->
-                        <div class="col-md-9 ">
-                            <!-- Content -->
-                            <h3 class=" fw-bold mb-4">
-                                Tentang
-                            </h3>
-                            <hr>
-
-                            <p>
-                                Kami ngeprint blablabla Kami ngeprint blablablaKami ngeprint blablabla Kami ngeprint
-                                blablabla Kami ngeprint blablablaKami ngeprint blablabla Kami ngeprint blablabla Kami
-                                ngeprint blablablaKami ngeprint blablabla Kami ngeprint blablabla Kami ngeprint
-                                blablablaKami ngeprint blablabla Kami ngeprint blablabla Kami ngeprint blablablaKami
-                                ngeprint blablabla Kami ngeprint blablabla Kami ngeprint blablablaKami ngeprint
-                                blablabla
-                            </p>
-                        </div>
-
-                        <!-- Grid column -->
-                        <div class="col-md-3">
-                            <!-- Links -->
-                            <h3 class=" fw-bold mb-4">
-                                Hubungi Kami
-                            </h3>
-                            <hr>
-
-                            <p><i class="fas fa-home me-3"></i> Gedung ABC, Jalan Sunter Mas Tengah, Sunter Jaya, Tj.
-                                Priok,
-                                Kota Jkt Utara</p>
-                            <p>
-                                <i class="fas fa-envelope me-3"></i>
-                                help@ngeprint.com
-                            </p>
-                            <p><i class="fas fa-phone me-3"></i>021-8888-777</p>
-
-                        </div>
                     </div>
                 </div>
-            </section>
-        </footer>
+                <br>
+                <br>
+            <?php
+                $i++;
+            endwhile;
+            ?>
+
+            <footer class="text-lg-start text-muted" id="footerkonten">
+                <section class="">
+                    <div class="container text-center text-md-start ">
+                        <!-- Grid row -->
+                        <div class="row mt-3">
+                            <!-- Grid column -->
+                            <div class="col-md-9 ">
+                                <!-- Content -->
+                                <h3 class=" fw-bold mb-4">
+                                    Tentang
+                                </h3>
+                                <hr>
+
+                                <p>
+                                    Kami ngeprint blablabla Kami ngeprint blablablaKami ngeprint blablabla Kami ngeprint
+                                    blablabla Kami ngeprint blablablaKami ngeprint blablabla Kami ngeprint blablabla Kami
+                                    ngeprint blablablaKami ngeprint blablabla Kami ngeprint blablabla Kami ngeprint
+                                    blablablaKami ngeprint blablabla Kami ngeprint blablabla Kami ngeprint blablablaKami
+                                    ngeprint blablabla Kami ngeprint blablabla Kami ngeprint blablablaKami ngeprint
+                                    blablabla
+                                </p>
+                            </div>
+
+                            <!-- Grid column -->
+                            <div class="col-md-3">
+                                <!-- Links -->
+                                <h3 class=" fw-bold mb-4">
+                                    Hubungi Kami
+                                </h3>
+                                <hr>
+
+                                <p><i class="fas fa-home me-3"></i> Gedung ABC, Jalan Sunter Mas Tengah, Sunter Jaya, Tj.
+                                    Priok,
+                                    Kota Jkt Utara</p>
+                                <p>
+                                    <i class="fas fa-envelope me-3"></i>
+                                    help@ngeprint.com
+                                </p>
+                                <p><i class="fas fa-phone me-3"></i>021-8888-777</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </footer>
 </body>
 
 
