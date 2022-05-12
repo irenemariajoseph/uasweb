@@ -23,6 +23,12 @@ function SessionActive()
 
     session_start();
     if (!isset($_SESSION['email'])) {
-        header('Location: home.php');
+        header('Location: formlogin.php');
     }
+}
+
+function alert($msg)
+{
+    echo "<script type='text/javascript'>alert('$msg')
+    window.location.href='formregist.php';</script>";
 }

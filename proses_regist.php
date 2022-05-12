@@ -1,15 +1,11 @@
 <?php
 
+
 require "conn.php";
 
 ValidateName($_POST['daftarname'], $_POST['daftaremail'], $_POST['daftarpass'], $_POST['daftarnotelp'], $_POST['daftarrole']);
 
 
-function alert($msg)
-{
-    echo "<script type='text/javascript'>alert('$msg');
-    window.location.href='home.php';</script>";
-}
 
 function ValidateName($daftarname, $daftaremail,  $daftarpass, $daftarnotelp, $daftarrole)
 {
@@ -28,7 +24,7 @@ function ValidateName($daftarname, $daftaremail,  $daftarpass, $daftarnotelp, $d
 
         if ($row['email'] != null && $row['email'] == $daftaremail) {
 
-            return alert("Username telah ada di DB kami");
+            return alert("Email telah ada di DB kami");
         } else {
 
             if (isset($daftarrole) && $daftarrole == 'SEMANGATKERJA_ADMIN') {
@@ -46,7 +42,7 @@ function ValidateName($daftarname, $daftaremail,  $daftarpass, $daftarnotelp, $d
 
             $result->execute([$daftarname, $daftaremail,  $daftarpass, $daftarnotelp, $daftarrole]);
 
-            header('Location: loginform.php');
+            header('Location: formlogin.php');
         }
     } catch (Exception $e) {
         return "error";

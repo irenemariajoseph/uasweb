@@ -43,37 +43,33 @@
 
         <!-- ======= Login ======= -->
         <center>
-            <section id="login" style="margin-top: 175px; margin-bottom: 150px" class="contact">
+            <section id="login" style="margin-top: 100px; margin-bottom: 150px" class="contact">
 
                 <div class="container" data-aos="fade-up">
 
                     <div class="row mt-5">
                         <h2><b>Login Into Your Account</b></h2>
-                        <h5>Please login to your account to buy our product</h5>
+                        <h5>You are not logged into your account yet!</h5>
 
-                        <?php if (!empty($_GET['error'])) { ?>
-
-                            <a style="color:red; margin-top:20px;">Wrong combination of email and password</a>
-
-                        <?php unset($_GET['error']);
-                        } ?>
 
                         <div class="col-lg-12 mt-5 mt-lg-0" style="align-items: center;">
-                            <form action="proses_login.php" method="post" role="form" style="width: 30%">
+                            <form action="proses_login.php" method="POST" role="form" style="width: 30%">
                                 <div class="form-group mt-3">
-                                    <input type="text" class="input textEmail" name="email" id="name" placeholder="Email" required>
+                                    <input type="text" class="input textEmail" name="loginemail" placeholder="Email" required></input>
                                 </div>
                                 <div class="form-group mt-3">
-                                    <input type="password" class="input textPass" name="password" id="password" rows="5" placeholder="Password" required></input>
+                                    <input type="password" class="input textPass" name="loginpass" placeholder="Password" required></input>
                                 </div>
                                 <br>
 
                                 <h5>Forget your password <a style="color:#E25E20" href="#">Click Here</a></h5>
-                                <h5>Don't have an account ? <a style="color:#E25E20" href="#">Create now</a></h5>
+                                <h5>Don't have an account ? <a style="color:#E25E20" href="formregist.php">Create now</a></h5>
 
                                 <br>
                                 <div class="text-center"><button class="button login" type="submit">Login</button></div>
                             </form>
+
+
                         </div>
                     </div>
                 </div>

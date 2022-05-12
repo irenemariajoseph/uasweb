@@ -34,7 +34,10 @@
         <div class="icons">
             <div class="fas fa-bars" id="menu-btn"></div>
             <div class="fas fa-shopping-cart" id="shop-btn"></div>
-            <div class="fas fa-user" id="login-btn"></div>
+            <a href="userpage.php">
+                <div class="fas fa-user" id="login-btn"></div>
+            </a>
+            <!-- <div class="fas fa-user" id="login-btn"></div> -->
         </div>
 
         <form action="proses_login.php" class="login-form" method="POST">
