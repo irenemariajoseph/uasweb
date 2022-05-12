@@ -15,10 +15,12 @@ if ($row = $result->fetch()) {
     if (password_verify($password, $row['pass'])) {
         // password cocok
         $_SESSION['email'] = $row['email'];
-        SessionActive();
+
         if ($role == 'admin') {
+            $_SESSION['email'] = $row['email'];
             header('Location: adminpage.php');
         } else {
+            $_SESSION['email'] = $row['email'];
             header('Location: home.php');
         }
     } else {

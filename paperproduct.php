@@ -162,7 +162,7 @@ $hasil->execute();
                         <br>
                         <h3> <?php echo $row['prod_name'] ?></h3>
                         <br>
-                        <form>
+                        <form action="cart.php">
                             <div class="form-group">
                                 <h4>Pilih Jenis Kertas</h4>
                                 <div class="form-group col-md-11">
@@ -195,7 +195,7 @@ $hasil->execute();
                             </div>
 
                             <div class="produkbutton">
-                                <button type="button">ADD TO CART</button>
+                                <button type="submit">ADD TO CART</button>
                             </div>
                         </form>
 
