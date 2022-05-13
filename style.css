@@ -434,6 +434,7 @@ h3 #namatesti {
     width: 32.5vw;
     background: #fff;
 }
+
 /* ffffffffffffff */
 .header .regist-form {
     position: absolute;
@@ -749,12 +750,13 @@ h3 #namatesti {
 }
 
 .input-simulate {
-  width: 150%;
+    width: 150%;
 }
 
-.form-row .produkbutton {
-    margin: 0vw 31vw;
-    position: relative;
+.form-row {
+    margin: 0 auto;
+    margin-bottom: 4rem;
+
 }
 
 #resulthours h2 {
@@ -870,8 +872,10 @@ h3 #namatesti {
         margin: 2rem 2.5rem;
         display: block;
 
-    }.control-group .control-label{
-      font-size: 18px;
+    }
+
+    .control-group .control-label {
+        font-size: 18px;
     }
 
 }
@@ -894,21 +898,21 @@ h3 #namatesti {
         margin: 2rem auto;
     }
 
-    .control-group .control-label{
-      font-size: 15px;
-      margin: 0 3vw;
+    .control-group .control-label {
+        font-size: 15px;
+        margin: 0 3vw;
     }
 
-    .form-row .produkbutton{
-      margin: 0vw 25vw;
+    .form-row .produkbutton {
+        margin: 0vw 25vw;
     }
 
-    .input-simulate{
-      font-size: 20px;
+    .input-simulate {
+        font-size: 20px;
     }
 
     .formsimulate {
-    height: 50vh;
+        height: 50vh;
     }
 
 }

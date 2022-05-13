@@ -161,8 +161,10 @@ $hasil->execute();
 
                         <br>
                         <h3> <?php echo $row['prod_name'] ?></h3>
+                        <h3 type="hidden" name="idprod_co" value="<?php echo $row['prod_id'] ?>"></h3>
+
                         <br>
-                        <form action="cart.php">
+                        <form action="checkout.php">
                             <div class="form-group">
                                 <h4>Pilih Jenis Kertas</h4>
                                 <div class="form-group col-md-11">

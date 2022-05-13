@@ -1,3 +1,10 @@
+<?php
+require "conn.php";
+SessionActive();
+$co_produkid = $_POST['idprod_co'];
+
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -11,15 +18,12 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-        </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-        </script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
 
 </head>
 
@@ -50,8 +54,7 @@
             <p>forget your password <a id="forget-btn" style="text-decoration: underline;">click here</a></p>
             <p>don't have an account <a id="regist-btn" style="text-decoration: underline;">create now</a></p>
 
-            <button class=" btn" style="width: 10rem; color:white; background-color: var(--primary);"
-                type="button">Login
+            <button class=" btn" style="width: 10rem; color:white; background-color: var(--primary);" type="button">Login
                 In</button>
         </form>
 
@@ -63,8 +66,7 @@
 
             <p>have an account? <a id="login-regist-btn">login now</a></p>
 
-            <button class="btn" id="login-regist-btn"
-                style="width: 10rem; color:white; background-color: var(--primary);" type="button">Create Account
+            <button class="btn" id="login-regist-btn" style="width: 10rem; color:white; background-color: var(--primary);" type="button">Create Account
             </button>
         </form>
 
@@ -74,8 +76,7 @@
             <input type="password" placeholder="your new password" class="box">
             <br>
             <br>
-            <button class="btn" id="login-regist-btn"
-                style="width: 10rem; color:white; background-color: var(--primary);" type="button">Change Password
+            <button class="btn" id="login-regist-btn" style="width: 10rem; color:white; background-color: var(--primary);" type="button">Change Password
             </button>
         </form>
 
@@ -124,9 +125,7 @@
                 </div>
             </div>
 
-            <a style="text-decoration: none;" href="checkout.html"><button class="btn"
-                    style=" width: 15rem; margin: 3.5vh auto;color:white; background-color: var(--primary);"
-                    type="button">Check Out</button></a>
+            <a style="text-decoration: none;" href="checkout.html"><button class="btn" style=" width: 15rem; margin: 3.5vh auto;color:white; background-color: var(--primary);" type="button">Check Out</button></a>
         </div>
     </header>
     <!-- header done----------------------------------------------------------------------------------------------------------- -->
@@ -134,61 +133,70 @@
     <div class="pagination">
         <div class="checkout">
             <h1>Pesanan <span>Ngeprint</span> Anda</h1>
-
-
+            <h2><b>Informasi Pembeli</b></h2>
+            <br>
             <div class="formbox">
-                <h4><b>Informasi Pembeli</b></h4>
+
 
                 <div class="form-row">
+                    <form action="proses_co.php" method="POST" role="form">
 
-                    <div class="form-group col-md-6">
-                        <label for="inputPassword4">Email</label>
-                        <input type="text" class="form-control" id="inputPassword4" placeholder="Nama Pembeli">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="inputPassword4">Nama Pembeli</label>
-                        <input type="text" class="form-control" id="inputPassword4" placeholder="Nama Pembeli">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="inputEmail4">No. Telp</label>
-                        <input type="number" class="form-control" id="inputEmail4" placeholder="No. Telp">
-                    </div>
+                        <div class="form-group col-md-6">
+                            <label>Nama Pembeli</label>
+                            <input type="text" name="conama" class="form-control" placeholder="Nama Pembeli" required>
+                        </div>
+                        <br>
+                        <div class="form-group col-md-6">
+                            <label>Email</label>
+                            <input type="email" name="coemail" class="form-control" placeholder="Nama Email" required>
+                        </div>
+                        <br>
 
-                    <div class="form-group col-md-6">
-                        <label for="inputPassword4">Jenis Pembayaran</label>
-                        <select id="dropdowncheckout" class="form-control">
-                            <option selected>Bank Transfer</option>
-                            <option>Shopee Pay</option>
-                            <option>DANA</option>
-                            <option>OVO</option>
-                            <option>Gopay</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="inputPassword4">Pick Up</label>
-                        <select id="dropdowncheckout" class="form-control">
-                            <option selected>Gojek</option>
-                            <option>Grab</option>
-                            <option>Ambil Pribadi</option>
-                        </select>
-                    </div>
+                        <div class="form-group col-md-6">
+                            <label>No. Telp</label>
+                            <input type="number" name="cotelp" class="form-control" placeholder="No. Telp" required>
+                        </div>
+                        <br>
+                        <div class="form-group col-md-6">
+                            <label>Jenis Pembayaran</label>
+                            <select name="copemb" class="form-control" required>
+                                <option value="">None</option>
+                                <option value="Bank Transfer">Bank Transfer</option>
+                                <option value="Shopee Pay<">Shopee Pay</option>
+                                <option value="DANA">DANA</option>
+                                <option value="OVO">OVO</option>
+                                <option value="Gopay">Gopay</option>
+                            </select>
+                        </div>
+                        <br>
 
-                    <div class="form-group col-md-6">
-                        <label for="inputEmail4">Tanggal Pick Up</label>
-                        <input type="date" class="form-control" id="inputEmail4">
-                    </div>
+                        <div class="form-group col-md-6">
+                            <label>Pick Up</label>
+                            <select name="copickup" class="form-control" required>
+                                <option value="">None</option>
+                                <option value="Gojek">Gojek</option>
+                                <option value="Grab">Grab</option>
+                                <option value="Ambil Pribadi">Ambil Pribadi</option>
+                            </select>
+                        </div>
+                        <br>
 
-                    <div class="form-group col-md-6">
-                        <label for="inputEmail4">Jam Pick Up</label>
-                        <input type="time" class="form-control" id="inputEmail4">
-                    </div>
+                        <div class="form-group col-md-6">
+                            <label>Tanggal Pick Up</label>
+                            <input name="cotglpickup" type="date" class="form-control" required>
+                        </div>
+                        <br>
+                        <div class=" form-group col-md-6">
+                            <label>Jam Pick Up</label>
+                            <input name="cojampickup" type="time" class="form-control" required>
+                        </div>
+                        <br>
 
 
-
-                    <button class="buttonCheckout" type="button" data-bs-toggle="modal" data-bs-target="#modalsucess">
-                        Send
-                    </button>
-
+                        <button class=" buttonCheckout" type="submit" data-bs-toggle="modal" data-bs-target="#modalsucess">
+                            Send
+                        </button>
+                    </form>
 
                 </div>
 
@@ -200,7 +208,7 @@
 
 
     <!-- Modal -->
-    <div id="modalsucess" class="modal fade">
+    <!-- <div id="modalsucess" class="modal fade">
         <div class="modal-dialog modal-confirm">
             <div class="modal-content">
                 <div class="modal-header">
@@ -221,7 +229,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <footer class="text-lg-start text-muted" id="footerkonten">
         <section class="">
@@ -271,3 +279,20 @@
 </body>
 
 </html>
+
+<style>
+    input {
+        height: 4rem;
+        font-size: larger;
+    }
+
+    label {
+
+        font-size: larger;
+    }
+
+    input::placeholder {
+        font-size: larger;
+
+    }
+</style>

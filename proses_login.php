@@ -29,7 +29,7 @@ if ($row = $result->fetch()) {
             // return alert('user');
 
             $_SESSION['email'] = $row['email'];
-
+            $_SESSION['id'] = $row['id'];
             header('Location: userpage.php');
         }
     } else {
