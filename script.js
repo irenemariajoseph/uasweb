@@ -62,8 +62,11 @@ window.onload = function () {
 };
 
 function equalsIgnoringCase(text, other) {
-  return text.localeCompare(other, undefined, { sensitivity: 'base' }) === 0;
+  return text.localeCompare(other, undefined, {
+    sensitivity: 'base'
+  }) === 0;
 }
+
 function clearhistory() {
   var chatfill = document.getElementById("simulate-result");
   chatfill.remove();
@@ -153,4 +156,22 @@ function simulate() {
   elemName.innerHTML = "<div id = simulate-result><h1>Your Product Would Be Done In</h1><u><b><h2>" + hasiljam + " hours</h2></b></u><img class=img-simulate src=images/simulateit.png> <br> <br> <div class=produkbutton> <button type=button onclick= clearhistory()>I understand</button> </div>";
   document.getElementById("resulthours").appendChild(elemName);
 
+}
+
+// Script for formregist.php
+function verifikasiData() {
+  var pw = document.getElementById("pwd").value;
+  var tlp = document.getElementById("telp").value;
+
+  if (pw == "") {
+    alert("Password empty, please enter the password!");
+  } else if (pw.value.length < 8) {
+    alert("Password too short, please create another password!");
+  } else if (pw.value.length > 15) {
+    alert("Password too long, please create another password!");
+  } else if (tlp == "") {
+    alert("Phone number is empty, please enter the phone number!");
+  } else if (tlp.value.length < 12 || tlp.value.length > 13) {
+    alert("Phone number invalid, please enter another phone number!");
+  }
 }

@@ -60,10 +60,10 @@
                                     <input type="email" placeholder="Your Email" class="input textbox" name=" daftaremail" required>
                                 </div>
                                 <div class="form-group mt-3">
-                                    <input type="password" placeholder="Your Password" class="textbox" name="daftarpass" required>
+                                    <input type="password" id="pwd" placeholder="Your Password" class="textbox"  name="daftarpass" required>
                                 </div>
                                 <div class="form-group mt-3">
-                                    <input type="number" placeholder="Your Phone Number" class="textbox" name="daftarnotelp" required>
+                                    <input type="number" id="telp" placeholder="Your Phone Number" class="textbox" name="daftarnotelp" required>
                                 </div>
                                 <div class="form-group mt-3">
                                     <input type="text" placeholder="Kode Referal" class="textbox" name="daftarrole">
@@ -72,7 +72,7 @@
                                 <h5>Have an account ? <a style="color:#E25E20" href="formlogin.php">Login now</a></h5>
                                 <br>
 
-                                <div class="text-center"><button class="button login" type="submit">Regist</button></div>
+                                <div class="text-center"><button class="button login" type="submit" onclick="verifikasiData()">Regist</button></div>
                             </form>
                         </div>
 
