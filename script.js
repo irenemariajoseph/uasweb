@@ -160,18 +160,16 @@ function simulate() {
 
 // Script for formregist.php
 function verifikasiData() {
-  var pw = document.getElementById("pwd").value;
-  var tlp = document.getElementById("telp").value;
 
-  if (pw == "") {
+  if (document.getElementById("pwd").value == "") {
     alert("Password empty, please enter the password!");
-  } else if (pw.value.length < 8) {
+  } else if (document.getElementById("pwd").value.length < 8) {
     alert("Password too short, please create another password!");
-  } else if (pw.value.length > 15) {
+  } else if (document.getElementById("pwd").value.length > 15) {
     alert("Password too long, please create another password!");
-  } else if (tlp == "") {
+  } else if (document.getElementById("telp").value == "") {
     alert("Phone number is empty, please enter the phone number!");
-  } else if (tlp.value.length < 12 || tlp.value.length > 13) {
+  } else if (document.getElementById("telp").value.length < 12 || document.getElementById("telp").value.length > 13) {
     alert("Phone number invalid, please enter another phone number!");
   }
 }
