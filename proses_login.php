@@ -6,7 +6,7 @@ $email = $_POST['loginemail'];
 $password = $_POST['loginpass'];
 $con = GetConnection();
 
-$sql = "SELECT email, pass FROM users WHERE email = ? ";
+$sql = "SELECT * FROM users WHERE email = ? ";
 $result = $con->prepare($sql);
 $result->execute([$email]);
 
@@ -17,19 +17,17 @@ if ($row = $result->fetch()) {
     if (password_verify($password, $row['pass'])) {
 
 
-
+        $_SESSION['user_id'] = $row['id'];
 
         if ($role == 'admin') {
-            // return alert('admin');
 
             $_SESSION['email'] = $row['email'];
 
             header('Location: adminpage.php');
         } else {
-            // return alert('user');
 
             $_SESSION['email'] = $row['email'];
-            $_SESSION['id'] = $row['id'];
+            
             header('Location: userpage.php');
         }
     } else {
