@@ -1,3 +1,34 @@
+<?php
+
+// require "conn.php";
+// $email = ($_SESSION['email']);
+
+
+// SessionActive();
+// $sql = "SELECT role FROM users WHERE email = ? ";
+// $con = GetConnection();
+
+// $hasil = $con->prepare($sql);
+// $hasil->execute($email);
+
+
+// if ($role == 'admin') {
+//     // return alert('admin');
+
+
+
+//     header('Location: adminpage.php');
+// } else {
+//     // return alert('user');
+
+//     header('Location: userpage.php');
+// }
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html>
 

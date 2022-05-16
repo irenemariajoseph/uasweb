@@ -3,7 +3,7 @@ require "conn.php";
 
 
 
-// session_start();
+session_start();
 // if (!isset($_SESSION['username'])) {
 //     header('Location: login.php');
 // }
@@ -190,10 +190,15 @@ $hasil->execute();
 
                         <br>
                         <h3> <?php echo $row['prod_name'] ?></h3>
-                        <h3 type="hidden" name="idprod_co" value="<?php echo $row['prod_id'] ?>"></h3>
+                        
 
                         <br>
-                        <form action="checkout.php">
+                        <form action="javascript:addToCart(paper<?php echo $i?>)" id="paper<?php echo $i?>">
+
+                            <input class="product_id" value=<?php echo $row['prod_id'];?> style="display: none;"/>
+                            <input class="user_id" value=<?php echo $_SESSION['user_id']; ?> style="display: none;"/>
+
+
                             <div class="form-group">
                                 <h4>Pilih Jenis Kertas</h4>
                                 <div class="form-group col-md-11">
@@ -284,6 +289,44 @@ $hasil->execute();
                     </div>
                 </section>
             </footer>
+
+            <script type="text/javascript">
+
+                function addToCart(formData) {
+                    // paperData
+                    var productData = formData.getElementsByClassName("product_id");
+                    var productID = productData[0].value;
+
+                    // userID
+                    var userData = formData.getElementsByClassName("user_id");
+                    var userID = userData[0].value;
+
+                    // qty
+                    var paperData = formData.getElementsByClassName("form-control");
+                    var qty = paperData[3].value;
+
+                    let data = {
+                        product_id: productID,
+                        qty: qty,
+                        user_id: userID
+                    };
+
+                    let req = new XMLHttpRequest();
+                    req.responseType = 'json';
+                    req.open("POST", "add_to_cart.php");
+                    req.setRequestHeader("Accept", "application/json");
+                    req.setRequestHeader("Content-Type", "application/json");
+
+                    req.onreadystatechange = function () {
+                    if (req.readyState === 4) {
+                        var res = req.response;
+                        alert(res['msg']);
+                    }};
+
+                    req.send(JSON.stringify(data));
+                }
+
+            </script>
 </body>
 
 

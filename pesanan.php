@@ -1,3 +1,14 @@
+<?php
+require "conn.php";
+
+
+
+$sql = "SELECT * FROM tbl_pesan where user_id = ? ";
+$con = GetConnection();
+
+$hasil = $con->prepare($sql);
+$hasil->execute();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -18,3 +29,58 @@
 </head>
 
 <h1>halo masukkan file bukti pembayaran ya</h1>
+
+div class="wrapper">
+<nav class="navbar navbar-light">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="images/logo_landscape.png" height="80" alt="Ngeprint Logo" loading="lazy" />
+        </a>
+    </div>
+</nav>
+<h1 class="h1" align="center">Halo, Admin!</h1>
+
+<div class="content">
+    <div class="col text-center">
+        <button type="button" class="btn btn-warning btn-lg btn-block">New Orders</button>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td>Order #</td>
+                    <td>Customer</td>
+                    <td>Invoice No</td>
+                    <td>Product ID</td>
+                    <td>Qty</td>
+                    <td>Size</td>
+                    <td>Status</td>
+                    <td>Transaction Photo</td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Customer A</td>
+                    <td>001</td>
+                    <td>PD001</td>
+                    <td>20</td>
+                    <td>20cm</td>
+                    <td>
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Pending</option>
+                            <option value="1">Ready</option>
+                        </select>
+                    </td>
+                    <td>Foto Transaksi</td>
+                    <td>
+                        <div class="col text-center">
+                            <button type="button" class="btn btn-warning btn-sm" id="button_save">Save</button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
