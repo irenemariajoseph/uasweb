@@ -43,6 +43,7 @@ $hasil->execute();
 
     #inputdropdown {
         text-transform: capitalize;
+        color: black;
     }
 
     .produkbutton button{
@@ -226,7 +227,7 @@ $hasil->execute();
                             <div class="form-group">
                                 <h4>Jumlah Kertas</h4>
                                 <div class="form-group col-md-11">
-                                    <input type="number" class="form-control" id="jumlahp" name="name">
+                                    <input style="background-color: #36e367;" type="number" class="form-control" id="jumlahp" name="name">
                                 </div>
                             </div>
 
