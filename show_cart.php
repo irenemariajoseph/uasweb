@@ -36,8 +36,10 @@ $hasil->execute([$user_id]);
         }
 
         #inputdropdown {
-            text-transform: uppercase;
+            text-transform: capitalize;
+            color: black;
         }
+
 
         .produkbutton button {
             padding: 2rem 3rem;
@@ -143,7 +145,7 @@ $hasil->execute([$user_id]);
                         <div class="form-group">
                             <h4>Jumlah Kertas</h4>
                             <div class="form-group col-md-11">
-                                <h4 id="inputdropdown" style="margin-right:3rem;" class="form-control">
+                                <h4 style="background-color:#36e367" id="inputdropdown" style="margin-right:3rem;" class="form-control">
                                     <?php echo $row['qty'] ?>
                                 </h4>
                             </div>

@@ -41,7 +41,8 @@ $hasil->execute();
         }
 
         #inputdropdown {
-            text-transform: uppercase;
+            text-transform: capitalize;
+            color: black;
         }
 
         .produkbutton button {
@@ -109,7 +110,7 @@ $hasil->execute();
                         </div>
 
                         <br>
-                        <h3> <?php echo $row['prod_name'] ?></h3>
+                        <h3 style=" text-transform: uppercase;"> <?php echo $row['prod_name'] ?></h3>
 
 
                         <br>

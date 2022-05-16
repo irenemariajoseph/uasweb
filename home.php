@@ -246,12 +246,7 @@ $user_id = $_SESSION['user_id'];
                         <hr>
 
                         <p>
-                            Kami ngeprint blablabla Kami ngeprint blablablaKami ngeprint blablabla Kami ngeprint
-                            blablabla Kami ngeprint blablablaKami ngeprint blablabla Kami ngeprint blablabla Kami
-                            ngeprint blablablaKami ngeprint blablabla Kami ngeprint blablabla Kami ngeprint
-                            blablablaKami ngeprint blablabla Kami ngeprint blablabla Kami ngeprint blablablaKami
-                            ngeprint blablabla Kami ngeprint blablabla Kami ngeprint blablablaKami ngeprint
-                            blablabla
+                            Perusahaan Ngeprint telah mencetak berbagai model dan desain kemasan produk. Kami telah dipercaya oleh ratusan unit usaha, mulai dari usaha kecil, menengah, hingga usaha besar untuk mencetak kemasan produk yang mereka miliki. Dengan jaminan kualitas dan harga bersaing, Kami juga telah menjalin kerja sama dengan beberapa perusahaan besar di Indonesia. Perusahaan kami menawarkan solusi percetakan dengan harga yang murah untuk segala kebutuhan percetakan. Perusahaan kami berdiri sejak tahun 2021 dan telah memiliki ratusan client dari perusahaan skala kecil sampai dengan perusahaan skala multi-nasional. Tujuan dari perusahaan kami adalah memberikan layanan pencetakan yang berkualitas tinggi.
                         </p>
                     </div>
 
