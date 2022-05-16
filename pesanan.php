@@ -1,13 +1,16 @@
 <?php
 require "conn.php";
-
+SessionActive();
+$user_id = $_SESSION['user_id'];
 
 
 $sql = "SELECT * FROM tbl_pesan where user_id = ? ";
 $con = GetConnection();
 
 $hasil = $con->prepare($sql);
-$hasil->execute();
+$hasil->execute([$user_id]);
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -28,59 +31,148 @@ $hasil->execute();
     </script>
 </head>
 
-<h1>halo masukkan file bukti pembayaran ya</h1>
+<body>
+    <header class="header">
+        <a href="#" class="logo"><img src="images/logo_landscape.png" alt=""> </a>
 
-div class="wrapper">
-<nav class="navbar navbar-light">
-    <div class="container">
-        <a class="navbar-brand" href="#">
-            <img src="images/logo_landscape.png" height="80" alt="Ngeprint Logo" loading="lazy" />
-        </a>
-    </div>
-</nav>
-<h1 class="h1" align="center">Halo, Admin!</h1>
+        <nav class="navbar">
+            <ul>
+                <a href="home.php#up">Home</a>
+                <a href="home.php#products">Product</a>
+                <a href="home.php#testimony">Testimony</a>
+                <a href="paperproduct.php#simulate">Simulation</a>
+                <a href="home.php#aboutus">About Us</a>
+            </ul>
+        </nav>
 
-<div class="content">
-    <div class="col text-center">
-        <button type="button" class="btn btn-warning btn-lg btn-block">New Orders</button>
+        <div class="icons">
+            <div class="fas fa-bars" id="menu-btn"></div>
+            <a href="show_cart.php">
+                <div class="fas fa-shopping-cart" id="shop-btn"></div>
+            </a>
+            <a href="userpage.php">
+                <div class="fas fa-user" id="login-btn"></div>
+            </a>
+
+        </div>
+
+
+    </header>
+
+    <div class="pilproduk" style="margin:20rem 10rem;" id="">
+        <center><button style="margin:0rem auto"> <a style="margin:0rem auto" href="upload_form.php" style="color:inherit"> UPLOAD FORM</a></button>
+        </center> <br>
+        <br>
+        <br>
+
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <td>Order #</td>
+                        <td>Customer Name</td>
+                        <td>Email</td>
+                        <td>Product ID</td>
+                        <td>Kuantitas</td>
+                        <td>Cara Pick Up</td>
+                        <td>Tanggal Pick Up</td>
+                        <td>Pick Up Status</td>
+                        <td>Status Pembayaran</td>
+                        <td>Transaction Photo</td>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $i = 1;
+                    while ($row = $hasil->fetch()) :
+                    ?>
+                        <tr>
+                            <td><?php echo $row['pesan_id'] ?></td>
+                            <td><?php echo $row['username'] ?></td>
+                            <td><?php echo $row['email'] ?></td>
+                            <td><?php echo $row['prod_id'] ?></td>
+                            <td><?php echo $row['jmlh_brg'] ?></td>
+                            <td><?php echo $row['cara_pickup'] ?></td>
+                            <td><?php echo $row['tgl_pickup'] ?></td>
+
+                            <!-- <td>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Pending</option>
+                                <option value="1">Ready</option>
+                            </select>
+                        </td> -->
+
+                            <td><?php echo $row['pickup_status'] ?></td>
+                            <td><?php echo $row['pemb_status'] ?></td>
+
+
+                            <td><img style="  max-width: 100px;" src="<?php echo $row['foto_pemb'] ?>" /></td>
+
+                        </tr>
+                </tbody>
+            <?php
+                        $i++;
+                    endwhile;
+            ?>
+            </table>
+        </div>
+
     </div>
-    <div class="table-responsive">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <td>Order #</td>
-                    <td>Customer</td>
-                    <td>Invoice No</td>
-                    <td>Product ID</td>
-                    <td>Qty</td>
-                    <td>Size</td>
-                    <td>Status</td>
-                    <td>Transaction Photo</td>
-                    <td></td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Customer A</td>
-                    <td>001</td>
-                    <td>PD001</td>
-                    <td>20</td>
-                    <td>20cm</td>
-                    <td>
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>Pending</option>
-                            <option value="1">Ready</option>
-                        </select>
-                    </td>
-                    <td>Foto Transaksi</td>
-                    <td>
-                        <div class="col text-center">
-                            <button type="button" class="btn btn-warning btn-sm" id="button_save">Save</button>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
+
+    <footer class="text-lg-start text-muted" id="footerkonten">
+        <section class="">
+            <div class="container text-center text-md-start ">
+                <!-- Grid row -->
+                <div class="row mt-3">
+                    <!-- Grid column -->
+                    <div class="col-md-9 ">
+                        <!-- Content -->
+                        <h3 class=" fw-bold mb-4">
+                            Tentang
+                        </h3>
+                        <hr>
+
+                        <p>
+                            Perusahaan Ngeprint telah mencetak berbagai model dan desain kemasan produk. Kami telah dipercaya oleh ratusan unit usaha, mulai dari usaha kecil, menengah, hingga usaha besar untuk mencetak kemasan produk yang mereka miliki. Dengan jaminan kualitas dan harga bersaing, Kami juga telah menjalin kerja sama dengan beberapa perusahaan besar di Indonesia. Perusahaan kami menawarkan solusi percetakan dengan harga yang murah untuk segala kebutuhan percetakan. Perusahaan kami berdiri sejak tahun 2021 dan telah memiliki ratusan client dari perusahaan skala kecil sampai dengan perusahaan skala multi-nasional. Tujuan dari perusahaan kami adalah memberikan layanan pencetakan yang berkualitas tinggi.
+                        </p>
+                    </div>
+
+                    <!-- Grid column -->
+                    <div class="col-md-3">
+                        <!-- Links -->
+                        <h3 class=" fw-bold mb-4">
+                            Hubungi Kami
+                        </h3>
+                        <hr>
+
+                        <p><i class="fas fa-home me-3"></i> Gedung ABC, Jalan Sunter Mas Tengah, Sunter Jaya, Tj. Priok,
+                            Kota Jkt Utara</p>
+                        <p>
+                            <i class="fas fa-envelope me-3"></i>
+                            help@ngeprint.com
+                        </p>
+                        <p><i class="fas fa-phone me-3"></i>021-8888-777</p>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </footer>
+</body>
+<style>
+    button a {
+        text-decoration: none;
+
+        padding: 3rem 2rem;
+        font-size: x-large;
+        text-transform: uppercase;
+
+    }
+
+    button:hover {
+        background-color: white;
+        border: 3px solid var(--primary);
+        color: var(--primary);
+    }
+</style>

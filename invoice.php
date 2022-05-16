@@ -1,23 +1,21 @@
 <!DOCTYPE html>
 <html>
+<link rel="stylesheet" href="submenustyle.css">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ngeprint</title>
-
-    <link rel="stylesheet" href="submenustyle.css">
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
-
 </head>
 
 <body>
@@ -36,92 +34,17 @@
 
         <div class="icons">
             <div class="fas fa-bars" id="menu-btn"></div>
-            <div class="fas fa-shopping-cart" id="shop-btn"></div>
-            <div class="fas fa-user" id="login-btn"></div>
+            <a href="show_cart.php">
+                <div class="fas fa-shopping-cart" id="shop-btn"></div>
+            </a>
+            <a href="userpage.php">
+                <div class="fas fa-user" id="login-btn"></div>
+            </a>
+
         </div>
 
-        <form action="" class="login-form">
-            <h3>login now</h3>
-            <input type="email" placeholder="your email" class="box">
-            <input type="password" placeholder="your password" class="box">
-            <p>forget your password <a id="forget-btn" style="text-decoration: underline;">click here</a></p>
-            <p>don't have an account <a id="regist-btn" style="text-decoration: underline;">create now</a></p>
 
-            <button class=" btn" style="width: 10rem; color:white; background-color: var(--primary);" type="button">Login
-                In</button>
-        </form>
-
-        <form action="" class="regist-form">
-            <h3>Register now</h3>
-            <input type="name" placeholder="your name" class="box">
-            <input type="email" placeholder="your email" class="box">
-            <input type="password" placeholder="your password" class="box">
-
-            <p>have an account? <a id="login-regist-btn">login now</a></p>
-
-            <button class="btn" id="login-regist-btn" style="width: 10rem; color:white; background-color: var(--primary);" type="button">Create Account
-            </button>
-        </form>
-
-        <form action="" class="forget-form">
-            <h3>Change Password</h3>
-            <input type="name" placeholder="your email" class="box">
-            <input type="password" placeholder="your new password" class="box">
-            <br>
-            <br>
-            <button class="btn" id="login-regist-btn" style="width: 10rem; color:white; background-color: var(--primary);" type="button">Change Password
-            </button>
-        </form>
-
-
-        <div class="shopping-cart">
-            <div class="box">
-                <i class="fas fa-heart"></i>
-                <i class="fas fa-trash"></i>
-                <img src="images/pdk_kemasan.png" alt="">
-                <div class="content">
-                    <div class="content-1">
-                        <h3>Product Name</h3>
-                        <p>Box Packing</p>
-                        <p>Duplex</p>
-                        <p>Medium</p>
-                        <div class="quantity">
-                            <ul>
-                                <li>-</li>
-                                <li class="qty">1</li>
-                                <li>+</li>
-                            </ul>
-                        </div>
-                        <span class="price">Rp 20.000</span>
-                    </div>
-                </div>
-            </div>
-            <div class="box">
-                <i class="fas fa-heart"></i>
-                <i class="fas fa-trash"></i>
-                <img src="images/pdk_paper.png" alt="">
-                <div class="content">
-                    <div class="content-2">
-                        <h3>Product Name</h3>
-                        <p>Box Packing</p>
-                        <p>Duplex</p>
-                        <p>Medium</p>
-                        <div class="quantity">
-                            <ul>
-                                <li>-</li>
-                                <li class="qty">1</li>
-                                <li>+</li>
-                            </ul>
-                        </div>
-                        <span class="price">Rp 20.000</span>
-                    </div>
-                </div>
-            </div>
-
-            <a style="text-decoration: none;" href="checkout.html"><button class="btn" style=" width: 15rem; margin: 3.5vh auto;color:white; background-color: var(--primary);" type="button">Check Out</button></a>
-        </div>
     </header>
-    <!-- header done----------------------------------------------------------------------------------------------------------- -->
 
     <div class="pagination">
         <div class="checkout">

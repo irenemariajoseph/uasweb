@@ -1,7 +1,7 @@
 <?php
 require "conn.php";
 SessionActive();
-// $co_produkid = $_POST['idprod_co'];
+
 
 
 ?>
@@ -33,101 +33,28 @@ SessionActive();
 
         <nav class="navbar">
             <ul>
-                <a href="home.html#up">Home</a>
-                <a href="home.html#products">Product</a>
-                <a href="home.html#testimony">Testimony</a>
-                <a href="paperproduct.html#simulate">Simulation</a>
-                <a href="home.html#aboutus">About Us</a>
+                <a href="home.php#up">Home</a>
+                <a href="home.php#products">Product</a>
+                <a href="home.php#testimony">Testimony</a>
+                <a href="paperproduct.php#simulate">Simulation</a>
+                <a href="home.php#aboutus">About Us</a>
             </ul>
         </nav>
 
         <div class="icons">
             <div class="fas fa-bars" id="menu-btn"></div>
-            <div class="fas fa-shopping-cart" id="shop-btn"></div>
-            <div class="fas fa-user" id="login-btn"></div>
+            <a href="show_cart.php">
+                <div class="fas fa-shopping-cart" id="shop-btn"></div>
+            </a>
+            <a href="userpage.php">
+                <div class="fas fa-user" id="login-btn"></div>
+            </a>
+
         </div>
 
-        <form action="" class="login-form">
-            <h3>login now</h3>
-            <input type="email" placeholder="your email" class="box">
-            <input type="password" placeholder="your password" class="box">
-            <p>forget your password <a id="forget-btn" style="text-decoration: underline;">click here</a></p>
-            <p>don't have an account <a id="regist-btn" style="text-decoration: underline;">create now</a></p>
 
-            <button class=" btn" style="width: 10rem; color:white; background-color: var(--primary);" type="button">Login
-                In</button>
-        </form>
-
-        <form action="" class="regist-form">
-            <h3>Register now</h3>
-            <input type="name" placeholder="your name" class="box">
-            <input type="email" placeholder="your email" class="box">
-            <input type="password" placeholder="your password" class="box">
-
-            <p>have an account? <a id="login-regist-btn">login now</a></p>
-
-            <button class="btn" id="login-regist-btn" style="width: 10rem; color:white; background-color: var(--primary);" type="button">Create Account
-            </button>
-        </form>
-
-        <form action="" class="forget-form">
-            <h3>Change Password</h3>
-            <input type="name" placeholder="your email" class="box">
-            <input type="password" placeholder="your new password" class="box">
-            <br>
-            <br>
-            <button class="btn" id="login-regist-btn" style="width: 10rem; color:white; background-color: var(--primary);" type="button">Change Password
-            </button>
-        </form>
-
-
-        <div class="shopping-cart">
-            <div class="box">
-                <i class="fas fa-heart"></i>
-                <i class="fas fa-trash"></i>
-                <img src="images/pdk_kemasan.png" alt="">
-                <div class="content">
-                    <div class="content-1">
-                        <h3>Product Name</h3>
-                        <p>Box Packing</p>
-                        <p>Duplex</p>
-                        <p>Medium</p>
-                        <div class="quantity">
-                            <ul>
-                                <li>-</li>
-                                <li class="qty">1</li>
-                                <li>+</li>
-                            </ul>
-                        </div>
-                        <span class="price">Rp 20.000</span>
-                    </div>
-                </div>
-            </div>
-            <div class="box">
-                <i class="fas fa-heart"></i>
-                <i class="fas fa-trash"></i>
-                <img src="images/pdk_paper.png" alt="">
-                <div class="content">
-                    <div class="content-2">
-                        <h3>Product Name</h3>
-                        <p>Box Packing</p>
-                        <p>Duplex</p>
-                        <p>Medium</p>
-                        <div class="quantity">
-                            <ul>
-                                <li>-</li>
-                                <li class="qty">1</li>
-                                <li>+</li>
-                            </ul>
-                        </div>
-                        <span class="price">Rp 20.000</span>
-                    </div>
-                </div>
-            </div>
-
-            <a style="text-decoration: none;" href="checkout.html"><button class="btn" style=" width: 15rem; margin: 3.5vh auto;color:white; background-color: var(--primary);" type="button">Check Out</button></a>
-        </div>
     </header>
+
     <!-- header done----------------------------------------------------------------------------------------------------------- -->
 
     <div class="pagination">

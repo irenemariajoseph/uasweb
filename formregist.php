@@ -60,7 +60,7 @@
                                     <input type="email" placeholder="Your Email" class="input textbox" name=" daftaremail" required>
                                 </div>
                                 <div class="form-group mt-3">
-                                    <input type="password" id="pwd" placeholder="Your Password" class="textbox"  name="daftarpass" required>
+                                    <input type="password" id="pwd" placeholder="Your Password" class="textbox" name="daftarpass" required>
                                 </div>
                                 <div class="form-group mt-3">
                                     <input type="number" id="telp" placeholder="Your Phone Number" class="textbox" name="daftarnotelp" required>

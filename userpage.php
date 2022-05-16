@@ -1,9 +1,18 @@
 <?php
 
 require "conn.php";
-GetConnection();
-
 SessionActive();
+$conn = GetConnection();
+
+$user_id = $_SESSION['user_id'];
+
+$sql = "SELECT * FROM users where id = ?";
+
+$hasil = $conn->prepare($sql);
+$hasil->execute([$user_id]);
+$row = $hasil->fetch();
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -25,6 +34,7 @@ SessionActive();
 </head>
 
 <body>
+
     <header class="header">
         <a href="#" class="logo"><img src="images/logo_landscape.png" alt=""> </a>
 
@@ -40,22 +50,26 @@ SessionActive();
 
         <div class="icons">
             <div class="fas fa-bars" id="menu-btn"></div>
-            <div class="fas fa-shopping-cart" id="shop-btn"></div>
+            <a href="show_cart.php">
+                <div class="fas fa-shopping-cart" id="shop-btn"></div>
+            </a>
             <a href="userpage.php">
                 <div class="fas fa-user" id="login-btn"></div>
             </a>
-            <!-- <div class="fas fa-user" id="login-btn"></div> -->
+
         </div>
     </header>
+
     <div class="card">
         <form class="form">
             <h2>User Profile</h2>
+
             <div class="form-group">
                 <label for="email">Full Name:</label>
                 <br>
                 <div class="relative">
-                    <input class="form-control" id="name" type="text" pattern="[a-zA-Z\s]+" required="" autofocus="" title="Username should only contain letters. e.g. Piyush Gupta" autocomplete="" placeholder="Type your name here...">
-                    <i class="fa fa-user"></i>
+                    <h3 style="font-size:medium;" disabled="disabled" class="form-control" id="name" type="text"> <?php echo $row['username'] ?>
+                        <i class="fa fa-user"></i>
                 </div>
             </div>
             <br>
@@ -63,8 +77,8 @@ SessionActive();
                 <label for="email">Email address:</label>
                 <br>
                 <div class="relative">
-                    <input class="form-control" type="email" required="" placeholder="Type your email address..." pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
-                    <i class="fa fa-envelope"></i>
+                    <h3 style="font-size:medium;" class="form-control" type="email" required=""> <?php echo $row['email'] ?>
+                        <i class="fa fa-envelope"></i>
                 </div>
             </div>
             <br>
@@ -72,8 +86,8 @@ SessionActive();
                 <label for="email">Contact Number:</label>
                 <br>
                 <div class="relative">
-                    <input class="form-control" type="text" maxlength="10" oninput="this.value=this.value.replace(/[^0-9]/g,'');" required="" placeholder="Type your Mobile Number...">
-                    <i class="fa fa-phone"></i>
+                    <h3 style="font-size:medium;" class="form-control" type="text"><?php echo $row['no_telp'] ?>
+                        <i class="fa fa-phone"></i>
                 </div>
             </div>
 
@@ -88,9 +102,9 @@ SessionActive();
         <br>
 
         <br>
-            <div class="tright">
-                <a href="logout.php"><button class="movebtn movebtnre" type="Submit"> Log Out <i class="fa fa-power-off" aria-hidden="true"></i></button></a>
-            </div>
+        <div class="tright">
+            <a href="logout.php"><button class="movebtn movebtnre" type="Submit"> Log Out <i class="fa fa-power-off" aria-hidden="true"></i></button></a>
+        </div>
     </div>
 
     <footer class="text-lg-start text-muted" id="footerkonten">

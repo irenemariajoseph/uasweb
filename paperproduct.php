@@ -3,9 +3,6 @@ require "conn.php";
 
 
 SessionActive();
-// if (!isset($_SESSION['username'])) {
-//     header('Location: login.php');
-// }
 
 
 $sql = "SELECT * FROM tbl_produk WHERE prod_category = 'paper';";
@@ -81,16 +78,16 @@ $hasil->execute();
             </ul>
         </nav>
 
-
         <div class="icons">
             <div class="fas fa-bars" id="menu-btn"></div>
-            <div class="fas fa-shopping-cart" id="shop-btn"></div>
-            <div class="fas fa-user" id="login-btn"></div>
+            <a href="show_cart.php">
+                <div class="fas fa-shopping-cart" id="shop-btn"></div>
+            </a>
+            <a href="userpage.php">
+                <div class="fas fa-user" id="login-btn"></div>
+            </a>
         </div>
-
-
     </header>
-    <!-- header done----------------------------------------------------------------------------------------------------------- -->
 
     <div class="pilproduk" id="">
         <h1>Our <span>Paper</span> Digital Printing Product</h1>

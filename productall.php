@@ -39,7 +39,8 @@ $hasil->execute();
         }
 
         #inputdropdown {
-            text-transform: uppercase;
+            text-transform: capitalize;
+            color: black;
         }
 
         .produkbutton button {
@@ -71,25 +72,31 @@ $hasil->execute();
         <nav class="navbar">
             <ul>
                 <a href="home.php#up">Home</a>
-                <a href="productall.php">All Product</a>
+                <a href="home.php#products">Product</a>
                 <a href="home.php#testimony">Testimony</a>
                 <a href="paperproduct.php#simulate">Simulation</a>
                 <a href="home.php#aboutus">About Us</a>
             </ul>
         </nav>
 
-
         <div class="icons">
             <div class="fas fa-bars" id="menu-btn"></div>
-            <div class="fas fa-shopping-cart" id="shop-btn"></div>
-            <div class="fas fa-user" id="login-btn"></div>
+            <a href="show_cart.php">
+                <div class="fas fa-shopping-cart" id="shop-btn"></div>
+            </a>
+            <a href="userpage.php">
+                <div class="fas fa-user" id="login-btn"></div>
+            </a>
+
         </div>
 
+
     </header>
+
     <!-- header done----------------------------------------------------------------------------------------------------------- -->
 
     <div class="pilproduk" id="">
-        <h1>Our <span>Digital Printing Product</span> </h1>
+        <h1>Our <span>ALL Digital Printing Product</span> </h1>
 
         <div class="row">
 
@@ -143,7 +150,7 @@ $hasil->execute();
                             <div class="form-group">
                                 <h4>Jumlah Kertas</h4>
                                 <div class="form-group col-md-11">
-                                    <input type="number" class="form-control" id="jumlahp" name="name">
+                                    <input type="number" style="background-color:#36e367" class="form-control" id="jumlahp" name="name">
                                 </div>
                             </div>
 
@@ -175,12 +182,7 @@ $hasil->execute();
                                 <hr>
 
                                 <p>
-                                    Kami ngeprint blablabla Kami ngeprint blablablaKami ngeprint blablabla Kami ngeprint
-                                    blablabla Kami ngeprint blablablaKami ngeprint blablabla Kami ngeprint blablabla Kami
-                                    ngeprint blablablaKami ngeprint blablabla Kami ngeprint blablabla Kami ngeprint
-                                    blablablaKami ngeprint blablabla Kami ngeprint blablabla Kami ngeprint blablablaKami
-                                    ngeprint blablabla Kami ngeprint blablabla Kami ngeprint blablablaKami ngeprint
-                                    blablabla
+                                    Perusahaan Ngeprint telah mencetak berbagai model dan desain kemasan produk. Kami telah dipercaya oleh ratusan unit usaha, mulai dari usaha kecil, menengah, hingga usaha besar untuk mencetak kemasan produk yang mereka miliki. Dengan jaminan kualitas dan harga bersaing, Kami juga telah menjalin kerja sama dengan beberapa perusahaan besar di Indonesia. Perusahaan kami menawarkan solusi percetakan dengan harga yang murah untuk segala kebutuhan percetakan. Perusahaan kami berdiri sejak tahun 2021 dan telah memiliki ratusan client dari perusahaan skala kecil sampai dengan perusahaan skala multi-nasional. Tujuan dari perusahaan kami adalah memberikan layanan pencetakan yang berkualitas tinggi.
                                 </p>
                             </div>
 

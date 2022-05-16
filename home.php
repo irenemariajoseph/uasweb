@@ -1,5 +1,5 @@
 <?php
-if(isset($_SESSION['user_id'])){
+if (isset($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id'];
 }
 ?>
@@ -32,7 +32,7 @@ if(isset($_SESSION['user_id'])){
         <nav class="navbar">
             <ul>
                 <a href="home.php#up">Home</a>
-                <a href="productall.php">Product</a>
+                <a href="home.php#products">Product</a>
                 <a href="home.php#testimony">Testimony</a>
                 <a href="paperproduct.php#simulate">Simulation</a>
                 <a href="home.php#aboutus">About Us</a>
@@ -47,7 +47,7 @@ if(isset($_SESSION['user_id'])){
             <a href="userpage.php">
                 <div class="fas fa-user" id="login-btn"></div>
             </a>
-            <!-- <div class="fas fa-user" id="login-btn"></div> -->
+
         </div>
 
 
@@ -58,7 +58,7 @@ if(isset($_SESSION['user_id'])){
     </section>
     <section class="home" id="home">
         <div class="homeTitle">
-            <button> <a href="#products" style=" text-decoration: none; color:inherit"> SHOP NOW</a></button>
+            <button> <a href="productall.php" style=" text-decoration: none; color:inherit"> SHOP NOW</a></button>
         </div>
 
     </section>

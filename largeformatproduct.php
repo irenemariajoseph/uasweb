@@ -16,7 +16,36 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
+    <style>
+        .form-group {
+            width: 96%;
+        }
 
+        #inputdropdown {
+            text-transform: capitalize;
+            color: black;
+        }
+
+        .produkbutton button {
+            padding: 2rem 3rem;
+        }
+
+        @media only screen and (max-width: 770px) {
+            .form-group {
+                width: 93%;
+            }
+
+            .produkbutton button {
+                padding: 0.8rem 1.8rem;
+            }
+        }
+
+        @media only screen and (max-width: 575px) {
+            .form-group {
+                width: 98%;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -35,91 +64,15 @@
 
         <div class="icons">
             <div class="fas fa-bars" id="menu-btn"></div>
-            <div class="fas fa-shopping-cart" id="shop-btn"></div>
-            <div class="fas fa-user" id="login-btn"></div>
-        </div>
-
-        <form action="" class="login-form">
-            <h3>login now</h3>
-            <input type="email" placeholder="your email" class="box">
-            <input type="password" placeholder="your password" class="box">
-            <p>forget your password <a id="forget-btn" style="text-decoration: underline;">click here</a></p>
-            <p>don't have an account <a id="regist-btn" style="text-decoration: underline;">create now</a></p>
-
-            <button class=" btn" style="width: 10rem; color:white; background-color: var(--primary);" type="button">Login
-                In</button>
-        </form>
-
-        <form action="" class="regist-form">
-            <h3>Register now</h3>
-            <input type="name" placeholder="your name" class="box">
-            <input type="email" placeholder="your email" class="box">
-            <input type="password" placeholder="your password" class="box">
-
-            <p>have an account? <a id="login-regist-btn">login now</a></p>
-
-            <button class="btn" id="login-regist-btn" style="width: 10rem; color:white; background-color: var(--primary);" type="button">Create Account
-            </button>
-        </form>
-
-        <form action="" class="forget-form">
-            <h3>Change Password</h3>
-            <input type="name" placeholder="your email" class="box">
-            <input type="password" placeholder="your new password" class="box">
-            <br>
-            <br>
-            <button class="btn" id="login-regist-btn" style="width: 10rem; color:white; background-color: var(--primary);" type="button">Change Password
-            </button>
-        </form>
-
-
-        <div class="shopping-cart">
-            <div class="box">
-                <i class="fas fa-heart"></i>
-                <i class="fas fa-trash"></i>
-                <img src="images/pdk_kemasan.png" alt="">
-                <div class="content">
-                    <div class="content-1">
-                        <h3>Product Name</h3>
-                        <p>Box Packing</p>
-                        <p>Duplex</p>
-                        <p>Medium</p>
-                        <div class="quantity">
-                            <ul>
-                                <li>-</li>
-                                <li class="qty">1</li>
-                                <li>+</li>
-                            </ul>
-                        </div>
-                        <span class="price">Rp 20.000</span>
-                    </div>
-                </div>
-            </div>
-            <div class="box">
-                <i class="fas fa-heart"></i>
-                <i class="fas fa-trash"></i>
-                <img src="images/pdk_paper.png" alt="">
-                <div class="content">
-                    <div class="content-2">
-                        <h3>Product Name</h3>
-                        <p>Box Packing</p>
-                        <p>Duplex</p>
-                        <p>Medium</p>
-                        <div class="quantity">
-                            <ul>
-                                <li>-</li>
-                                <li class="qty">1</li>
-                                <li>+</li>
-                            </ul>
-                        </div>
-                        <span class="price">Rp 20.000</span>
-                    </div>
-                </div>
-            </div>
-
-            <a style="text-decoration: none;" href="checkout.html"><button class="btn" style=" width: 15rem; margin: 3.5vh auto;color:white; background-color: var(--primary);" type="button">Check Out</button></a>
+            <a href="show_cart.php">
+                <div class="fas fa-shopping-cart" id="shop-btn"></div>
+            </a>
+            <a href="userpage.php">
+                <div class="fas fa-user" id="login-btn"></div>
+            </a>
         </div>
     </header>
+
     <!-- header done----------------------------------------------------------------------------------------------------------- -->
 
     <div class="pilproduk" id="">
@@ -243,7 +196,7 @@
                         <div class="form-group">
                             <h4>Jumlah Kertas</h4>
                             <div class="form-group col-md-11">
-                                <input type="number" class="form-control" id="jumlahp" name="name">
+                                <input type="number" style="background-color:#36e367" class="form-control" id="jumlahp" name="name">
                             </div>
                         </div>
 
@@ -336,12 +289,7 @@
                             <hr>
 
                             <p>
-                                Kami ngeprint blablabla Kami ngeprint blablablaKami ngeprint blablabla Kami ngeprint
-                                blablabla Kami ngeprint blablablaKami ngeprint blablabla Kami ngeprint blablabla Kami
-                                ngeprint blablablaKami ngeprint blablabla Kami ngeprint blablabla Kami ngeprint
-                                blablablaKami ngeprint blablabla Kami ngeprint blablabla Kami ngeprint blablablaKami
-                                ngeprint blablabla Kami ngeprint blablabla Kami ngeprint blablablaKami ngeprint
-                                blablabla
+                                Perusahaan Ngeprint telah mencetak berbagai model dan desain kemasan produk. Kami telah dipercaya oleh ratusan unit usaha, mulai dari usaha kecil, menengah, hingga usaha besar untuk mencetak kemasan produk yang mereka miliki. Dengan jaminan kualitas dan harga bersaing, Kami juga telah menjalin kerja sama dengan beberapa perusahaan besar di Indonesia. Perusahaan kami menawarkan solusi percetakan dengan harga yang murah untuk segala kebutuhan percetakan. Perusahaan kami berdiri sejak tahun 2021 dan telah memiliki ratusan client dari perusahaan skala kecil sampai dengan perusahaan skala multi-nasional. Tujuan dari perusahaan kami adalah memberikan layanan pencetakan yang berkualitas tinggi.
                             </p>
                         </div>
 

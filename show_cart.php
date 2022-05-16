@@ -4,7 +4,7 @@ SessionActive();
 
 $user_id = $_SESSION['user_id'];
 
-$url = "http://localhost/uasweb/get_cart.php?user_id=".$user_id;
+$url = "http://localhost/xampp/uasweb/get_cart.php?user_id=" . $user_id;
 
 $res = file_get_contents($url);
 $cart_data = json_decode($res);
@@ -36,6 +36,21 @@ $cart_data = json_decode($res);
     </script>
 
     <style>
+        button a {
+            text-decoration: none;
+
+            padding: 3rem 2rem;
+            font-size: x-large;
+            text-transform: uppercase;
+
+        }
+
+        button:hover {
+            background-color: white;
+            border: 3px solid var(--primary);
+            color: var(--primary);
+        }
+
         .form-group {
             width: 96%;
         }
@@ -90,20 +105,23 @@ $cart_data = json_decode($res);
             <a href="userpage.php">
                 <div class="fas fa-user" id="login-btn"></div>
             </a>
-            <!-- <div class="fas fa-user" id="login-btn"></div> -->
+
         </div>
 
 
     </header>
     <div class="pilproduk" id="">
         <h1>Your <span>Cart</span> Product</h1>
-
-        <div class="row">
+        <button> <a href="checkout.php" style="color:inherit"> CHECK OUT</a></button>
+        <button> <a href="pesanan.php" style="color:inherit"> PESANAN</a></button>
+        <br>
+        <h3 style="margin-top:0.9rem">Grand Total: Rp <?php echo $cart_data->total_price ?></h3>
+        <div style="margin-top:5rem" class="row">
 
             <?php
             $i = 1;
             // while ($row = $hasil->fetch()) :
-            foreach($cart_data->product_data as $cart):
+            foreach ($cart_data->product_data as $cart) :
             ?>
                 <div class="col-sm-3" style="margin-bottom: 1.5rem;">
                     <div class="jenis">
@@ -114,14 +132,16 @@ $cart_data = json_decode($res);
                         </div>
 
                         <br>
-                        <!-- <h3 style=" text-transform: uppercase;"> <?php #echo $row['prod_name'] ?></h3> -->
+                        <!-- <h3 style=" text-transform: uppercase;"> <?php #echo $row['prod_name'] 
+                                                                        ?></h3> -->
                         <h3 style=" text-transform: uppercase;"> <?php echo $cart->product_name ?></h3>
 
 
                         <br>
                         <!-- <form action="remove_cart.php"> -->
 
-                        <!-- <input class="cart_id" value=<?php #echo $row['id_cart']; ?> style="display: none;" /> -->
+                        <!-- <input class="cart_id" value=<?php #echo $row['id_cart']; 
+                                                            ?> style="display: none;" /> -->
                         <input class="cart_id" value=<?php echo $cart->cart_id ?> style="display: none;" />
                         <input class="user_id" value=<?php echo $_SESSION['user_id']; ?> style="display: none;" />
 
@@ -129,9 +149,7 @@ $cart_data = json_decode($res);
                         <div class="form-group">
                             <h4>Jenis Kertas</h4>
                             <div class="form-group col-md-11">
-                                <!-- <h4 id="inputdropdown" style="margin-right:3rem;" class="form-control">
-                                    <?php #echo $row['type_ppr'] ?>
-                                </h4> -->
+
                                 <h4 id="inputdropdown" style="margin-right:3rem;" class="form-control">
                                     <?php echo $cart->product_type ?>
                                 </h4>
@@ -141,7 +159,8 @@ $cart_data = json_decode($res);
                             <h4>Ukuran Kertas</h4>
                             <div class="form-group col-md-11">
                                 <!-- <h4 id="inputdropdown" style="margin-right:3rem;" class="form-control">
-                                    <?php #echo $row['uk_ppr'] ?>
+                                    <?php #echo $row['uk_ppr'] 
+                                    ?>
                                 </h4> -->
                                 <h4 id="inputdropdown" style="margin-right:3rem;" class="form-control">
                                     <?php echo $cart->product_size ?>
@@ -152,7 +171,8 @@ $cart_data = json_decode($res);
                             <h4>Harga</h4>
                             <div class="form-group col-md-11">
                                 <!-- <h4 id="inputdropdown" style="margin-right:3rem;" class="form-control">
-                                    <?php #echo $row['price'] ?>
+                                    <?php #echo $row['price'] 
+                                    ?>
                                 </h4> -->
                                 <h4 id="inputdropdown" style="margin-right:3rem;" class="form-control">
                                     <?php echo $cart->product_price ?>
@@ -163,7 +183,8 @@ $cart_data = json_decode($res);
                             <h4>Jumlah Kertas</h4>
                             <div class="form-group col-md-11">
                                 <!-- <h4 style="background-color:#36e367" id="inputdropdown" style="margin-right:3rem;" class="form-control">
-                                    <?php #echo $row['qty'] ?>
+                                    <?php #echo $row['qty'] 
+                                    ?>
                                 </h4> -->
                                 <h4 style="background-color:#36e367" id="inputdropdown" style="margin-right:3rem;" class="form-control">
                                     <?php echo $cart->product_qty ?>
@@ -174,15 +195,16 @@ $cart_data = json_decode($res);
                             <h4>Sub Total</h4>
                             <div class="form-group col-md-11">
                                 <!-- <h4 style="background-color:#36e367" id="inputdropdown" style="margin-right:3rem;" class="form-control">
-                                    <?php #echo $row['qty'] ?>
+                                    <?php #echo $row['qty'] 
+                                    ?>
                                 </h4> -->
                                 <h4 style="background-color:#36e367" id="inputdropdown" style="margin-right:3rem;" class="form-control">
                                     <?php echo $cart->sub_total ?>
                                 </h4>
                             </div>
                         </div>
-                        
-                        <div class="produkbutton">  
+
+                        <div class="produkbutton">
                             <button><a href="remove_cart.php?id_cart=<?php echo $cart->cart_id ?>"><i class="fa fa-trash" aria-hidden="true"></i></a></button>
                         </div>
 
@@ -197,7 +219,7 @@ $cart_data = json_decode($res);
             endforeach;
             ?>
 
-            Grand Total: <?php echo $cart_data->total_price ?>
+
 
         </div>
     </div>
@@ -242,99 +264,3 @@ $cart_data = json_decode($res);
         </section>
     </footer>
 </body>
-<!-- <script>
-    function reqListener() {
-        console.log(this.responseText);
-    }
-
-    var oReq = new XMLHttpRequest(); // New request object
-    oReq.onload = function() {
-        // This is where you handle what to do with the response.
-        // The actual data is found on this.responseText
-        alert(this.responseText); // Will alert: 42
-    };
-    oReq.open("get", "get_cart.php", true);
-    //                               ^ Don't block the rest of the execution.
-    //                                 Don't wait until the request finishes to
-    //                                 continue.
-    oReq.send();
-</script>
-
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
-    <title>Read a JSON File</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-
-    <style>
-        #tbstyle {
-            font-family: Arial, Helvetica, sans-serif;
-            border-collapse: collapse;
-            width: 50%;
-        }
-
-        #tbstyle td,
-        #tbstyle th {
-            border: 1px solid #ddd;
-            padding: 8px;
-        }
-
-        #tbstyle tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-
-        #tbstyle tr:hover {
-            background-color: #ddd;
-        }
-
-        #tbstyle th {
-            padding-top: 12px;
-            padding-bottom: 12px;
-            text-align: left;
-            background-color: #859161;
-            color: White;
-        }
-    </style>
-</head>
-
-<body>
-    <div class="container" style="width:500px;">
-        <div class="table-container">
-            <?php
-            if (isset($res)) {
-                echo $res;
-
-            ?>
-                <table id="tbstyle">
-                    <tbody>
-                        <tr>
-                            <th>Name</th>
-                            <th>Age</th>
-                            <th>Gender</th>
-                            <th>Education</th>
-                            <th>Occupation</th>
-                        </tr>
-                        <?php foreach ($product_data as $data) { ?>
-                            <tr>
-                                <td> <?= $data->product_id; ?> </td>
-                                <td> <?= $data->product_name; ?> </td>
-                                <td> <?= $data->product_type; ?> </td>
-                                <td> <?= $data->product_size; ?> </td>
-                                <td> <?= $data->product_price; ?> </td>
-                            </tr>
-                    <?php }
-                    } else
-                        echo $message;
-                    ?>
-                    </tbody>
-                </table>
-        </div>
-    </div>
-</body>
-
-</html> -->
