@@ -49,13 +49,41 @@
 </head>
 
 <div class="wrapper">
-    <nav class="navbar navbar-light">
+    <!-- ini kalau mau pake header yang polosan cuma ada logo -->
+    <!-- <nav class="navbar navbar-light">
         <div class="container">
             <a class="navbar-brand" href="#">
                 <img src="images/logo_landscape.png" height="80" alt="Ngeprint Logo" loading="lazy" />
             </a>
         </div>
-    </nav>
+    </nav> -->
+
+    <!-- ini header yang selaras sama punya userpage -->
+    <header class="header">
+        <a href="#" class="logo"><img src="images/logo_landscape.png" alt=""> </a>
+
+        <nav class="navbar">
+            <ul>
+                <a href="home.php#up">Home</a>
+                <a href="home.php#products">Product</a>
+                <a href="home.php#testimony">Testimony</a>
+                <a href="paperproduct.php#simulate">Simulation</a>
+                <a href="home.php#aboutus">About Us</a>
+            </ul>
+        </nav>
+
+        <div class="icons">
+            <div class="fas fa-bars" id="menu-btn"></div>
+            <div class="fas fa-shopping-cart" id="shop-btn"></div>
+            <a href="userpage.php">
+                <div class="fas fa-user" id="login-btn"></div>
+            </a>
+            <!-- <div class="fas fa-user" id="login-btn"></div> -->
+        </div>
+    </header>
+
+    <!-- Kalau mau pake yang header logo doang, tolong div spacing ini dicomment aja -->
+    <div class="spacing"></div>
     <h1 class="h1" align="center">Halo, Admin!</h1>
 
     <div class="content">
@@ -119,7 +147,6 @@
                             </div>
                         </td>
                     </tr>
-                    </tr>
 
                     <tr>
                         <td>3</td>
@@ -141,19 +168,70 @@
                             </div>
                         </td>
                     </tr>
+
+                    <tr>
+                        <td>4</td>
+                        <td>Customer D</td>
+                        <td>004</td>
+                        <td>PD004</td>
+                        <td>20</td>
+                        <td>20cm</td>
+                        <td>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Pending</option>
+                                <option value="1">Ready</option>
+                            </select>
+                        </td>
+                        <td>Foto Transaksi</td>
+                        <td>
+                            <div class="col text-center">
+                                <button type="button" class="btn btn-warning btn-sm" id="button_save">Save</button>
+                            </div>
+                        </td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
 
-    <footer class="bg-light text-center text-lg-start">
-        <!-- Copyright -->
-        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.2);">
-            © 2022 Copyright:
-            <a class="text-dark" href="#">Ngeprint</a>
-        </div>
-        <!-- Copyright -->
+    <footer class="text-lg-start text-muted" id="footerkonten">
+        <section class="">
+            <div class="container text-center text-md-start ">
+                <!-- Grid row -->
+                <div class="row mt-3">
+                    <!-- Grid column -->
+                    <div class="col-md-9 ">
+                        <!-- Content -->
+                        <h3 class=" fw-bold mb-4">
+                            Tentang
+                        </h3>
+                        <hr>
+
+                        <p>
+                            Perusahaan Ngeprint telah mencetak berbagai model dan desain kemasan produk. Kami telah dipercaya oleh ratusan unit usaha, mulai dari usaha kecil, menengah, hingga usaha besar untuk mencetak kemasan produk yang mereka miliki. Dengan jaminan kualitas dan harga bersaing, Kami juga telah menjalin kerja sama dengan beberapa perusahaan besar di Indonesia. Perusahaan kami menawarkan solusi percetakan dengan harga yang murah untuk segala kebutuhan percetakan. Perusahaan kami berdiri sejak tahun 2021 dan telah memiliki ratusan client dari perusahaan skala kecil sampai dengan perusahaan skala multi-nasional. Tujuan dari perusahaan kami adalah memberikan layanan pencetakan yang berkualitas tinggi.
+                        </p>
+                    </div>
+
+                    <!-- Grid column -->
+                    <div class="col-md-3">
+                        <!-- Links -->
+                        <h3 class=" fw-bold mb-4">
+                            Hubungi Kami
+                        </h3>
+                        <hr>
+
+                        <p><i class="fas fa-home me-3"></i> Gedung ABC, Jalan Sunter Mas Tengah, Sunter Jaya, Tj. Priok,
+                            Kota Jkt Utara</p>
+                        <p>
+                            <i class="fas fa-envelope me-3"></i>
+                            help@ngeprint.com
+                        </p>
+                        <p><i class="fas fa-phone me-3"></i>021-8888-777</p>
+
+                    </div>
+                </div>
+            </div>
+        </section>
     </footer>
 </div>
 
@@ -165,13 +243,17 @@
     }
 
     .wrapper {
-        width: 85%;
+        width: 100%;
         margin: 0 auto;
     }
 
     .container {
         border-bottom: 2px solid orange;
         margin-bottom: 1rem;
+    }
+
+    .spacing{
+        height: 17vh;
     }
 
     thead td {
@@ -198,6 +280,23 @@
 
     footer {
         margin-top: 1.5rem;
-        font-size: 1.3rem;
+    }
+
+    @media only screen and (max-width: 1060px) {
+        .spacing{
+            height: 20vh;
+        }
+    }
+
+    @media only screen and (max-width: 991px) {
+        .spacing{
+            height: 5vh;
+        }
+    }
+
+    @media only screen and (max-width: 281px) {
+        .spacing{
+            height: 12vh;
+        }
     }
 </style>

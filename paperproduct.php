@@ -36,6 +36,35 @@ $hasil->execute();
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
 
+<style>
+    .form-group{
+        width: 96%;
+    }
+
+    #inputdropdown {
+        text-transform: uppercase;
+    }
+
+    .produkbutton button{
+        padding: 2rem 3rem;
+    }
+
+    @media only screen and (max-width: 770px) {
+        .form-group{
+            width: 93%;
+        }
+
+        .produkbutton button{
+            padding: 0.8rem 1.8rem;
+        }
+    }
+
+    @media only screen and (max-width: 575px) {
+        .form-group{
+            width: 98%;
+        }
+    }
+    </style>
 </head>
 
 <body>
