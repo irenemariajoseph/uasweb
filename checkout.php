@@ -1,7 +1,7 @@
 <?php
 require "conn.php";
 SessionActive();
-$co_produkid = $_POST['idprod_co'];
+// $co_produkid = $_POST['idprod_co'];
 
 
 ?>
@@ -139,7 +139,10 @@ $co_produkid = $_POST['idprod_co'];
 
 
                 <div class="form-row">
-                    <form action="proses_co.php" method="POST" role="form">
+                    <form action="checkout_cart.php" method="POST" role="form">
+
+
+                        <input type="text" name="user_id" value="<?php echo $_SESSION['user_id']; ?>" style="display: none;">
 
                         <div class="form-group col-md-6">
                             <label>Nama Pembeli</label>
@@ -159,7 +162,7 @@ $co_produkid = $_POST['idprod_co'];
                         <br>
                         <div class="form-group col-md-6">
                             <label>Jenis Pembayaran</label>
-                            <select name="copemb" class="form-control" required>
+                            <select name="jenis_pembayaran" class="form-control" required>
                                 <option value="">None</option>
                                 <option value="Bank Transfer">Bank Transfer</option>
                                 <option value="Shopee Pay<">Shopee Pay</option>
@@ -172,7 +175,7 @@ $co_produkid = $_POST['idprod_co'];
 
                         <div class="form-group col-md-6">
                             <label>Pick Up</label>
-                            <select name="copickup" class="form-control" required>
+                            <select name="pickup" class="form-control" required>
                                 <option value="">None</option>
                                 <option value="Gojek">Gojek</option>
                                 <option value="Grab">Grab</option>
@@ -183,12 +186,12 @@ $co_produkid = $_POST['idprod_co'];
 
                         <div class="form-group col-md-6">
                             <label>Tanggal Pick Up</label>
-                            <input name="cotglpickup" type="date" class="form-control" required>
+                            <input name="tgl_pickup" type="date" class="form-control" required>
                         </div>
                         <br>
                         <div class=" form-group col-md-6">
                             <label>Jam Pick Up</label>
-                            <input name="cojampickup" type="time" class="form-control" required>
+                            <input name="jam_pickup" type="time" class="form-control" required>
                         </div>
                         <br>
 
