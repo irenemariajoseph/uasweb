@@ -42,7 +42,7 @@ $hasil->execute();
     }
 
     #inputdropdown {
-        text-transform: uppercase;
+        text-transform: capitalize;
     }
 
     .produkbutton button{
