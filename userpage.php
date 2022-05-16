@@ -79,20 +79,18 @@ SessionActive();
 
             <br>
             <br>
-            <div class="tright">
-
-
+            <div class="text-center">
                 <a href=""><button class="movebtn movebtnsu" type="Submit">Save <i class="fa fa-paper-plane"></i></button></a>
+                <a href=""><button class="movebtn movebtnblack" style="width: 15rem;" type="Submit"> Change Password <i class="fa fa-key" aria-hidden="true"></i></i></button></a>
             </div>
 
         </form>
         <br>
 
         <br>
-        <div class="tright">
-            <a href=""><button class="movebtn movebtnblack" style="width: 15rem;" type="Submit"> Change Password <i class="fa fa-key" aria-hidden="true"></i></i></button></a>
-            <a href="logout.php"><button class="movebtn movebtnre" type="Submit"> Log Out <i class="fa fa-power-off" aria-hidden="true"></i></button></a>
-        </div>
+            <div class="tright">
+                <a href="logout.php"><button class="movebtn movebtnre" type="Submit"> Log Out <i class="fa fa-power-off" aria-hidden="true"></i></button></a>
+            </div>
     </div>
 
     <footer class="text-lg-start text-muted" id="footerkonten">
@@ -150,10 +148,8 @@ SessionActive();
         box-sizing: border-box;
         position: relative;
         border-bottom: 5px solid #ccc;
-        margin-top: 20rem;
+        margin-top: 15.5rem;
     }
-
-
 
     .form h2 {
         margin: 18px 0;
