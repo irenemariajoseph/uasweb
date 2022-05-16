@@ -4,11 +4,16 @@ SessionActive();
 
 $user_id = $_SESSION['user_id'];
 
-$sql = "select tbl_produk.* , tbl_cart.* from tbl_produk RIGHT join tbl_cart on tbl_produk.prod_id = tbl_cart.prod_id where user_id = ?;";
-$con = GetConnection();
+$url = "http://localhost/uasweb/get_cart.php?user_id=".$user_id;
 
-$hasil = $con->prepare($sql);
-$hasil->execute([$user_id]);
+$res = file_get_contents($url);
+$cart_data = json_decode($res);
+
+// $sql = "select tbl_produk.* , tbl_cart.* from tbl_produk RIGHT join tbl_cart on tbl_produk.prod_id = tbl_cart.prod_id where user_id = ?;";
+// $con = GetConnection();
+
+// $hasil = $con->prepare($sql);
+// $hasil->execute([$user_id]);
 ?>
 
 <!DOCTYPE html>
@@ -97,7 +102,8 @@ $hasil->execute([$user_id]);
 
             <?php
             $i = 1;
-            while ($row = $hasil->fetch()) :
+            // while ($row = $hasil->fetch()) :
+            foreach($cart_data->product_data as $cart):
             ?>
                 <div class="col-sm-3" style="margin-bottom: 1.5rem;">
                     <div class="jenis">
@@ -108,51 +114,76 @@ $hasil->execute([$user_id]);
                         </div>
 
                         <br>
-                        <h3 style=" text-transform: uppercase;"> <?php echo $row['prod_name'] ?></h3>
+                        <!-- <h3 style=" text-transform: uppercase;"> <?php #echo $row['prod_name'] ?></h3> -->
+                        <h3 style=" text-transform: uppercase;"> <?php echo $cart->product_name ?></h3>
 
 
                         <br>
                         <!-- <form action="remove_cart.php"> -->
 
-                        <input class="cart_id" value=<?php echo $row['id_cart']; ?> style="display: none;" />
+                        <!-- <input class="cart_id" value=<?php #echo $row['id_cart']; ?> style="display: none;" /> -->
+                        <input class="cart_id" value=<?php echo $cart->cart_id ?> style="display: none;" />
                         <input class="user_id" value=<?php echo $_SESSION['user_id']; ?> style="display: none;" />
 
 
                         <div class="form-group">
                             <h4>Jenis Kertas</h4>
                             <div class="form-group col-md-11">
+                                <!-- <h4 id="inputdropdown" style="margin-right:3rem;" class="form-control">
+                                    <?php #echo $row['type_ppr'] ?>
+                                </h4> -->
                                 <h4 id="inputdropdown" style="margin-right:3rem;" class="form-control">
-                                    <?php echo $row['type_ppr'] ?>
+                                    <?php echo $cart->product_type ?>
                                 </h4>
                             </div>
                         </div>
                         <div class="form-group">
                             <h4>Ukuran Kertas</h4>
                             <div class="form-group col-md-11">
+                                <!-- <h4 id="inputdropdown" style="margin-right:3rem;" class="form-control">
+                                    <?php #echo $row['uk_ppr'] ?>
+                                </h4> -->
                                 <h4 id="inputdropdown" style="margin-right:3rem;" class="form-control">
-                                    <?php echo $row['uk_ppr'] ?>
+                                    <?php echo $cart->product_size ?>
                                 </h4>
                             </div>
                         </div>
                         <div class="form-group">
                             <h4>Harga</h4>
                             <div class="form-group col-md-11">
+                                <!-- <h4 id="inputdropdown" style="margin-right:3rem;" class="form-control">
+                                    <?php #echo $row['price'] ?>
+                                </h4> -->
                                 <h4 id="inputdropdown" style="margin-right:3rem;" class="form-control">
-                                    <?php echo $row['price'] ?>
+                                    <?php echo $cart->product_price ?>
                                 </h4>
                             </div>
                         </div>
                         <div class="form-group">
                             <h4>Jumlah Kertas</h4>
                             <div class="form-group col-md-11">
+                                <!-- <h4 style="background-color:#36e367" id="inputdropdown" style="margin-right:3rem;" class="form-control">
+                                    <?php #echo $row['qty'] ?>
+                                </h4> -->
                                 <h4 style="background-color:#36e367" id="inputdropdown" style="margin-right:3rem;" class="form-control">
-                                    <?php echo $row['qty'] ?>
+                                    <?php echo $cart->product_qty ?>
                                 </h4>
                             </div>
                         </div>
-
-                        <div class="produkbutton">
-                            <button><a href="remove_cart.php?id_cart=<?php echo $row['id_cart'] ?>"><i class="fa fa-trash" aria-hidden="true"></i></a></button>
+                        <div class="form-group">
+                            <h4>Sub Total</h4>
+                            <div class="form-group col-md-11">
+                                <!-- <h4 style="background-color:#36e367" id="inputdropdown" style="margin-right:3rem;" class="form-control">
+                                    <?php #echo $row['qty'] ?>
+                                </h4> -->
+                                <h4 style="background-color:#36e367" id="inputdropdown" style="margin-right:3rem;" class="form-control">
+                                    <?php echo $cart->sub_total ?>
+                                </h4>
+                            </div>
+                        </div>
+                        
+                        <div class="produkbutton">  
+                            <button><a href="remove_cart.php?id_cart=<?php echo $cart->cart_id ?>"><i class="fa fa-trash" aria-hidden="true"></i></a></button>
                         </div>
 
                         <!-- </form> -->
@@ -163,10 +194,10 @@ $hasil->execute([$user_id]);
                 <br>
             <?php
                 $i++;
-            endwhile;
+            endforeach;
             ?>
 
-
+            Grand Total: <?php echo $cart_data->total_price ?>
 
         </div>
     </div>

@@ -17,6 +17,7 @@
 
     while($row = $result->fetch()) {
         $product_data = new ProductData();
+        $product_data->cart_id = $row['id_cart'];
         $product_data->product_qty = $row['qty'];
 
         $prodConn = GetConnection();
@@ -33,7 +34,9 @@
 
         array_push($product_datas, $product_data);
 
-        $total_price = $total_price + ($row['qty'] * $productFetch['price']);
+        $subtotal = $row['qty'] * $productFetch['price'];
+        $product_data->sub_total = $subtotal;
+        $total_price = $total_price + $subtotal;
     }
 
     $res->product_data = $product_datas;

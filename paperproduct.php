@@ -246,9 +246,6 @@ $hasil->execute();
 
                 req.send(JSON.stringify(data));
 
-
-
-
             }
         </script>
 </body>
