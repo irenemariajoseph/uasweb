@@ -1,3 +1,10 @@
+<?php
+$user_id = $_SESSION['user_id'];
+
+?>
+
+
+
 <!DOCTYPE html>
 <html>
 
@@ -24,7 +31,7 @@
         <nav class="navbar">
             <ul>
                 <a href="home.php#up">Home</a>
-                <a href="home.php#products">Product</a>
+                <a href="productall.php">Product</a>
                 <a href="home.php#testimony">Testimony</a>
                 <a href="paperproduct.php#simulate">Simulation</a>
                 <a href="home.php#aboutus">About Us</a>
@@ -33,103 +40,16 @@
 
         <div class="icons">
             <div class="fas fa-bars" id="menu-btn"></div>
-            <div class="fas fa-shopping-cart" id="shop-btn"></div>
+            <a href="show_cart.php">
+                <div class="fas fa-shopping-cart" id="shop-btn"></div>
+            </a>
             <a href="userpage.php">
                 <div class="fas fa-user" id="login-btn"></div>
             </a>
             <!-- <div class="fas fa-user" id="login-btn"></div> -->
         </div>
 
-        <form action="proses_login.php" class="login-form" method="POST">
-            <h3>login now</h3>
 
-
-            <?php if (!empty($_GET['error'])) { ?>
-
-                <a style="color:red; margin-top:20px;">Wrong combination of email and password</a>
-
-            <?php unset($_GET['error']);
-            } ?>
-            <input type="email" placeholder="your email" name="loginemail" class="box" required>
-            <input type="password" placeholder="your password" name="loginpass" class="box" required>
-            <p>forget your password <a id="forget-btn" style="text-decoration: underline;">click here</a></p>
-            <p>don't have an account <a id="regist-btn" style="text-decoration: underline;">create now</a></p>
-
-            <button class=" btn" style="width: 10rem; color:white; background-color: var(--primary);" type="submit">Login
-                In</button>
-        </form>
-
-        <form action="proses_regist.php" class="regist-form" method="POST">
-            <h3>Register now</h3>
-            <input type="username" placeholder="your name" name="daftarname" class="box" required>
-            <input type="email" placeholder="your email" class="box" name="daftaremail" required>
-            <input type="password" placeholder="your password" class="box" name="daftarpass" required>
-            <input type="number" placeholder="your phone number" class="box" name="daftarnotelp" required>
-            <input type="text" placeholder="Kode Referal" class="box" name="daftarrole" required>
-
-            <p>have an account? <a id="login-regist-btn">login now</a></p>
-            <button type="submit" class="btn" id="login-regist-btn" style="width: 10rem; color:white; background-color: var(--primary);">Create Account
-            </button>
-
-        </form>
-
-        <form action="" class="forget-form">
-            <h3>Change Password</h3>
-            <input type="name" placeholder="your email" class="box">
-            <input type="password" placeholder="your new password" class="box">
-            <br>
-            <br>
-            <button class="btn" id="login-regist-btn" style="width: 10rem; color:white; background-color: var(--primary);" type="button">Change Password
-            </button>
-        </form>
-
-
-        <div class="shopping-cart">
-            <div class="box">
-                <i class="fas fa-heart"></i>
-                <i class="fas fa-trash"></i>
-                <img src="images/pdk_kemasan.png" alt="">
-                <div class="content">
-                    <div class="content-1">
-                        <h3>Product Name</h3>
-                        <p>Box Packing</p>
-                        <p>Duplex</p>
-                        <p>Medium</p>
-                        <div class="quantity">
-                            <ul>
-                                <li>-</li>
-                                <li class="qty">1</li>
-                                <li>+</li>
-                            </ul>
-                        </div>
-                        <span class="price">Rp 20.000</span>
-                    </div>
-                </div>
-            </div>
-            <div class="box">
-                <i class="fas fa-heart"></i>
-                <i class="fas fa-trash"></i>
-                <img src="images/pdk_paper.png" alt="">
-                <div class="content">
-                    <div class="content-2">
-                        <h3>Product Name</h3>
-                        <p>Box Packing</p>
-                        <p>Duplex</p>
-                        <p>Medium</p>
-                        <div class="quantity">
-                            <ul>
-                                <li>-</li>
-                                <li class="qty">1</li>
-                                <li>+</li>
-                            </ul>
-                        </div>
-                        <span class="price">Rp 20.000</span>
-                    </div>
-                </div>
-            </div>
-
-            <a style="text-decoration: none;" href="checkout.php"><button class="btn" style=" width: 15rem; margin: 3.5vh auto;color:white; background-color: var(--primary);" type="button">Check Out</button></a>
-        </div>
     </header>
 
     <!-- Banner  -->

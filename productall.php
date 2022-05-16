@@ -3,12 +3,10 @@ require "conn.php";
 
 
 SessionActive();
-// if (!isset($_SESSION['username'])) {
-//     header('Location: login.php');
-// }
 
 
-$sql = "SELECT * FROM tbl_produk WHERE prod_category = 'paper';";
+
+$sql = "SELECT * FROM tbl_produk ";
 $con = GetConnection();
 
 $hasil = $con->prepare($sql);
@@ -73,7 +71,7 @@ $hasil->execute();
         <nav class="navbar">
             <ul>
                 <a href="home.php#up">Home</a>
-                <a href="home.php#products">Product</a>
+                <a href="productall.php">All Product</a>
                 <a href="home.php#testimony">Testimony</a>
                 <a href="paperproduct.php#simulate">Simulation</a>
                 <a href="home.php#aboutus">About Us</a>
@@ -87,12 +85,11 @@ $hasil->execute();
             <div class="fas fa-user" id="login-btn"></div>
         </div>
 
-
     </header>
     <!-- header done----------------------------------------------------------------------------------------------------------- -->
 
     <div class="pilproduk" id="">
-        <h1>Our <span>Paper</span> Digital Printing Product</h1>
+        <h1>Our <span>Digital Printing Product</span> </h1>
 
         <div class="row">
 
@@ -146,7 +143,7 @@ $hasil->execute();
                             <div class="form-group">
                                 <h4>Jumlah Kertas</h4>
                                 <div class="form-group col-md-11">
-                                    <input style="background-color:#36e367" type="number" class="form-control" id="jumlahp" name="name" required>
+                                    <input type="number" class="form-control" id="jumlahp" name="name">
                                 </div>
                             </div>
 
@@ -163,93 +160,89 @@ $hasil->execute();
                 $i++;
             endwhile;
             ?>
-        </div>
-        <footer class="text-lg-start text-muted" id="footerkonten">
-            <section class="">
-                <div class="container text-center text-md-start ">
-                    <!-- Grid row -->
-                    <div class="row mt-3">
-                        <!-- Grid column -->
-                        <div class="col-md-9 ">
-                            <!-- Content -->
-                            <h3 class=" fw-bold mb-4">
-                                Tentang
-                            </h3>
-                            <hr>
 
-                            <p>
-                                Kami ngeprint blablabla Kami ngeprint blablablaKami ngeprint blablabla Kami ngeprint
-                                blablabla Kami ngeprint blablablaKami ngeprint blablabla Kami ngeprint blablabla Kami
-                                ngeprint blablablaKami ngeprint blablabla Kami ngeprint blablabla Kami ngeprint
-                                blablablaKami ngeprint blablabla Kami ngeprint blablabla Kami ngeprint blablablaKami
-                                ngeprint blablabla Kami ngeprint blablabla Kami ngeprint blablablaKami ngeprint
-                                blablabla
-                            </p>
-                        </div>
+            <footer class="text-lg-start text-muted" id="footerkonten">
+                <section class="">
+                    <div class="container text-center text-md-start ">
+                        <!-- Grid row -->
+                        <div class="row mt-3">
+                            <!-- Grid column -->
+                            <div class="col-md-9 ">
+                                <!-- Content -->
+                                <h3 class=" fw-bold mb-4">
+                                    Tentang
+                                </h3>
+                                <hr>
 
-                        <!-- Grid column -->
-                        <div class="col-md-3">
-                            <!-- Links -->
-                            <h3 class=" fw-bold mb-4">
-                                Hubungi Kami
-                            </h3>
-                            <hr>
+                                <p>
+                                    Kami ngeprint blablabla Kami ngeprint blablablaKami ngeprint blablabla Kami ngeprint
+                                    blablabla Kami ngeprint blablablaKami ngeprint blablabla Kami ngeprint blablabla Kami
+                                    ngeprint blablablaKami ngeprint blablabla Kami ngeprint blablabla Kami ngeprint
+                                    blablablaKami ngeprint blablabla Kami ngeprint blablabla Kami ngeprint blablablaKami
+                                    ngeprint blablabla Kami ngeprint blablabla Kami ngeprint blablablaKami ngeprint
+                                    blablabla
+                                </p>
+                            </div>
 
-                            <p><i class="fas fa-home me-3"></i> Gedung ABC, Jalan Sunter Mas Tengah, Sunter Jaya, Tj.
-                                Priok,
-                                Kota Jkt Utara</p>
-                            <p>
-                                <i class="fas fa-envelope me-3"></i>
-                                help@ngeprint.com
-                            </p>
-                            <p><i class="fas fa-phone me-3"></i>021-8888-777</p>
+                            <!-- Grid column -->
+                            <div class="col-md-3">
+                                <!-- Links -->
+                                <h3 class=" fw-bold mb-4">
+                                    Hubungi Kami
+                                </h3>
+                                <hr>
 
+                                <p><i class="fas fa-home me-3"></i> Gedung ABC, Jalan Sunter Mas Tengah, Sunter Jaya, Tj.
+                                    Priok,
+                                    Kota Jkt Utara</p>
+                                <p>
+                                    <i class="fas fa-envelope me-3"></i>
+                                    help@ngeprint.com
+                                </p>
+                                <p><i class="fas fa-phone me-3"></i>021-8888-777</p>
+
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
-        </footer>
+                </section>
+            </footer>
 
-        <script type="text/javascript">
-            function addToCart(formData) {
-                // paperData
-                var productData = formData.getElementsByClassName("product_id");
-                var productID = productData[0].value;
+            <script type="text/javascript">
+                function addToCart(formData) {
+                    // paperData
+                    var productData = formData.getElementsByClassName("product_id");
+                    var productID = productData[0].value;
 
-                // userID
-                var userData = formData.getElementsByClassName("user_id");
-                var userID = userData[0].value;
+                    // userID
+                    var userData = formData.getElementsByClassName("user_id");
+                    var userID = userData[0].value;
 
-                // qty
-                var paperData = formData.getElementsByClassName("form-control");
-                var qty = paperData[3].value;
+                    // qty
+                    var paperData = formData.getElementsByClassName("form-control");
+                    var qty = paperData[3].value;
 
-                let data = {
-                    product_id: productID,
-                    qty: qty,
-                    user_id: userID
-                };
+                    let data = {
+                        product_id: productID,
+                        qty: qty,
+                        user_id: userID
+                    };
 
-                let req = new XMLHttpRequest();
-                req.responseType = 'json';
-                req.open("POST", "add_to_cart.php");
-                req.setRequestHeader("Accept", "application/json");
-                req.setRequestHeader("Content-Type", "application/json");
+                    let req = new XMLHttpRequest();
+                    req.responseType = 'json';
+                    req.open("POST", "add_to_cart.php");
+                    req.setRequestHeader("Accept", "application/json");
+                    req.setRequestHeader("Content-Type", "application/json");
 
-                req.onreadystatechange = function() {
-                    if (req.readyState === 4) {
-                        var res = req.response;
-                        alert(res['msg']);
-                    }
-                };
+                    req.onreadystatechange = function() {
+                        if (req.readyState === 4) {
+                            var res = req.response;
+                            alert(res['msg']);
+                        }
+                    };
 
-                req.send(JSON.stringify(data));
-
-
-
-
-            }
-        </script>
+                    req.send(JSON.stringify(data));
+                }
+            </script>
 </body>
 
 
