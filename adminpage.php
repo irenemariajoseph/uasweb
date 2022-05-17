@@ -1,28 +1,32 @@
 <?php
 
-// require "conn.php";
-// $email = ($_SESSION['email']);
+require "conn.php";
+$con = GetConnection();
+sessionAdmin();
+$role = $_SESSION['role'];
 
 
-// SessionActive();
-// $sql = "SELECT role FROM users WHERE email = ? ";
-// $con = GetConnection();
 
-// $hasil = $con->prepare($sql);
-// $hasil->execute($email);
+$sql = "select tbl_produk.* , tbl_pesan.* from tbl_pesan left join tbl_produk on tbl_produk.prod_id =tbl_pesan.prod_id;";
+$result = $con->prepare($sql);
+$result->execute();
+$row = $result
+// alert($role);
 
 
-// if ($role == 'admin') {
+
+
+
+// if ($role == "admin") {
 //     // return alert('admin');
-
-
 
 //     header('Location: adminpage.php');
 // } else {
-//     // return alert('user');
+
 
 //     header('Location: userpage.php');
 // }
+
 
 ?>
 
@@ -48,150 +52,90 @@
     </script>
 </head>
 
-<div class="wrapper">
-    <!-- ini kalau mau pake header yang polosan cuma ada logo -->
-    <!-- <nav class="navbar navbar-light">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="images/logo_landscape.png" height="80" alt="Ngeprint Logo" loading="lazy" />
-            </a>
-        </div>
-    </nav> -->
 
-    <!-- ini header yang selaras sama punya userpage -->
+<body>
     <header class="header">
         <a href="#" class="logo"><img src="images/logo_landscape.png" alt=""> </a>
 
-        <nav class="navbar">
-            <ul>
-                <a href="home.php#up">Home</a>
-                <a href="home.php#products">Product</a>
-                <a href="home.php#testimony">Testimony</a>
-                <a href="paperproduct.php#simulate">Simulation</a>
-                <a href="home.php#aboutus">About Us</a>
-            </ul>
-        </nav>
 
         <div class="icons">
             <div class="fas fa-bars" id="menu-btn"></div>
-            <div class="fas fa-shopping-cart" id="shop-btn"></div>
+            <a href="adminpage.php">
+                <div class="fas fa-shopping-cart" id="shop-btn"></div>
+            </a>
             <a href="userpage.php">
                 <div class="fas fa-user" id="login-btn"></div>
             </a>
-            <!-- <div class="fas fa-user" id="login-btn"></div> -->
+
         </div>
+
+
     </header>
 
-    <!-- Kalau mau pake yang header logo doang, tolong div spacing ini dicomment aja -->
-    <div class="spacing"></div>
-    <h1 class="h1" align="center">Halo, Admin!</h1>
 
-    <div class="content">
-        <div class="col text-center">
-            <button type="button" class="btn btn-warning btn-lg btn-block">New Orders</button>
-        </div>
+    <div class="pilproduk" style="margin:20rem 10rem;" id="">
+        <!-- <form action="proses_update.php" method="POST"> -->
         <div class="table-responsive">
             <table class="table table-striped">
                 <thead>
                     <tr>
                         <td>Order #</td>
-                        <td>Customer</td>
-                        <td>Invoice No</td>
+                        <td>Customer Name</td>
+                        <td>Email</td>
                         <td>Product ID</td>
-                        <td>Qty</td>
-                        <td>Size</td>
-                        <td>Status</td>
+                        <td>Product Name</td>
+                        <td>Product Ukuran</td>
+                        <td>Product Type</td>
+                        <td>Kuantitas</td>
+                        <td>Cara Pick Up</td>
+                        <td>Tanggal Pick Up</td>
+                        <td>Pick Up Status</td>
+                        <td>Status Pembayaran</td>
                         <td>Transaction Photo</td>
-                        <td></td>
+                        <td>Aksi</td>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Customer A</td>
-                        <td>001</td>
-                        <td>PD001</td>
-                        <td>20</td>
-                        <td>20cm</td>
-                        <td>
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>Pending</option>
-                                <option value="1">Ready</option>
-                            </select>
-                        </td>
-                        <td>Foto Transaksi</td>
-                        <td>
-                            <div class="col text-center">
-                                <button type="button" class="btn btn-warning btn-sm" id="button_save">Save</button>
-                            </div>
-                        </td>
-                    </tr>
+                    <?php
+                    $i = 1;
+                    while ($row = $result->fetch()) :
+                    ?>
 
-                    <tr>
-                        <td>2</td>
-                        <td>Customer B</td>
-                        <td>002</td>
-                        <td>PD002</td>
-                        <td>20</td>
-                        <td>20cm</td>
-                        <td>
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>Pending</option>
-                                <option value="1">Ready</option>
-                            </select>
-                        </td>
-                        <td>Foto Transaksi</td>
-                        <td>
-                            <div class="col text-center">
-                                <button type="button" class="btn btn-warning btn-sm" id="button_save">Save</button>
-                            </div>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td><?php echo $row['pesan_id'] ?></td>
+                            <td><?php echo $row['username'] ?></td>
+                            <td><?php echo $row['email'] ?></td>
+                            <td><?php echo $row['prod_id'] ?></td>
+                            <td><?php echo $row['prod_name'] ?></td>
+                            <td><?php echo $row['type_ppr'] ?></td>
+                            <td><?php echo $row['uk_ppr'] ?></td>
+                            <td><?php echo $row['jmlh_brg'] ?></td>
+                            <td><?php echo $row['cara_pickup'] ?></td>
+                            <td><?php echo $row['tgl_pickup'] ?></td>
+                            <td><?php echo $row['pickup_status'] ?></td>
+                            <td><?php echo $row['pemb_status'] ?></td>
 
-                    <tr>
-                        <td>3</td>
-                        <td>Customer C</td>
-                        <td>003</td>
-                        <td>PD003</td>
-                        <td>20</td>
-                        <td>20cm</td>
-                        <td>
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>Pending</option>
-                                <option value="1">Ready</option>
-                            </select>
-                        </td>
-                        <td>Foto Transaksi</td>
-                        <td>
-                            <div class="col text-center">
-                                <button type="button" class="btn btn-warning btn-sm" id="button_save">Save</button>
-                            </div>
-                        </td>
-                    </tr>
 
-                    <tr>
-                        <td>4</td>
-                        <td>Customer D</td>
-                        <td>004</td>
-                        <td>PD004</td>
-                        <td>20</td>
-                        <td>20cm</td>
-                        <td>
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>Pending</option>
-                                <option value="1">Ready</option>
-                            </select>
-                        </td>
-                        <td>Foto Transaksi</td>
-                        <td>
-                            <div class="col text-center">
-                                <button type="button" class="btn btn-warning btn-sm" id="button_save">Save</button>
-                            </div>
-                        </td>
-                    </tr>
+
+
+
+                            <td><img style="  max-width: 100px;" src="<?php echo $row['foto_pemb'] ?>" /></td>
+                            <td>
+                                <div class="col text-center">
+                                    <a href="form_update.php?pesan_id=<?php echo $row['pesan_id'] ?>">Update</a>
+                                </div>
+                            </td>
+                        </tr>
+
+
+                    <?php
+                        $i++;
+                    endwhile;
+                    ?>
                 </tbody>
             </table>
         </div>
+        <!-- </form> -->
     </div>
 
     <footer class="text-lg-start text-muted" id="footerkonten">
@@ -233,118 +177,7 @@
             </div>
         </section>
     </footer>
-
-    <body>
-        <header class="header">
-            <a href="#" class="logo"><img src="images/logo_landscape.png" alt=""> </a>
-
-            <nav class="navbar">
-                <ul>
-                    <a href="home.php#up">Home</a>
-                    <a href="home.php#products">Product</a>
-                    <a href="home.php#testimony">Testimony</a>
-                    <a href="paperproduct.php#simulate">Simulation</a>
-                    <a href="home.php#aboutus">About Us</a>
-                </ul>
-            </nav>
-
-            <div class="icons">
-                <div class="fas fa-bars" id="menu-btn"></div>
-                <a href="show_cart.php">
-                    <div class="fas fa-shopping-cart" id="shop-btn"></div>
-                </a>
-                <a href="userpage.php">
-                    <div class="fas fa-user" id="login-btn"></div>
-                </a>
-
-            </div>
-
-
-        </header>
-
-        <div class="pilproduk" style="margin:20rem 10rem;" id="">
-            <div class="table-responsive">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <td>Order #</td>
-                            <td>Customer</td>
-                            <td>Invoice No</td>
-                            <td>Product ID</td>
-                            <td>Qty</td>
-                            <td>Size</td>
-                            <td>Status</td>
-                            <td>Transaction Photo</td>
-                            <td></td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><?php echo $row['pesan_id'] ?></td>
-                            <td><?php echo $row['username'] ?></td>
-                            <td><?php echo $row['email'] ?></td>
-                            <td>PD001</td>
-                            <td>20</td>
-                            <td>20cm</td>
-                            <td>
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected>Pending</option>
-                                    <option value="1">Ready</option>
-                                </select>
-                            </td>
-                            <td>Foto Transaksi</td>
-                            <td>
-                                <div class="col text-center">
-                                    <button type="button" class="btn btn-warning btn-sm" id="button_save">Save</button>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-        </div>
-
-        <footer class="text-lg-start text-muted" id="footerkonten">
-            <section class="">
-                <div class="container text-center text-md-start ">
-                    <!-- Grid row -->
-                    <div class="row mt-3">
-                        <!-- Grid column -->
-                        <div class="col-md-9 ">
-                            <!-- Content -->
-                            <h3 class=" fw-bold mb-4">
-                                Tentang
-                            </h3>
-                            <hr>
-
-                            <p>
-                                Perusahaan Ngeprint telah mencetak berbagai model dan desain kemasan produk. Kami telah dipercaya oleh ratusan unit usaha, mulai dari usaha kecil, menengah, hingga usaha besar untuk mencetak kemasan produk yang mereka miliki. Dengan jaminan kualitas dan harga bersaing, Kami juga telah menjalin kerja sama dengan beberapa perusahaan besar di Indonesia. Perusahaan kami menawarkan solusi percetakan dengan harga yang murah untuk segala kebutuhan percetakan. Perusahaan kami berdiri sejak tahun 2021 dan telah memiliki ratusan client dari perusahaan skala kecil sampai dengan perusahaan skala multi-nasional. Tujuan dari perusahaan kami adalah memberikan layanan pencetakan yang berkualitas tinggi.
-                            </p>
-                        </div>
-
-                        <!-- Grid column -->
-                        <div class="col-md-3">
-                            <!-- Links -->
-                            <h3 class=" fw-bold mb-4">
-                                Hubungi Kami
-                            </h3>
-                            <hr>
-
-                            <p><i class="fas fa-home me-3"></i> Gedung ABC, Jalan Sunter Mas Tengah, Sunter Jaya, Tj. Priok,
-                                Kota Jkt Utara</p>
-                            <p>
-                                <i class="fas fa-envelope me-3"></i>
-                                help@ngeprint.com
-                            </p>
-                            <p><i class="fas fa-phone me-3"></i>021-8888-777</p>
-
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </footer>
-    </body>
+</body>
 </div>
 
 <style>

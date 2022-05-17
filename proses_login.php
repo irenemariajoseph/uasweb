@@ -18,22 +18,23 @@ if ($row = $result->fetch()) {
 
 
         $_SESSION['user_id'] = $row['id'];
+        $_SESSION['role'] = $row['role'];
 
-        if ($role == 'admin') {
+        if ($role == "admin") {
 
-            $_SESSION['email'] = $row['email'];
+            $_SESSION['role'] = $row['role'];
 
             header('Location: adminpage.php');
         } else {
 
             $_SESSION['email'] = $row['email'];
-            
+
             header('Location: userpage.php');
         }
     } else {
         //login gagal
 
-        header('Location: formlogin.php');
+        alert('password atau email anda salah!');
 
 
         //solusi error sementara

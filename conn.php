@@ -27,6 +27,17 @@ function SessionActive()
     }
 }
 
+function sessionAdmin()
+{
+
+    session_start();
+    if (!isset($_SESSION['role']) & $_SESSION['role'] != 'admin') {
+        alert($_SESSION['role']);
+        header('Location: userpage.php');
+    }
+}
+
+
 function alert($msg)
 {
     echo "<script type='text/javascript'>alert('$msg')

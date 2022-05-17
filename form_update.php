@@ -1,17 +1,21 @@
 <?php
+
 require "conn.php";
-SessionActive();
-$user_id = $_SESSION['user_id'];
 
 
-$sql = "SELECT * FROM tbl_pesan where user_id = ? ";
+$idpesanan = $_GET['pesan_id'];
+$sql = "SELECT * FROM tbl_pesan Where pesan_id = ?";
+
 $con = GetConnection();
-
 $hasil = $con->prepare($sql);
-$hasil->execute([$user_id]);
+$hasil->execute([$idpesanan]);
 
-
+$row = $hasil->fetch();
 ?>
+
+
+
+
 <!DOCTYPE html>
 <html>
 
@@ -31,23 +35,15 @@ $hasil->execute([$user_id]);
     </script>
 </head>
 
+
 <body>
     <header class="header">
         <a href="#" class="logo"><img src="images/logo_landscape.png" alt=""> </a>
 
-        <nav class="navbar">
-            <ul>
-                <a href="home.php#up">Home</a>
-                <a href="home.php#products">Product</a>
-                <a href="home.php#testimony">Testimony</a>
-                <a href="paperproduct.php#simulate">Simulation</a>
-                <a href="home.php#aboutus">About Us</a>
-            </ul>
-        </nav>
 
         <div class="icons">
             <div class="fas fa-bars" id="menu-btn"></div>
-            <a href="show_cart.php">
+            <a href="adminpage.php">
                 <div class="fas fa-shopping-cart" id="shop-btn"></div>
             </a>
             <a href="userpage.php">
@@ -55,68 +51,59 @@ $hasil->execute([$user_id]);
             </a>
 
         </div>
-
-
     </header>
 
-    <div class="pilproduk" style="margin:20rem 10rem;" id="">
-        <center><button style="margin:0rem auto"> <a style="margin:0rem auto" href="upload_form.php" style="color:inherit"> UPLOAD FORM</a></button>
-        </center> <br>
-        <br>
-        <br>
 
-        <div class="table-responsive">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <td>Order #</td>
-                        <td>Customer Name</td>
-                        <td>Email</td>
-                        <td>Product </td>
-                        <td>Kuantitas</td>
-                        <td>Cara Pick Up</td>
-                        <td>Tanggal Pick Up</td>
-                        <td>Pick Up Status</td>
-                        <td>Status Pembayaran</td>
-                        <td>Transaction Photo</td>
+    <div class="pilproduk" style="margin-top:7rem" id="">
+        <!-- ======= Login ======= -->
+        <center>
 
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    $i = 1;
-                    while ($row = $hasil->fetch()) :
-                    ?>
-                        <tr>
-                            <td><?php echo $row['pesan_id'] ?></td>
-                            <td><?php echo $row['username'] ?></td>
-                            <td><?php echo $row['email'] ?></td>
-                            <td><?php echo $row['prod_id'] ?></td>
-                            <td><?php echo $row['jmlh_brg'] ?></td>
-                            <td><?php echo $row['cara_pickup'] ?></td>
-                            <td><?php echo $row['tgl_pickup'] ?></td>
+            <section id="login" class="contact">
 
-                            <!-- <td>
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>Pending</option>
-                                <option value="1">Ready</option>
-                            </select>
-                        </td> -->
+                <div class="container" data-aos="fade-up">
 
-                            <td><?php echo $row['pickup_status'] ?></td>
-                            <td><?php echo $row['pemb_status'] ?></td>
+                    <div class="row mt-5">
 
 
-                            <td><img style="  max-width: 100px;" src="<?php echo $row['foto_pemb'] ?>" /></td>
 
-                        </tr>
-                </tbody>
-            <?php
-                        $i++;
-                    endwhile;
-            ?>
-            </table>
-        </div>
+                        <div class="col-lg-12 mt-5 mt-lg-0" style="align-items: center;">
+                            <form action="proses_update.php" method="POST" role="form" style="width: 30%">
+                                <h3>ID PESANAN</h3>
+                                <h3><?php echo $row['pesan_id'] ?></h3>
+                                <input style="display:none" name="idpesanan" value="<?php echo $row['pesan_id'] ?>" required>
+                                <img style=" margin:1rem auto; max-width: 300px;" src="<?php echo $row['foto_pemb'] ?>" />
+                                <br>
+                                <h2>UPDATE STATUS PICK UP
+                                    <div class="form-group mt-3">
+                                        <select class="textPass" name="update_pickup">
+                                            <option value="Belum Siap">Belum Siap</option>
+                                            <option value="Pending">Pending</option>
+                                            <option value="Ready">Ready</option>
+                                        </select>
+                                    </div>
+                                </h2> <br>
+
+                                <h2>UPDATE STATUS PEMBAYARAN
+                                    <div class="form-group mt-3">
+                                        <select class="textPass" name="update_pemb">
+                                            <option value="Tidak Terverifikasi">Tidak Terverifikasi</option>
+                                            <option value="Terverifikasi">Terverifikasi</option>
+                                            <option value="Mohon Re-Upload">Mohon Re-Upload</option>
+                                        </select>
+                                    </div>
+                                </h2>
+
+                                <br>
+                                <div class="text-center"><button class="button login" type="submit">Update</button></div>
+                            </form>
+
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </center>
+        <!-- End Login -->
 
     </div>
 
@@ -160,19 +147,56 @@ $hasil->execute([$user_id]);
         </section>
     </footer>
 </body>
+<!-- Additional styling -->
 <style>
-    button a {
-        text-decoration: none;
+    .login {
+        background: #fff;
 
-        padding: 3rem 2rem;
-        font-size: x-large;
-        text-transform: uppercase;
+        padding: 10px 35px;
+
+        border: 0.5px solid #E25E20;
+        color: #E25E20;
+        transition: 0.4s;
+        border-radius: 50px;
+    }
+
+    .login:hover {
+        color: #fff;
+        background: #E25E20;
 
     }
 
-    button:hover {
-        background-color: white;
-        border: 3px solid var(--primary);
-        color: var(--primary);
+    .textEmail {
+        height: 44px;
+        border-radius: 4px;
+        box-shadow: none;
+        font-size: 14px;
+        padding: 10px 12px;
+        padding-bottom: 8px;
+        width: 100%;
+        background: #fff;
+        padding-top: 5px;
+        border: 0.5px solid #E25E20;
+    }
+
+    .textPass {
+        height: 44px;
+        border-radius: 4px;
+        box-shadow: none;
+        font-size: 14px;
+        padding: 10px 12px;
+        padding-bottom: 8px;
+        width: 100%;
+        background: #fff;
+        padding-top: 5px;
+        border: 0.5px solid #E25E20;
+        margin-top: 10px;
+    }
+
+    .textEmail:focus,
+    .textPass:focus {
+        outline: none;
+        border-color: #E25E20;
+
     }
 </style>
