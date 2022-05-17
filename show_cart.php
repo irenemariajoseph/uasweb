@@ -4,7 +4,7 @@ SessionActive();
 
 $user_id = $_SESSION['user_id'];
 
-$url = "http://localhost/xampp/uasweb/get_cart.php?user_id=" . $user_id;
+$url = "http://localhost/uasweb/get_cart.php?user_id=" . $user_id;
 
 $res = file_get_contents($url);
 $cart_data = json_decode($res);
@@ -112,10 +112,10 @@ $cart_data = json_decode($res);
     </header>
     <div class="pilproduk" id="">
         <h1>Your <span>Cart</span> Product</h1>
-        <button> <a href="checkout.php" style="color:inherit"> CHECK OUT</a></button>
+        <button id="btn_co"> <a href="#" style="color:inherit" onclick="validateCO(); return"> CHECK OUT</a></button>
         <button> <a href="pesanan.php" style="color:inherit"> PESANAN</a></button>
         <br>
-        <h3 style="margin-top:0.9rem">Grand Total: Rp <?php echo $cart_data->total_price ?></h3>
+        <h3 style="margin-top:1.5rem">Grand Total (In Rupiah): </h3><h3 id="subTotal"><?php echo $cart_data->total_price ?></h3>
         <div style="margin-top:5rem" class="row">
 
             <?php
@@ -205,7 +205,7 @@ $cart_data = json_decode($res);
                         </div>
 
                         <div class="produkbutton">
-                            <button id="btn_co"><a href="remove_cart.php?id_cart=<?php echo $cart->cart_id ?>"><i class="fa fa-trash" aria-hidden="true" onclick="validateCO()"></i></a></button>
+                            <button><a href="remove_cart.php?id_cart=<?php echo $cart->cart_id ?>"><i class="fa fa-trash" aria-hidden="true"></i></a></button>
                         </div>
 
                         <!-- </form> -->

@@ -66,7 +66,7 @@ SessionActive();
 
 
                 <div class="form-row">
-                    <form action="checkout_cart.php" method="POST" role="form">
+                    <form action="checkout_cart.php" method="POST" role="form" onsubmit="checkingOut(); return false;">
 
 
                         <input type="text" name="user_id" value="<?php echo $_SESSION['user_id']; ?>" style="display: none;">
@@ -123,7 +123,7 @@ SessionActive();
                         <br>
 
 
-                        <button class="buttonCheckout" type="submit" data-bs-toggle="modal" data-bs-target="#modalsucess" onclick="checkingOut()">
+                        <button class="buttonCheckout" type="submit" data-bs-toggle="modal" data-bs-target="#modalsucess">
                             Send
                         </button>
                     </form>

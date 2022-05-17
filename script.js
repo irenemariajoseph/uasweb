@@ -180,17 +180,23 @@ function verifikasiData() {
 function checkingOut() {
   if (document.getElementById("notelp").value == "") {
     alert("Phone number is empty, please enter the phone number!");
+    return false;
   } else if (document.getElementById("notelp").value.length < 12) {
     alert("Phone number too short, please enter another phone number!");
+    return false;
   } else if (document.getElementById("notelp").value.length > 13) {
     alert("Phone number too long, please enter another phone number!");
+    return false;
   }
 }
 
 // Script for show_cart.php
 function validateCO() {
-  var element = (parseInt(document.getElementsByTagName("h4" [9])));
+  var element = (parseInt(document.getElementById("subTotal").innerText));
   if (element == 0) {
+    alert("Cart Empty");
     document.getElementById("btn_co").disabled = true;
+  } else { //success story
+    location.href = 'checkout.php';
   }
 }
