@@ -205,7 +205,7 @@ $cart_data = json_decode($res);
                         </div>
 
                         <div class="produkbutton">
-                            <button id="btn_co"><a href="remove_cart.php?id_cart=<?php echo $cart->cart_id ?>"><i class="fa fa-trash" aria-hidden="true"></i></a></button>
+                            <button id="btn_co"><a href="remove_cart.php?id_cart=<?php echo $cart->cart_id ?>"><i class="fa fa-trash" aria-hidden="true" onclick="validateCO()"></i></a></button>
                         </div>
 
                         <!-- </form> -->

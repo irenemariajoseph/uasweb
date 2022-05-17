@@ -178,8 +178,10 @@ function verifikasiData() {
 function checkingOut() {
   if (document.getElementById("notelp").value == "") {
     alert("Phone number is empty, please enter the phone number!");
-  } else if (document.getElementById("notelp").value.length < 12 || document.getElementById("telp").value.length > 13) {
-    alert("Phone number invalid, please enter another phone number!");
+  } else if (document.getElementById("notelp").value.length < 12) {
+    alert("Phone number too short, please enter another phone number!");
+  } else if (document.getElementById("notelp").value.length > 13) {
+    alert("Phone number too long, please enter another phone number!");
   }
 }
 
