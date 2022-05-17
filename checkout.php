@@ -71,25 +71,25 @@ SessionActive();
 
                         <input type="text" name="user_id" value="<?php echo $_SESSION['user_id']; ?>" style="display: none;">
 
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-12" style="padding: 0 1.5rem;">
                             <label>Nama Pembeli</label>
                             <input type="text" name="conama" class="form-control" placeholder="Nama Pembeli" required>
                         </div>
                         <br>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-12" style="padding: 0 1.5rem;">
                             <label>Email</label>
                             <input type="email" name="coemail" class="form-control" placeholder="Nama Email" required>
                         </div>
                         <br>
 
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-12" style="padding: 0 1.5rem;">
                             <label>No. Telp</label>
-                            <input type="number" name="cotelp" class="form-control" placeholder="No. Telp" required>
+                            <input id="notelp" type="number" name="cotelp" class="form-control" placeholder="No. Telp" required>
                         </div>
                         <br>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-12" style="padding: 0 1.5rem;">
                             <label>Jenis Pembayaran</label>
-                            <select name="jenis_pembayaran" class="form-control" required>
+                            <select name="jenis_pembayaran" class="form-control" style="height: 4rem" required>
                                 <option value="">None</option>
                                 <option value="Bank Transfer">Bank Transfer</option>
                                 <option value="Shopee Pay<">Shopee Pay</option>
@@ -100,9 +100,9 @@ SessionActive();
                         </div>
                         <br>
 
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-12" style="padding: 0 1.5rem;">
                             <label>Pick Up</label>
-                            <select name="pickup" class="form-control" required>
+                            <select name="pickup" class="form-control" style="height: 4rem" required>
                                 <option value="">None</option>
                                 <option value="Gojek">Gojek</option>
                                 <option value="Grab">Grab</option>
@@ -111,19 +111,19 @@ SessionActive();
                         </div>
                         <br>
 
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-12" style="padding: 0 1.5rem;">
                             <label>Tanggal Pick Up</label>
                             <input name="tgl_pickup" type="date" class="form-control" required>
                         </div>
                         <br>
-                        <div class=" form-group col-md-6">
+                        <div class="form-group col-md-12" style="padding: 0 1.5rem;">
                             <label>Jam Pick Up</label>
                             <input name="jam_pickup" type="time" class="form-control" required>
                         </div>
                         <br>
 
 
-                        <button class=" buttonCheckout" type="submit" data-bs-toggle="modal" data-bs-target="#modalsucess">
+                        <button class="buttonCheckout" type="submit" data-bs-toggle="modal" data-bs-target="#modalsucess" onclick="checkingOut()">
                             Send
                         </button>
                     </form>

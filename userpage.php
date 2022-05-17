@@ -95,7 +95,8 @@ $row = $hasil->fetch();
             <br>
             <div class="text-center">
                 <a href=""><button class="movebtn movebtnsu" type="Submit">Save <i class="fa fa-paper-plane"></i></button></a>
-                <a href=""><button class="movebtn movebtnblack" style="width: 15rem;" type="Submit"> Change Password <i class="fa fa-key" aria-hidden="true"></i></i></button></a>
+                <button class="movebtn movebtnblack" type="Submit"><a href="formedituser.php" style="text-decoration: none; color: black;"> Edit User <i class="fa fa-edit"></a></i></button>
+                <button class="movebtn movebtnblack" style="width: 15rem;" type="Submit"><a href="formchangepw.php" style="text-decoration: none; color: black;"> Change Password <i class="fa fa-key" aria-hidden="true"></a></i></button>
             </div>
 
         </form>

@@ -173,3 +173,20 @@ function verifikasiData() {
     alert("Phone number invalid, please enter another phone number!");
   }
 }
+
+// Script for checkout.php
+function checkingOut() {
+  if (document.getElementById("notelp").value == "") {
+    alert("Phone number is empty, please enter the phone number!");
+  } else if (document.getElementById("notelp").value.length < 12 || document.getElementById("telp").value.length > 13) {
+    alert("Phone number invalid, please enter another phone number!");
+  }
+}
+
+// Script for show_cart.php
+function validateCO() {
+  var element = (parseInt(document.getElementsByTagName("h4" [9])));
+  if (element == 0) {
+    document.getElementById("btn_co").disabled = true;
+  }
+}
