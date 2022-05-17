@@ -1,3 +1,17 @@
+<?php
+require "conn.php";
+$con = GetConnection();
+SessionActive();
+$user_id = $_SESSION['user_id'];
+
+$sql = "select * from users where id = ?";
+
+
+$hasil = $con->prepare($sql);
+$hasil->execute([$user_id]);
+$row = $hasil->fetch();
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -39,51 +53,49 @@
         </div>
     </header>
 
-    <main id="main">
+    <div class="card">
+        <form class="form" action="proses_editprofile.php" method="post">
+            <h2>User Profile</h2>
 
-        <!-- ======= Login ======= -->
-        <center>
-            <section id="login" style="margin-top: 100px; margin-bottom: 150px" class="contact">
-
-                <div class="container" data-aos="fade-up">
-
-                    <div class="row mt-5">
-                        <h2><b>Edit Profile</b></h2>
-                        <h5>Enter new information to edit your profile</h5>
-
-                        <div class="col-lg-12 mt-5 mt-lg-0" style="align-items: center;">
-                            <form action="proses_regist.php" method="post" role="form" style="width: 30%">
-                                <div class="form-group mt-3">
-                                    <input type="username" class="input textbox" placeholder="Your Full Name" name="daftarname" class="box" required>
-                                </div>
-                                <div class="form-group mt-3">
-                                    <input type="email" placeholder="Your Email" class="input textbox" name=" daftaremail" required>
-                                </div>
-                                <!-- <div class="form-group mt-3">
-                                    <input type="password" id="pwd" placeholder="Your Password" class="textbox" name="daftarpass" required>
-                                </div> -->
-                                <div class="form-group mt-3">
-                                    <input type="number" id="telp" placeholder="Your Phone Number" class="textbox" name="daftarnotelp" required>
-                                </div>
-                                <!-- <div class="form-group mt-3">
-                                    <input type="text" placeholder="Kode Referal" class="textbox" name="daftarrole">
-                                </div> -->
-                                <br>
-                                <!-- <h5>Have an account ? <a style="color:#E25E20" href="formlogin.php">Login now</a></h5> -->
-                                <br>
-
-                                <div class="text-center"><button class="button login" type="submit">Edit<i class="fa fa-edit ms-2"></i></button></div>
-                            </form>
-                        </div>
-
-
-                    </div>
+            <div class="form-group">
+                <label for="email">Full Name:</label>
+                <br>
+                <div class="relative">
+                    <input style="font-size:medium;" class="form-control" name="username" type="text" value=" <?php echo $row['username'] ?>">
+                    <i class="fa fa-user"></i>
                 </div>
-            </section>
-        </center>
-        <!-- End Login -->
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="email">Email address:</label>
+                <br>
+                <div class="relative">
+                    <input style="font-size:medium;" class="form-control" type="email" name="email" value=" <?php echo $row['email'] ?>" required>
+                    <i class="fa fa-envelope"></i>
+                </div>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="email">Contact Number:</label>
+                <br>
+                <div class="relative">
+                    <input style="font-size:medium;" class="form-control" name="no_telp" value=" <?php echo $row['no_telp'] ?>" type="text">
+                    <i class="fa fa-phone"></i>
+                </div>
+            </div>
 
-    </main><!-- End main -->
+            <br>
+            <br>
+            <div class="text-center">
+                <a href=""><button class="movebtn movebtnsu" type="Submit">Save <i class="fa fa-paper-plane"></i></button></a>
+
+            </div>
+
+        </form>
+        <br>
+
+
+    </div>
 
     <footer class="text-lg-start text-muted" id="footerkonten">
         <section class="">
@@ -126,55 +138,237 @@
     </footer>
 </body>
 <!-- Additional styling -->
+
 <style>
-    .login {
-        background: #fff;
-
-        padding: 10px 35px;
-
-        border: 0.5px solid #E25E20;
-        color: #E25E20;
-        transition: 0.4s;
-        border-radius: 50px;
+    .card {
+        max-width: calc(100vw - 40px);
+        width: 70rem;
+        height: auto;
+        background: #F7CFA5;
+        border-radius: 8px;
+        box-shadow: 0 0 40px -10px #fff;
+        margin: 3% auto;
+        padding: 20px 30px;
+        box-sizing: border-box;
+        position: relative;
+        border-bottom: 5px solid #ccc;
+        margin-top: 15.5rem;
     }
 
-    .login:hover {
-        color: #fff;
-        background: #E25E20;
-
+    .form h2 {
+        margin: 18px 0;
+        padding-bottom: 10px;
+        width: 210px;
+        color: #1e439b;
+        font-size: 22px;
+        border-bottom: 3px solid #ff5501;
+        font-weight: 600;
+        margin-bottom: 30px;
     }
 
-    .textbox {
-        height: 44px;
-        border-radius: 4px;
-        box-shadow: none;
-        font-size: 14px;
-        padding: 10px 12px;
-        padding-bottom: 8px;
-        width: 100%;
-        background: #fff;
-        padding-top: 5px;
-        border: 0.5px solid #E25E20;
+    label {
+        font-size: large;
     }
 
-    .textPass {
-        height: 44px;
-        border-radius: 4px;
-        box-shadow: none;
-        font-size: 14px;
-        padding: 10px 12px;
-        padding-bottom: 8px;
-        width: 100%;
-        background: #fff;
-        padding-top: 5px;
-        border: 0.5px solid #E25E20;
-        margin-top: 10px;
-    }
-
-    .textEmail:focus,
-    .textPass:focus {
+    input {
+        width: 60%;
+        padding: 10px;
+        font-size: large;
+        box-sizing: border-box;
+        background: none;
         outline: none;
-        border-color: #E25E20;
+        resize: none;
+        height: 3.5rem;
+        border: 0;
+        font-family: 'Montserrat', sans-serif;
+        border: 2px solid #bebed2;
+        transition: all .3s;
+    }
 
+    .form p:before {
+        content: attr(type);
+        display: block;
+        margin: 10px 0 0;
+        font-size: 13px;
+        color: #5a5a5a;
+        float: left;
+        width: 40%;
+        transition: all .3s;
+    }
+
+    button {
+        padding: 8px 12px;
+        margin: 8px 0 0;
+        font-family: 'Montserrat', sans-serif;
+        border: 2px solid #78788c;
+        background: 0;
+        color: #5a5a6e;
+        cursor: pointer;
+        transition: all .3s;
+    }
+
+    button:hover {
+        background: #78788c;
+        color: #fff;
+    }
+
+    .tright {
+        text-align: right;
+    }
+
+    .ui-menu {
+        max-height: 150px;
+        overflow: auto;
+    }
+
+    .ui-menu .ui-menu-item {
+        padding: 5px;
+        font-size: 14px;
+    }
+
+    .relative {
+        position: relative;
+    }
+
+    .relative i.fa:before {
+        color: #444;
+        padding: 10px;
+        position: absolute;
+        left: -3px;
+        text-align: center;
+    }
+
+    .relative i.fa {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 40px;
+        text-align: center;
+        border-radius: 0 4px 4px 0;
+        width: 0;
+        height: 0;
+        z-index: 99;
+        border-left: 20px solid transparent;
+        border-right: 30px solid #ccc;
+        border-bottom: 34px solid #ccc;
+        transition: all 0.15s ease-in-out;
+
+    }
+
+    .form-control:focus {
+        border-color: #1e439b;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgb(30, 102, 195);
+    }
+
+    .relative input:focus+i.fa {
+        border-left: 20px solid transparent;
+        border-right: 30px solid #1e439b;
+        border-bottom: 34px solid #1e439b;
+    }
+
+    .relative input:focus+i.fa:before {
+        color: #fff;
+    }
+
+    .input-group .form-control:not(:first-child):not(:last-child),
+    .input-group-addon:not(:first-child):not(:last-child),
+    .input-group-btn:not(:first-child):not(:last-child) {
+        border-radius: 0 4px 4px 0;
+    }
+
+    .form-control[disabled],
+    .form-control[readonly],
+    fieldset[disabled] .form-control {
+        background-color: #fff;
+    }
+
+    /* --- Thanks Message Popup --- */
+    .thanks {
+        max-width: calc(100vw - 40px);
+        width: 200px;
+        height: auto;
+        background-color: #444;
+        border-radius: 8px;
+        box-shadow: 0 0 40px -10px #000;
+        padding: 20px;
+        box-sizing: border-box;
+        position: relative;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        transition: all .3s;
+    }
+
+    .thanks h4,
+    .thanks p {
+        color: #fff;
+        text-align: center;
+    }
+
+    /* --- Animated Buttons --- */
+    .movebtn {
+        background-color: transparent;
+        display: inline-block;
+        width: 10rem;
+        margin: 0 5px;
+        background-image: none;
+        padding: 8px 10px;
+        margin-bottom: 20px;
+        border-radius: 0;
+        -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        transition: all 0.5s;
+        -webkit-transition-timing-function: cubic-bezier(0.5, 1.65, 0.37, 0.66);
+        transition-timing-function: cubic-bezier(0.5, 1.65, 0.37, 0.66);
+    }
+
+    .movebtnre {
+        border: 2px solid #ff5501;
+        box-shadow: inset 0 0 0 0 #ff5501;
+        color: #ff5501;
+    }
+
+    .movebtnsu {
+        border: 2px solid #1e439b;
+        box-shadow: inset 0 0 0 0 #1e439b;
+        color: #1e439b;
+    }
+
+    .movebtnblack {
+        border: 2px solid black;
+        box-shadow: inset 0 0 0 0 black;
+        color: black;
+    }
+
+    .movebtnre:focus,
+    .movebtnre:hover,
+    .movebtnre:active {
+        background-color: transparent;
+        color: #FFF;
+        border-color: #ff5501;
+        box-shadow: inset 96px 0 0 0 #ff5501;
+    }
+
+    .movebtnsu:focus,
+    .movebtnsu:hover,
+    .movebtnsu:active {
+        background-color: transparent;
+        color: #FFF;
+        border-color: #1e439b;
+        box-shadow: inset 96px 0 0 0 #1e439b;
+    }
+
+
+    /* --- Media Queries --- */
+
+    @media only screen and (max-width: 600px) {
+        p:before {
+            content: attr(type);
+            width: 100%
+        }
+
+        input {
+            width: 100%;
+        }
     }
 </style>

@@ -58,20 +58,20 @@
 
 
                         <div class="col-lg-12 mt-5 mt-lg-0" style="align-items: center;">
-                            <form action="proses_login.php" method="POST" role="form" style="width: 30%">
+                            <form action="proses_change_pass.php" method="POST" role="form" style="width: 30%">
                                 <!-- <div class="form-group mt-3">
                                     <input type="text" class="input textEmail" name="loginemail" placeholder="Email" required></input>
                                 </div> -->
                                 <div class="form-group mt-3">
-                                    <input type="password" class="input textPass" name="loginpass" placeholder="Current Password" required></input>
+                                    <input type="email" class="input textPass" name="email" placeholder="Current Email" required></input>
                                 </div>
                                 <div class="form-group mt-3">
-                                    <input type="password" class="input textPass" name="loginpass" placeholder="New Password" required></input>
+                                    <input type="password" class="input textPass" name="pass" placeholder="New Password" required></input>
                                 </div>
-                                <div class="form-group mt-3">
+                                <!-- <div class="form-group mt-3">
                                     <input type="password" class="input textPass" name="loginpass" placeholder="Confirm New Password" required></input>
                                 </div>
-                                <br>
+                                <br> -->
 
                                 <!-- <h5>Forget your password <a style="color:#E25E20" href="#">Click Here</a></h5>
                                 <h5>Don't have an account ? <a style="color:#E25E20" href="formregist.php">Create now</a></h5> -->
