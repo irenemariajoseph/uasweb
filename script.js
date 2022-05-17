@@ -169,8 +169,10 @@ function verifikasiData() {
     alert("Password too long, please create another password!");
   } else if (document.getElementById("telp").value == "") {
     alert("Phone number is empty, please enter the phone number!");
-  } else if (document.getElementById("telp").value.length < 12 || document.getElementById("telp").value.length > 13) {
-    alert("Phone number invalid, please enter another phone number!");
+  } else if (document.getElementById("telp").value.length < 12) {
+    alert("Phone number too short, please enter another phone number!");
+  } else if (document.getElementById("telp").value.length > 13) {
+    alert("Phone number too long, please enter another phone number!");
   }
 }
 
