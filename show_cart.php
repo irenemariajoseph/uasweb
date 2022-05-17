@@ -4,7 +4,7 @@ SessionActive();
 
 $user_id = $_SESSION['user_id'];
 
-$url = "http://localhost/uasweb/get_cart.php?user_id=" . $user_id;
+$url = "http://localhost/xampp/uasweb/get_cart.php?user_id=" . $user_id;
 
 $res = file_get_contents($url);
 $cart_data = json_decode($res);
@@ -112,10 +112,11 @@ $cart_data = json_decode($res);
     </header>
     <div class="pilproduk" id="">
         <h1>Your <span>Cart</span> Product</h1>
-        <button id="btn_co"> <a href="#" style="color:inherit" onclick="validateCO(); return"> CHECK OUT</a></button>
+        <button id="btn_co"> <a href="#" style="color:inherit" onclick="validateCO(); return false;"> CHECK OUT</a></button>
         <button> <a href="pesanan.php" style="color:inherit"> PESANAN</a></button>
         <br>
-        <h3 style="margin-top:1.5rem">Grand Total (In Rupiah): </h3><h3 id="subTotal"><?php echo $cart_data->total_price ?></h3>
+        <h3 style="margin-top:1.5rem">Grand Total (In Rupiah): </h3>
+        <h3 id="subTotal"><?php echo $cart_data->total_price ?></h3>
         <div style="margin-top:5rem" class="row">
 
             <?php
@@ -132,16 +133,12 @@ $cart_data = json_decode($res);
                         </div>
 
                         <br>
-                        <!-- <h3 style=" text-transform: uppercase;"> <?php #echo $row['prod_name'] 
-                                                                        ?></h3> -->
+
                         <h3 style=" text-transform: uppercase;"> <?php echo $cart->product_name ?></h3>
 
 
                         <br>
-                        <!-- <form action="remove_cart.php"> -->
 
-                        <!-- <input class="cart_id" value=<?php #echo $row['id_cart']; 
-                                                            ?> style="display: none;" /> -->
                         <input class="cart_id" value=<?php echo $cart->cart_id ?> style="display: none;" />
                         <input class="user_id" value=<?php echo $_SESSION['user_id']; ?> style="display: none;" />
 
@@ -158,10 +155,7 @@ $cart_data = json_decode($res);
                         <div class="form-group">
                             <h4>Ukuran Kertas</h4>
                             <div class="form-group col-md-11">
-                                <!-- <h4 id="inputdropdown" style="margin-right:3rem;" class="form-control">
-                                    <?php #echo $row['uk_ppr'] 
-                                    ?>
-                                </h4> -->
+
                                 <h4 id="inputdropdown" style="margin-right:3rem;" class="form-control">
                                     <?php echo $cart->product_size ?>
                                 </h4>
@@ -170,10 +164,7 @@ $cart_data = json_decode($res);
                         <div class="form-group">
                             <h4>Harga</h4>
                             <div class="form-group col-md-11">
-                                <!-- <h4 id="inputdropdown" style="margin-right:3rem;" class="form-control">
-                                    <?php #echo $row['price'] 
-                                    ?>
-                                </h4> -->
+
                                 <h4 id="inputdropdown" style="margin-right:3rem;" class="form-control">
                                     <?php echo $cart->product_price ?>
                                 </h4>
@@ -182,10 +173,7 @@ $cart_data = json_decode($res);
                         <div class="form-group">
                             <h4>Jumlah Kertas</h4>
                             <div class="form-group col-md-11">
-                                <!-- <h4 style="background-color:#36e367" id="inputdropdown" style="margin-right:3rem;" class="form-control">
-                                    <?php #echo $row['qty'] 
-                                    ?>
-                                </h4> -->
+
                                 <h4 style="background-color:#36e367" id="inputdropdown" style="margin-right:3rem;" class="form-control">
                                     <?php echo $cart->product_qty ?>
                                 </h4>
@@ -194,10 +182,7 @@ $cart_data = json_decode($res);
                         <div class="form-group">
                             <h4>Sub Total</h4>
                             <div class="form-group col-md-11">
-                                <!-- <h4 style="background-color:#36e367" id="inputdropdown" style="margin-right:3rem;" class="form-control">
-                                    <?php #echo $row['qty'] 
-                                    ?>
-                                </h4> -->
+
                                 <h4 style="background-color:#36e367" id="inputdropdown" style="margin-right:3rem;" class="form-control">
                                     <?php echo $cart->sub_total ?>
                                 </h4>

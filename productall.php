@@ -167,85 +167,135 @@ $hasil->execute();
                 $i++;
             endwhile;
             ?>
+        </div>
+    </div>
+    <center></center>
+    <div class="simulation" id="">
+        <h1>Not Sure it’s easy and fast?<br>
+            <span>SIMULATE IT!</span>
+        </h1>
 
-            <footer class="text-lg-start text-muted" id="footerkonten">
-                <section class="">
-                    <div class="container text-center text-md-start ">
-                        <!-- Grid row -->
-                        <div class="row mt-3">
-                            <!-- Grid column -->
-                            <div class="col-md-9 ">
-                                <!-- Content -->
-                                <h3 class=" fw-bold mb-4">
-                                    Tentang
-                                </h3>
-                                <hr>
-
-                                <p>
-                                    Perusahaan Ngeprint telah mencetak berbagai model dan desain kemasan produk. Kami telah dipercaya oleh ratusan unit usaha, mulai dari usaha kecil, menengah, hingga usaha besar untuk mencetak kemasan produk yang mereka miliki. Dengan jaminan kualitas dan harga bersaing, Kami juga telah menjalin kerja sama dengan beberapa perusahaan besar di Indonesia. Perusahaan kami menawarkan solusi percetakan dengan harga yang murah untuk segala kebutuhan percetakan. Perusahaan kami berdiri sejak tahun 2021 dan telah memiliki ratusan client dari perusahaan skala kecil sampai dengan perusahaan skala multi-nasional. Tujuan dari perusahaan kami adalah memberikan layanan pencetakan yang berkualitas tinggi.
-                                </p>
-                            </div>
-
-                            <!-- Grid column -->
-                            <div class="col-md-3">
-                                <!-- Links -->
-                                <h3 class=" fw-bold mb-4">
-                                    Hubungi Kami
-                                </h3>
-                                <hr>
-
-                                <p><i class="fas fa-home me-3"></i> Gedung ABC, Jalan Sunter Mas Tengah, Sunter Jaya, Tj.
-                                    Priok,
-                                    Kota Jkt Utara</p>
-                                <p>
-                                    <i class="fas fa-envelope me-3"></i>
-                                    help@ngeprint.com
-                                </p>
-                                <p><i class="fas fa-phone me-3"></i>021-8888-777</p>
-
+        <div class="formsimulate">
+            <form>
+                <div class="form-row">
+                    <form class="form-horizontal">
+                        <div class="control-group">
+                            <label class="control-label" for="inputType">Jenis Produk</label>
+                            <div class="controls">
+                                <input type="text" class="input-simulate" id="jenisproduk" placeholder="Paper - Brosur ">
                             </div>
                         </div>
+
+                        <div class="control-group">
+                            <label class="control-label" for="inputType">Ukuran</label>
+                            <div class="controls">
+                                <input type="text" class="input-simulate" id="ukuran" placeholder="A4">
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label" for="inputType">Jenis Kertas</label>
+                            <div class="controls">
+                                <input type="text" class="input-simulate" id="jeniskertas" placeholder="Vinyl">
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label" for="inputType">Jumlah Cetakan</label>
+                            <div class="controls">
+                                <input type="text" class="input-simulate" id="jumlahcetakan" placeholder="300 RIM">
+                            </div>
+                        </div>
+
+                        <div class="produkbutton">
+                            <button type="button" onclick="simulate()">SIMULATE IT</button>
+                        </div>
+
+                    </form>
+
+
+
+                </div>
+            </form>
+        </div>
+    </div>
+    </center>
+
+    <footer class="text-lg-start text-muted" id="footerkonten">
+        <section class="">
+            <div class="container text-center text-md-start ">
+                <!-- Grid row -->
+                <div class="row mt-3">
+                    <!-- Grid column -->
+                    <div class="col-md-9 ">
+                        <!-- Content -->
+                        <h3 class=" fw-bold mb-4">
+                            Tentang
+                        </h3>
+                        <hr>
+
+                        <p>
+                            Perusahaan Ngeprint telah mencetak berbagai model dan desain kemasan produk. Kami telah dipercaya oleh ratusan unit usaha, mulai dari usaha kecil, menengah, hingga usaha besar untuk mencetak kemasan produk yang mereka miliki. Dengan jaminan kualitas dan harga bersaing, Kami juga telah menjalin kerja sama dengan beberapa perusahaan besar di Indonesia. Perusahaan kami menawarkan solusi percetakan dengan harga yang murah untuk segala kebutuhan percetakan. Perusahaan kami berdiri sejak tahun 2021 dan telah memiliki ratusan client dari perusahaan skala kecil sampai dengan perusahaan skala multi-nasional. Tujuan dari perusahaan kami adalah memberikan layanan pencetakan yang berkualitas tinggi.
+                        </p>
                     </div>
-                </section>
-            </footer>
 
-            <script type="text/javascript">
-                function addToCart(formData) {
-                    // paperData
-                    var productData = formData.getElementsByClassName("product_id");
-                    var productID = productData[0].value;
+                    <!-- Grid column -->
+                    <div class="col-md-3">
+                        <!-- Links -->
+                        <h3 class=" fw-bold mb-4">
+                            Hubungi Kami
+                        </h3>
+                        <hr>
 
-                    // userID
-                    var userData = formData.getElementsByClassName("user_id");
-                    var userID = userData[0].value;
+                        <p><i class="fas fa-home me-3"></i> Gedung ABC, Jalan Sunter Mas Tengah, Sunter Jaya, Tj.
+                            Priok,
+                            Kota Jkt Utara</p>
+                        <p>
+                            <i class="fas fa-envelope me-3"></i>
+                            help@ngeprint.com
+                        </p>
+                        <p><i class="fas fa-phone me-3"></i>021-8888-777</p>
 
-                    // qty
-                    var paperData = formData.getElementsByClassName("form-control");
-                    var qty = paperData[3].value;
+                    </div>
+                </div>
+            </div>
+        </section>
+    </footer>
 
-                    let data = {
-                        product_id: productID,
-                        qty: qty,
-                        user_id: userID
-                    };
+    <script type="text/javascript">
+        function addToCart(formData) {
+            // paperData
+            var productData = formData.getElementsByClassName("product_id");
+            var productID = productData[0].value;
 
-                    let req = new XMLHttpRequest();
-                    req.responseType = 'json';
-                    req.open("POST", "add_to_cart.php");
-                    req.setRequestHeader("Accept", "application/json");
-                    req.setRequestHeader("Content-Type", "application/json");
+            // userID
+            var userData = formData.getElementsByClassName("user_id");
+            var userID = userData[0].value;
 
-                    req.onreadystatechange = function() {
-                        if (req.readyState === 4) {
-                            var res = req.response;
-                            alert(res['msg']);
-                        }
-                    };
+            // qty
+            var paperData = formData.getElementsByClassName("form-control");
+            var qty = paperData[3].value;
 
-                    req.send(JSON.stringify(data));
+            let data = {
+                product_id: productID,
+                qty: qty,
+                user_id: userID
+            };
+
+            let req = new XMLHttpRequest();
+            req.responseType = 'json';
+            req.open("POST", "add_to_cart.php");
+            req.setRequestHeader("Accept", "application/json");
+            req.setRequestHeader("Content-Type", "application/json");
+
+            req.onreadystatechange = function() {
+                if (req.readyState === 4) {
+                    var res = req.response;
+                    alert(res['msg']);
                 }
-            </script>
+            };
+
+            req.send(JSON.stringify(data));
+        }
+    </script>
 </body>
-
-
-</html>

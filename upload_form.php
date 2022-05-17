@@ -1,3 +1,16 @@
+<?php
+require "conn.php";
+SessionActive();
+$user_id = $_SESSION['user_id'];
+
+
+$sql = "SELECT * FROM tbl_pesan where user_id = ? ";
+$con = GetConnection();
+
+$hasil = $con->prepare($sql);
+$hasil->execute([$user_id]);
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -60,9 +73,15 @@
 
 
                         <div class="col-lg-12 mt-5 mt-lg-0" style="align-items: center;">
-                            <form action="upload_proses.php" method="POST" role="form" style="width: 30%">
+                            <form action="upload_proses.php" method="post" enctype="multipart/form-data" style="width: 30%">
                                 <div class="form-group mt-3">
-                                    <input class="input textPass" type="text" name="judul" placeholder="Insert Your Order ID" required><br />
+                                    <!-- <input class="input textPass" type="text" name="judul" placeholder="Upload Your Photo" required><br /> -->
+                                    <select name="judul" class="textPass" required><br />
+                                        <?php while ($row = $hasil->fetch()) : ?>
+                                            <option value="<?= $row['pesan_id'] ?>"><?php echo $row['pesan_id'] ?></option>
+                                        <?php endwhile; ?>
+                                    </select>
+
                                 </div>
                                 <div class="form-group mt-3">
                                     <input class="input textPass" type="file" name="foto" placeholder="Upload Your Photo" required><br />
@@ -155,18 +174,6 @@
 
     }
 
-    .textEmail {
-        height: 44px;
-        border-radius: 4px;
-        box-shadow: none;
-        font-size: 14px;
-        padding: 10px 12px;
-        padding-bottom: 8px;
-        width: 100%;
-        background: #fff;
-        padding-top: 5px;
-        border: 0.5px solid #E25E20;
-    }
 
     .textPass {
         height: 44px;
@@ -180,12 +187,5 @@
         padding-top: 5px;
         border: 0.5px solid #E25E20;
         margin-top: 10px;
-    }
-
-    .textEmail:focus,
-    .textPass:focus {
-        outline: none;
-        border-color: #E25E20;
-
     }
 </style>
