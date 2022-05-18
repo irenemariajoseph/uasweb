@@ -34,7 +34,7 @@ if ($row = $result->fetch()) {
     } else {
         //login gagal
 
-        alert('password atau email anda salah!');
+        alertlogin('password atau email anda salah!');
 
 
         //solusi error sementara
