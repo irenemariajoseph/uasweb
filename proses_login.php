@@ -23,6 +23,7 @@ if ($row = $result->fetch()) {
         if ($row['role'] == "admin") {
             session_start();
             $_SESSION['role'] = $row['role'];
+            $_SESSION['email'] = $row['email'];
 
 
             header('Location: adminpage.php');

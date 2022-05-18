@@ -6,18 +6,21 @@ session_start();
 
 $role = $_SESSION['role'];
 
-if ($role == 'user') {
-
+if ($role == "user") {
     header('Location: userpage.php');
-} else {
-    header('Location: adminpage.php');
 }
+// else if ($role == "user") {
+//     header('Location: userpage.php');
+// }
+
+
+
 $conn = GetConnection();
 $sql = "select tbl_produk.* , tbl_pesan.* from tbl_pesan left join tbl_produk on tbl_produk.prod_id =tbl_pesan.prod_id;";
 $result = $conn->prepare($sql);
 $result->execute();
 $row = $result
-// alert($role);
+
 
 
 
