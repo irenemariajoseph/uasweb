@@ -27,7 +27,7 @@
                 <a href="home.php#up">Home</a>
                 <a href="home.php#products">Product</a>
                 <a href="home.php#testimony">Testimony</a>
-                <a href="home.php#simulate">Simulation</a>
+                <a href="productall.php#simulate">Simulation</a>
                 <a href="home.php#aboutus">About Us</a>
             </ul>
         </nav>
@@ -67,6 +67,9 @@
                                 </div>
                                 <div class="form-group mt-3">
                                     <input type="password" class="input textPass" name="pass" placeholder="New Password" required></input>
+                                </div>
+                                <div class="form-group mt-3">
+                                    <input type="password" class="input textPass" name="confirmpass" placeholder="Confirm New Password" required></input>
                                 </div>
 
 
