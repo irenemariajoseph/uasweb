@@ -16,7 +16,7 @@ $sql = "UPDATE users SET pass = ? WHERE id = ?";
 try{
     if ($row = $hasil2-> fetch()){
         if (password_verify($currentpass, $row['pass'])){
-            if ($newpass == $confirmpass){
+            if (password_verify($confirmpass, $newpass)){
                 $hasil = $con->prepare($sql);
                 $hasil->execute([$newpass, $_SESSION['user_id']]);
                 header('Location: userpage.php');
