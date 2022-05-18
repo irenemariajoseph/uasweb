@@ -5,7 +5,7 @@ require "conn.php";
 SessionActive();
 
 
-$sql = "SELECT * FROM tbl_produk WHERE prod_category = 'large format';";
+$sql = "SELECT * FROM tbl_produk WHERE prod_category = 'product';";
 $con = GetConnection();
 
 $hasil = $con->prepare($sql);
@@ -90,7 +90,7 @@ $hasil->execute();
     </header>
 
     <div class="pilproduk" id="">
-        <h1>Our <span>Large Format</span> Digital Printing Product</h1>
+        <h1>Our <span>Product Packing</span> Digital Printing Product</h1>
 
         <div class="row">
 

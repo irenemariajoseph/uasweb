@@ -18,15 +18,15 @@ if ($row = $result->fetch()) {
 
 
         $_SESSION['user_id'] = $row['id'];
-        $_SESSION['role'] = $row['role'];
 
-        if ($role == "admin") {
 
+        if ($row['role'] == "admin") {
             $_SESSION['role'] = $row['role'];
+
 
             header('Location: adminpage.php');
         } else {
-
+            $_SESSION['role'] = $row['role'];
             $_SESSION['email'] = $row['email'];
 
             header('Location: userpage.php');

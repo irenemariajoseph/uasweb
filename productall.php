@@ -108,7 +108,7 @@ $hasil->execute();
                     <div class="jenis">
                         <div class="card-img-top  align-items-center">
                             <div>
-                                <img class="img-fluid" id="pilprodukimg" src="images/paper_businesscard.png" alt="Card image cap">
+                                <img class="img-fluid" style="object-fit: cover; width:30rem;height: 20rem;" id="pilprodukimg" src="<?php echo $row['foto_produk'] ?>" alt="Card image cap">
                             </div>
                         </div>
 
@@ -150,7 +150,7 @@ $hasil->execute();
                             <div class="form-group">
                                 <h4>Jumlah Kertas</h4>
                                 <div class="form-group col-md-11">
-                                    <input type="number" style="background-color:#36e367" class="form-control" id="jumlahp" name="name">
+                                    <input type="number" style="background-color:#36e367" class="form-control" id="jumlahp" name="name" required>
                                 </div>
                             </div>
 
