@@ -74,7 +74,7 @@ $hasil->execute();
                 <a href="home.php#up">Home</a>
                 <a href="home.php#products">Product</a>
                 <a href="home.php#testimony">Testimony</a>
-                <a href="paperproduct.php#simulate">Simulation</a>
+                <a href="productall.php#simulate">Simulation</a>
                 <a href="home.php#aboutus">About Us</a>
             </ul>
         </nav>
@@ -170,7 +170,7 @@ $hasil->execute();
         </div>
     </div>
 
-    <div class="simulation text-center" id="">
+    <div class="simulation text-center" id="simulate">
         <h1>Not Sure it’s easy and fast?<br>
             <span>SIMULATE IT!</span>
         </h1>
@@ -182,7 +182,7 @@ $hasil->execute();
                         <div class="control-group" style="margin: 5rem 10rem;">
                             <label class="control-label" for="inputType">Jenis Produk</label>
                             <div class="controls">
-                                <input type="text" class="input-simulate"id="jenisproduk" placeholder="Paper - Brosur ">
+                                <input type="text" class="input-simulate" id="jenisproduk" placeholder="Paper - Brosur ">
                             </div>
                         </div>
 
