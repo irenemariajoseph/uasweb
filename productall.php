@@ -74,7 +74,7 @@ $hasil->execute();
                 <a href="home.php#up">Home</a>
                 <a href="home.php#products">Product</a>
                 <a href="home.php#testimony">Testimony</a>
-                <a href="productall.php#simulate">Simulation</a>
+                <a href="home.php#simulate">Simulation</a>
                 <a href="home.php#aboutus">About Us</a>
             </ul>
         </nav>
@@ -170,52 +170,6 @@ $hasil->execute();
         </div>
     </div>
 
-    <div class="simulation text-center" id="simulate">
-        <h1>Not Sure it’s easy and fast?<br>
-            <span>SIMULATE IT!</span>
-        </h1>
-
-        <div class="formsimulate">
-            <form>
-                <div class="form-row">
-                    <form class="form-horizontal">
-                        <div class="control-group col-md-10">
-                            <label class="control-label" for="inputType">Jenis Produk</label>
-                            <div class="controls">
-                                <input type="text" class="input-simulate" id="jenisproduk" placeholder="Paper - Brosur ">
-                            </div>
-                        </div>
-
-                        <div class="control-group col-md-10">
-                            <label class="control-label" for="inputType">Ukuran</label>
-                            <div class="controls">
-                                <input type="text" class="input-simulate" id="ukuran" placeholder="A4">
-                            </div>
-                        </div>
-
-                        <div class="control-group col-md-10">
-                            <label class="control-label" for="inputType">Jenis Kertas</label>
-                            <div class="controls">
-                                <input type="text" class="input-simulate" id="jeniskertas" placeholder="Vinyl">
-                            </div>
-                        </div>
-
-                        <div class="control-group col-md-10">
-                            <label class="control-label" for="inputType">Jumlah Cetakan</label>
-                            <div class="controls">
-                                <input type="text" class="input-simulate" id="jumlahcetakan" placeholder="300 RIM">
-                            </div>
-                        </div>
-
-                        <div class="produkbutton text-center">
-                            <button type="button" onclick="simulate()">SIMULATE IT</button>
-                        </div>
-                    </form>
-
-                </div>
-            </form>
-        </div>
-    </div>
     </center>
 
     <footer class="text-lg-start text-muted" id="footerkonten">
