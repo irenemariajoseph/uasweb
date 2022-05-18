@@ -61,17 +61,19 @@ SessionActive();
         <div class="checkout">
             <h1>Pesanan <span>Ngeprint</span> Anda</h1>
             <h2><b>Informasi Pembeli</b></h2>
+            <h5>Informasi Pembeli akan mengikuti data yang terdaftar pada akun <b>Ngeprint</b></h5>
+            <h5>Mohon perhatikan kembali kesesuaian data akun anda</h5>
             <br>
             <div class="formbox">
 
 
                 <div class="form-row">
-                    <form action="checkout_cart.php" method="POST" role="form">
+                    <form action="checkout_cart.php" onsubmit="checkingOut(event)" method="POST" role="form">
 
 
                         <input type="text" name="user_id" value="<?php echo $_SESSION['user_id']; ?>" style="display: none;">
 
-                        <div class="form-group col-md-12" style="padding: 0 1.5rem;">
+                        <!-- <div class="form-group col-md-12" style="padding: 0 1.5rem;">
                             <label>Nama Pembeli</label>
                             <input type="text" name="conama" class="form-control" placeholder="Nama Pembeli" required>
                         </div>
@@ -85,7 +87,7 @@ SessionActive();
                         <div class="form-group col-md-12" style="padding: 0 1.5rem;">
                             <label>No. Telp</label>
                             <input id="notelp" type="number" name="cotelp" class="form-control" placeholder="No. Telp" required>
-                        </div>
+                        </div> -->
                         <br>
                         <div class="form-group col-md-12" style="padding: 0 1.5rem;">
                             <label>Jenis Pembayaran</label>

@@ -4,7 +4,7 @@ SessionActive();
 
 $user_id = $_SESSION['user_id'];
 
-$url = "http://localhost/xampp/uasweb/get_cart.php?user_id=" . $user_id;
+$url = "http://localhost/uasweb/get_cart.php?user_id=" . $user_id;
 
 $res = file_get_contents($url);
 $cart_data = json_decode($res);
@@ -112,7 +112,7 @@ $cart_data = json_decode($res);
     </header>
     <div class="pilproduk" id="">
         <h1>Your <span>Cart</span> Product</h1>
-        <button id="btn_co"> <a href="#" style="color:inherit" onclick="validateCO(); return false;"> CHECK OUT</a></button>
+        <button id="btn_co"> <a href="#" style="color:inherit" onclick="validateCO(event);"> CHECK OUT</a></button>
         <button> <a href="pesanan.php" style="color:inherit"> PESANAN</a></button>
         <br>
         <h3 style="margin-top:1.5rem">Grand Total (In Rupiah): </h3>

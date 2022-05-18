@@ -57,7 +57,7 @@
                         <h5>Please regist new account to buy our product</h5>
 
                         <div class="col-lg-12 mt-5 mt-lg-0" style="align-items: center;">
-                            <form action="proses_regist.php" method="post" role="form" style="width: 30%">
+                            <form action="proses_regist.php" onsubmit="verifikasiData(event)" method="post" role="form" style="width: 30%">
                                 <div class="form-group mt-3">
                                     <input type="username" class="input textbox" placeholder="Your Full Name" name="daftarname" class="box" required>
                                 </div>
@@ -77,7 +77,7 @@
                                 <h5>Have an account ? <a style="color:#E25E20" href="formlogin.php">Login now</a></h5>
                                 <br>
 
-                                <div class="text-center"><button class="button login" type="submit" onclick="verifikasiData()">Regist</button></div>
+                                <div class="text-center"><button class="button login" type="submit">Regist</button></div>
                             </form>
                         </div>
 

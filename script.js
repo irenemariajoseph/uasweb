@@ -159,43 +159,52 @@ function simulate() {
 }
 
 // Script for formregist.php
-function verifikasiData() {
-
+function verifikasiData(event) {
   if (document.getElementById("pwd").value == "") {
     alert("Password empty, please enter the password!");
+    event.preventDefault();
   } else if (document.getElementById("pwd").value.length < 8) {
     alert("Password too short, please create another password!");
+    event.preventDefault();
   } else if (document.getElementById("pwd").value.length > 15) {
     alert("Password too long, please create another password!");
+    event.preventDefault();
   } else if (document.getElementById("telp").value == "") {
     alert("Phone number is empty, please enter the phone number!");
+    event.preventDefault();
   } else if (document.getElementById("telp").value.length < 12) {
     alert("Phone number too short, please enter another phone number!");
+    event.preventDefault();
   } else if (document.getElementById("telp").value.length > 13) {
     alert("Phone number too long, please enter another phone number!");
+    event.preventDefault();
+  } else {
+    return true;
   }
 }
 
 // Script for checkout.php
-function checkingOut() {
+function checkingOut(event) {
   if (document.getElementById("notelp").value == "") {
     alert("Phone number is empty, please enter the phone number!");
-    return false;
+    event.preventDefault();
   } else if (document.getElementById("notelp").value.length < 12) {
     alert("Phone number too short, please enter another phone number!");
-    return false;
+    event.preventDefault();
   } else if (document.getElementById("notelp").value.length > 13) {
     alert("Phone number too long, please enter another phone number!");
-    return false;
+    event.preventDefault();
+  } else {
+    return true;
   }
 }
 
 // Script for show_cart.php
-function validateCO() {
+function validateCO(event) {
   var element = (parseInt(document.getElementById("subTotal").innerText));
   if (element == 0) {
     alert("Cart Empty");
-    document.getElementById("btn_co").disabled = true;
+    event.preventDefault();
   } else { //success story
     location.href = 'checkout.php';
   }
