@@ -16,4 +16,4 @@ $sql = "UPDATE users SET pass = ? WHERE email = ?";
 $hasil = $con->prepare($sql);
 $hasil->execute([$daftarpass, $email]);
 // alert($pesan_id);
-// header("Location: userpage.php");
+header("Location: formlogin.php");
