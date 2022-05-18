@@ -26,7 +26,6 @@ try{
         } else {
             return alert2(" Password lama salah");
         }
-
     }
 
 } catch (Exception $e) {

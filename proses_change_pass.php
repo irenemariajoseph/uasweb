@@ -1,6 +1,6 @@
 <?php
 require "conn.php";
-SessionActive();
+session_abort();
 $con = GetConnection();
 
 $email = $_POST['email'];
@@ -9,7 +9,7 @@ $confirmpass = $_POST['confirmpass'];
 
 $sql2 = "SELECT * FROM users WHERE email = ?";
 $hasil2 = $con->prepare($sql2);
-$hasil2->execute($email);
+$hasil2->execute([$email]);
 
 $sql = "UPDATE users SET pass = ? WHERE email = ?";
 
@@ -19,10 +19,11 @@ try{
             if (password_verify($confirmpass, $pass)){
                 $hasil = $con->prepare($sql);
                 $hasil->execute([$pass, $email]);
+                header('Location: formlogin.php');
             } else {
-                return alertforgot("Password baru tidak cocok");
+                echo "<script type='text/javascript'>alert('Password baru tidak cocok')
+                window.location.href='forget_pass.php';</script>";
             }
-            header('Location: formlogin.php');
         } else {
             return alertforgot("Email anda salah");
         }

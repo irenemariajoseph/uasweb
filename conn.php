@@ -60,5 +60,5 @@ function alert2($msg)
 function alertforgot($msg)
 {
     echo "<script type='text/javascript'>alert('$msg')
-    window.location.href='forget_pass.php';</script>";
+            window.location.href='forget_pass.php';</script>";
 }
