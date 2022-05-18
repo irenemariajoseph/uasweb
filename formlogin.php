@@ -67,7 +67,7 @@
                                 </div>
                                 <br>
 
-                                <h5>Forget your password <a style="color:#E25E20" href="#">Click Here</a></h5>
+                                <h5>Forget your password <a style="color:#E25E20" href="forget_pass.php">Click Here</a></h5>
                                 <h5>Don't have an account ? <a style="color:#E25E20" href="formregist.php">Create now</a></h5>
 
                                 <br>
