@@ -58,7 +58,7 @@
 
 
                         <div class="col-lg-12 mt-5 mt-lg-0" style="align-items: center;">
-                            <form action="proses_change_pass.php" method="POST" role="form" style="width: 30%">
+                            <form action="proses_change_pass.php" onsubmit="verifikasiData(event)" method="POST" role="form" style="width: 30%">
                                 <!-- <div class="form-group mt-3">
                                     <input type="text" class="input textEmail" name="loginemail" placeholder="Email" required></input>
                                 </div> -->
