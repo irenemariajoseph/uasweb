@@ -91,16 +91,13 @@ $row = $result
                         <td>Order #</td>
                         <td>Customer Name</td>
                         <td>Email</td>
-                        <td>Product ID</td>
-                        <td>Product Name</td>
-                        <td>Product Ukuran</td>
-                        <td>Product Type</td>
-                        <td>Kuantitas</td>
-                        <td>Cara Pick Up</td>
-                        <td>Tanggal Pick Up</td>
-                        <td>Pick Up Status</td>
-                        <td>Status Pembayaran</td>
+                        <td>Nomor Telpon</td>
+                        <td>Total Bayar </td>
+                        <td>Tanggal Pick Up </td>
+                        <td>Pick Up Status </td>
+                        <td>Total Bayar </td>
                         <td>Transaction Photo</td>
+                        <td>Aksi</td>
                         <td>Aksi</td>
                     </tr>
                 </thead>
@@ -114,11 +111,8 @@ $row = $result
                             <td><?php echo $row['pesan_id'] ?></td>
                             <td><?php echo $row['username'] ?></td>
                             <td><?php echo $row['email'] ?></td>
-                            <td><?php echo $row['prod_id'] ?></td>
-                            <td><?php echo $row['prod_name'] ?></td>
-                            <td><?php echo $row['type_ppr'] ?></td>
-                            <td><?php echo $row['uk_ppr'] ?></td>
-                            <td><?php echo $row['jmlh_brg'] ?></td>
+                            <td><?php echo $row['no_telp'] ?></td>
+
                             <td><?php echo $row['cara_pickup'] ?></td>
                             <td><?php echo $row['tgl_pickup'] ?></td>
                             <td><?php echo $row['pickup_status'] ?></td>
@@ -131,9 +125,10 @@ $row = $result
                             <td><img style="  max-width: 100px;" src="<?php echo $row['foto_pemb'] ?>" /></td>
                             <td>
                                 <div class="col text-center">
-                                    <a href="form_update.php?pesan_id=<?php echo $row['pesan_id'] ?>">Update</a>
+                                    <a class="LinkButton" href="form_update.php?pesan_id=<?php echo $row['pesan_id'] ?>">Update</a>
                                 </div>
                             </td>
+                            <td> <a class="LinkButton" href="invoice.php?pesan_id=<?php echo $row['pesan_id'] ?>">View Invoice</a></td>
                         </tr>
 
 
@@ -206,6 +201,11 @@ $row = $result
         margin-bottom: 1rem;
     }
 
+    td,
+    input {
+        vertical-align: middle;
+    }
+
     .spacing {
         height: 17vh;
     }
@@ -252,5 +252,28 @@ $row = $result
         .spacing {
             height: 12vh;
         }
+    }
+
+    a.LinkButton {
+        border-style: solid;
+        border-width: 1px 1px 1px 1px;
+        text-decoration: none;
+        padding: 1rem 1rem;
+        border-color: var(--primary);
+        margin: 1 rem 1rem;
+        color: var(--primary);
+        border-radius: 2rem;
+        background-color: white;
+
+    }
+
+    a.LinkButton:hover {
+        border-style: solid;
+        border-width: 1px 1px 1px 1px;
+        text-decoration: none;
+        background-color: white;
+        border: 3px solid var(--primary);
+        color: var(--primary);
+
     }
 </style>

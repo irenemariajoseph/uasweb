@@ -94,7 +94,7 @@ SessionActive();
                             <select name="jenis_pembayaran" class="form-control" style="height: 4rem" required>
                                 <option value="">None</option>
                                 <option value="Bank Transfer">Bank Transfer</option>
-                                <option value="Shopee Pay<">Shopee Pay</option>
+                                <option value="Shopee Pay">Shopee Pay</option>
                                 <option value="DANA">DANA</option>
                                 <option value="OVO">OVO</option>
                                 <option value="Gopay">Gopay</option>

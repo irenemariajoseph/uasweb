@@ -1,6 +1,23 @@
+<?php
+
+require "conn.php";
+
+
+$idpesanan = $_GET['pesan_id'];
+$sql = "select tbl_produk.* , tbl_pesan.* from tbl_pesan left join tbl_produk on tbl_produk.prod_id =tbl_pesan.prod_id WHERE pesan_id =?";
+
+$con = GetConnection();
+$hasil = $con->prepare($sql);
+$hasil->execute([$idpesanan]);
+
+$row = $hasil->fetch();
+?>
+
+
+
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" href="submenustyle.css">
+
 
 <head>
     <meta charset="UTF-8">
@@ -8,6 +25,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ngeprint</title>
     <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="submenustyle.css">
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
@@ -49,7 +67,8 @@
     <div class="pagination">
         <div class="checkout">
             <h1>Pesanan <span>Ngeprint</span> Anda</h1>
-
+            <center><button style="margin:0rem auto"> <a style="margin:0rem auto" href="upload_form.php" style="color:inherit"> UPLOAD FORM</a></button>
+            </center> <br>
 
             <div class="formq">
 
@@ -61,38 +80,47 @@
 
 
                 <div class="isiq">
-                    <h2 class="noorder">NO ORDER : LQNSU346JK</h2>
-                    <h2 class="noorder">Order at Ngeprint : Maret 1, 2022</h2>
+                    <h2 class="noorder">NO ORDER : <?php echo $row['pesan_id'] ?></h2>
+                    <h2 class="noorder">Order at Ngeprint : <?php echo $row['trans_date'] ?></h2>
 
                     <hr class="new3">
+                    <div class="infopem">
+                        <h5 class="kirijudul">Nama Pembeli :</h5>
+                        <h5 style="text-transform:capitalize;" class="kananinfo"><?php echo $row['username'] ?></h5>
+                    </div>
                     <h2 class="judulisi">Informasi Pembeli</h2>
                     <div class="infopem">
                         <h5 class="kirijudul">Email :</h5>
-                        <h5 class="kananinfo">Asep@gmail.com</h5>
+                        <h5 style="text-transform:capitalize;" class="kananinfo"> <?php echo $row['email'] ?></h5>
                     </div>
-                    <div class="infopem">
-                        <h5 class="kirijudul">Nama Pembeli :</h5>
-                        <h5 class="kananinfo">Asep</h5>
-                    </div>
+
                     <div class="infopem">
                         <h5 class="kirijudul">No Telp :</h5>
-                        <h5 class="kananinfo">08394839</h5>
+                        <h5 style="text-transform:capitalize;" class="kananinfo"><?php echo $row['no_telp'] ?></h5>
                     </div>
                     <div class="infopem">
                         <h5 class="kirijudul">Tipe Pembayaran :</h5>
-                        <h5 class="kananinfo">BCA Tranfer</h5>
+                        <h5 style="text-transform:capitalize;" class="kananinfo"><?php echo $row['jenis_pemb'] ?>BCA Tranfer</h5>
                     </div>
                     <div class="infopem">
                         <h5 class="kirijudul">Tipe Pick-Up :</h5>
-                        <h5 class="kananinfo">Ambil Sendiri</h5>
+                        <h5 style="text-transform:capitalize;" class="kananinfo"><?php echo $row['cara_pickup'] ?></h5>
                     </div>
                     <div class="infopem">
                         <h5 class="kirijudul">Tanggal Pick-Up :</h5>
-                        <h5 class="kananinfo">18 Maret 2022</h5>
+                        <h5 style="text-transform:capitalize;" class="kananinfo"><?php echo $row['tgl_pickup'] ?></h5>
                     </div>
                     <div class="infopem">
                         <h5 class="kirijudul">Jam Pick-Up :</h5>
-                        <h5 class="kananinfo">09:00</h5>
+                        <h5 style="text-transform:capitalize;" class="kananinfo"><?php echo $row['jam_pickup'] ?></h5>
+                    </div>
+                    <div class="infopem">
+                        <h5 class="kirijudul">Status Pembayaran :</h5>
+                        <h5 style="text-transform:capitalize;" class="kananinfo"><?php echo $row['pemb_status'] ?></h5>
+                    </div>
+                    <div class="infopem">
+                        <h5 class="kirijudul">Status Pengambilan :</h5>
+                        <h5 style="text-transform:capitalize;" class="kananinfo"><?php echo $row['pickup_status'] ?></h5>
                     </div>
 
 
@@ -103,34 +131,42 @@
                             <tr>
                                 <th scope="col">No</th>
                                 <th scope="col">Nama Barang</th>
-                                <th scope="col">Detail</th>
+                                <th scope="col">Tipe </th>
+                                <th scope="col">Ukuran</th>
+                                <th scope="col">Harga Satuan</th>
                                 <th scope="col">Jumlah</th>
-                                <th scope="col">Harga</th>
+
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <th scope="row">1</th>
-                                <td>Box Packing</td>
-                                <td>Duplex,Medium</td>
-                                <td>1</td>
-                                <td>20.000</td>
+                                <td style="text-transform:capitalize;"><?php echo $row['prod_name'] ?></td>
+                                <td style="text-transform:capitalize;"><?php echo $row['type_ppr'] ?></td>
+                                <td style="text-transform:capitalize;"><?php echo $row['uk_ppr'] ?></td>
+                                <td><?php echo $row['price'] ?></td>
+                                <td><?php echo $row['jmlh_brg'] ?></td>
+
                             </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Box Packing</td>
-                                <td>Duplex,Medium</td>
-                                <td>1</td>
-                                <td>20.000</td>
-                            </tr>
+
 
                         </tbody>
                     </table>
+                    <div class="infopem">
+                        <h5 class="kirijudul">Sub Total :</h5>
+                        <h5 class="kananinfo"><?php echo $row['subtotal'] ?></h5>
+                    </div>
+                    <div class="infopem">
+                        <h5 class="kirijudul">Pajak (11%) :</h5>
+                        <h5 class="kananinfo"><?php echo $row['pajak'] ?></h5>
+                    </div>
+                    <div class="infopem">
+                        <h2 class="tulisan">Grand Total :</h2>
+                        <h2 class="totalharga"><?php echo $row['harga_total'] ?></h2>
+                    </div>
 
 
 
-                    <h2 class="tulisan">Total harga :</h2>
-                    <h2 class="totalharga">40.000</h2>
                 </div>
 
 
@@ -193,3 +229,25 @@
 </body>
 
 </html>
+<style>
+    button a {
+        text-decoration: none;
+
+        padding: 3rem 2rem;
+        font-size: x-large;
+        text-transform: uppercase;
+
+    }
+
+    button:hover {
+        background-color: white;
+        border: 3px solid var(--primary);
+        color: var(--primary);
+    }
+
+    td,
+    Th {
+        vertical-align: middle;
+        text-align: center;
+    }
+</style>
