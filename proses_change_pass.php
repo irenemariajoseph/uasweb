@@ -20,11 +20,11 @@ try{
                 $hasil = $con->prepare($sql);
                 $hasil->execute([$pass, $email]);
             } else {
-                return alertlogin("Password baru tidak cocok");
+                return alertforgot("Password baru tidak cocok");
             }
             header('Location: formlogin.php');
         } else {
-            return alertlogin("Email anda salah");
+            return alertforgot("Email anda salah");
         }
     }
 

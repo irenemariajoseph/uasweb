@@ -56,3 +56,9 @@ function alert2($msg)
     echo "<script type='text/javascript'>alert('$msg')
     window.location.href='formchangepw.php';</script>";
 }
+
+function alertforgot($msg)
+{
+    echo "<script type='text/javascript'>alert('$msg')
+    window.location.href='forget_pass.php';</script>";
+}
