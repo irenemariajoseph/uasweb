@@ -179,28 +179,28 @@ $hasil->execute();
             <form>
                 <div class="form-row">
                     <form class="form-horizontal">
-                        <div class="control-group" style="margin: 5rem 10rem;">
+                        <div class="control-group col-md-10">
                             <label class="control-label" for="inputType">Jenis Produk</label>
                             <div class="controls">
                                 <input type="text" class="input-simulate" id="jenisproduk" placeholder="Paper - Brosur ">
                             </div>
                         </div>
 
-                        <div class="control-group" style="margin: 5rem 10rem;">
+                        <div class="control-group col-md-10">
                             <label class="control-label" for="inputType">Ukuran</label>
                             <div class="controls">
                                 <input type="text" class="input-simulate" id="ukuran" placeholder="A4">
                             </div>
                         </div>
 
-                        <div class="control-group" style="margin: 5rem 10rem;">
+                        <div class="control-group col-md-10">
                             <label class="control-label" for="inputType">Jenis Kertas</label>
                             <div class="controls">
                                 <input type="text" class="input-simulate" id="jeniskertas" placeholder="Vinyl">
                             </div>
                         </div>
 
-                        <div class="control-group" style="margin: 5rem 10rem;">
+                        <div class="control-group col-md-10">
                             <label class="control-label" for="inputType">Jumlah Cetakan</label>
                             <div class="controls">
                                 <input type="text" class="input-simulate" id="jumlahcetakan" placeholder="300 RIM">
