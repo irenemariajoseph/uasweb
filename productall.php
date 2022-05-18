@@ -169,8 +169,8 @@ $hasil->execute();
             ?>
         </div>
     </div>
-    <center></center>
-    <div class="simulation" id="">
+
+    <div class="simulation text-center" id="">
         <h1>Not Sure it’s easy and fast?<br>
             <span>SIMULATE IT!</span>
         </h1>
@@ -179,41 +179,38 @@ $hasil->execute();
             <form>
                 <div class="form-row">
                     <form class="form-horizontal">
-                        <div class="control-group">
+                        <div class="control-group" style="margin: 5rem 10rem;">
                             <label class="control-label" for="inputType">Jenis Produk</label>
                             <div class="controls">
-                                <input type="text" class="input-simulate" id="jenisproduk" placeholder="Paper - Brosur ">
+                                <input type="text" class="input-simulate"id="jenisproduk" placeholder="Paper - Brosur ">
                             </div>
                         </div>
 
-                        <div class="control-group">
+                        <div class="control-group" style="margin: 5rem 10rem;">
                             <label class="control-label" for="inputType">Ukuran</label>
                             <div class="controls">
                                 <input type="text" class="input-simulate" id="ukuran" placeholder="A4">
                             </div>
                         </div>
 
-                        <div class="control-group">
+                        <div class="control-group" style="margin: 5rem 10rem;">
                             <label class="control-label" for="inputType">Jenis Kertas</label>
                             <div class="controls">
                                 <input type="text" class="input-simulate" id="jeniskertas" placeholder="Vinyl">
                             </div>
                         </div>
 
-                        <div class="control-group">
+                        <div class="control-group" style="margin: 5rem 10rem;">
                             <label class="control-label" for="inputType">Jumlah Cetakan</label>
                             <div class="controls">
                                 <input type="text" class="input-simulate" id="jumlahcetakan" placeholder="300 RIM">
                             </div>
                         </div>
 
-                        <div class="produkbutton">
+                        <div class="produkbutton text-center">
                             <button type="button" onclick="simulate()">SIMULATE IT</button>
                         </div>
-
                     </form>
-
-
 
                 </div>
             </form>

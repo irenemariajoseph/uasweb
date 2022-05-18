@@ -203,7 +203,7 @@ $row = $result
 
     thead td {
         font-weight: bolder;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
 
     tbody {
