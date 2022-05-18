@@ -27,15 +27,20 @@
                 <a href="home.php#up">Home</a>
                 <a href="home.php#products">Product</a>
                 <a href="home.php#testimony">Testimony</a>
-                <a href="paperproduct.php#simulate">Simulation</a>
+                <a href="productall.php#simulate">Simulation</a>
                 <a href="home.php#aboutus">About Us</a>
             </ul>
         </nav>
 
         <div class="icons">
             <div class="fas fa-bars" id="menu-btn"></div>
-            <div class="fas fa-shopping-cart" id="shop-btn"></div>
-            <div class="fas fa-user" id="login-btn"></div>
+            <a href="show_cart.php">
+                <div class="fas fa-shopping-cart" id="shop-btn"></div>
+            </a>
+            <a href="userpage.php">
+                <div class="fas fa-user" id="login-btn"></div>
+            </a>
+
         </div>
     </header>
 

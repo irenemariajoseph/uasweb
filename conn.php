@@ -27,15 +27,17 @@ function SessionActive()
     }
 }
 
-function sessionAdmin()
-{
+// function sessionAdmin()
+// {
 
-    session_start();
-    if (!isset($_SESSION['role']) & $_SESSION['role'] != 'admin') {
-        alert($_SESSION['role']);
-        header('Location: userpage.php');
-    }
-}
+//     session_start();
+//     if (!isset($_SESSION['role']) & $_SESSION['role'] == 'user') {
+
+//         header('Location: userpage.php');
+//     } else {
+//         header('Location: adminpage.php');
+//     }
+// }
 
 
 function alert($msg)
