@@ -20,7 +20,6 @@ function GetConnection()
 
 function SessionActive()
 {
-
     session_start();
     if (!isset($_SESSION['email'])) {
         header('Location: formlogin.php');
@@ -44,4 +43,10 @@ function alert($msg)
 {
     echo "<script type='text/javascript'>alert('$msg')
     window.location.href='formregist.php';</script>";
+}
+
+function alert2($msg)
+{
+    echo "<script type='text/javascript'>alert('$msg')
+    window.location.href='formchangepw.php';</script>";
 }
