@@ -1,6 +1,5 @@
 <?php
 require "conn.php";
-session_abort();
 $con = GetConnection();
 
 $email = $_POST['email'];
@@ -24,9 +23,10 @@ try{
                 echo "<script type='text/javascript'>alert('Password baru tidak cocok')
                 window.location.href='forget_pass.php';</script>";
             }
-        } else {
-            return alertforgot("Email anda salah");
         }
+    } else {
+        echo "<script type='text/javascript'>alert('Error 404')
+        window.location.href='forget_pass.php';</script>";
     }
 
 } catch (Exception $e){
