@@ -1,3 +1,7 @@
+<?php
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -58,24 +62,21 @@
 
 
                         <div class="col-lg-12 mt-5 mt-lg-0" style="align-items: center;">
-                            <form action="proses_change_pass.php" method="POST" role="form" style="width: 30%">
-                                <!-- <div class="form-group mt-3">
-                                    <input type="text" class="input textEmail" name="loginemail" placeholder="Email" required></input>
-                                </div> -->
-                                <div class="form-group mt-3">
-                                    <input type="email" class="input textPass" name="email" placeholder="Current Email" required></input>
-                                </div>
-                                <div class="form-group mt-3">
-                                    <input type="password" class="input textPass" name="pass" placeholder="New Password" required></input>
-                                </div>
-                                <!-- <div class="form-group mt-3">
-                                    <input type="password" class="input textPass" name="loginpass" placeholder="Confirm New Password" required></input>
-                                </div>
-                                <br> -->
 
-                                <!-- <h5>Forget your password <a style="color:#E25E20" href="#">Click Here</a></h5>
-                                <h5>Don't have an account ? <a style="color:#E25E20" href="formregist.php">Create now</a></h5> -->
+                            <form action="proses_changepass.php" method="POST" role="form" style="width: 30%">
 
+                                <div class="form-group mt-3">
+                                    <input type="password" class="input textPass" name="currentpass" placeholder="Current Password" required></input>
+                                </div>
+                                <div class="form-group mt-3">
+                                    <input type="password" class="input textPass" name="newpass" placeholder="New Password" required></input>
+                                </div>
+                                <div class="form-group mt-3">
+                                    <input type="password" class="input textPass" name="confirmnewpass" placeholder="Confirm New Password" required></input>
+                                </div>
+                                <div id="message"></div>
+
+                                <br>
                                 <br>
                                 <div class="text-center"><button class="button login" type="submit">Save<i class="fas fa-save ms-2"></i></button></div>
                             </form>
