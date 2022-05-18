@@ -139,7 +139,7 @@ if (isset($_SESSION['user_id'])) {
             <div class="col-sm-6">
                 <div class="card">
                     <h3>Cust 1</h3>
-                    <h4>Tanggal Ngeprint 27 Januari 2022</h4>
+                    <h4 class="text-center">Tanggal Ngeprint 27 Januari 2022</h4>
 
                     <div class="card-img-top d-flex align-items-center">
                         <div>
@@ -155,7 +155,7 @@ if (isset($_SESSION['user_id'])) {
             <div class="col-sm-6">
                 <div class="card">
                     <h3>Cust 1</h3>
-                    <h4>Tanggal Ngeprint 27 Januari 2022</h4>
+                    <h4 class="text-center">Tanggal Ngeprint 27 Januari 2022</h4>
 
                     <div class="card-img-top d-flex align-items-center ">
                         <div>

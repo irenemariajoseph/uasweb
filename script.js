@@ -209,3 +209,19 @@ function validateCO(event) {
     location.href = 'checkout.php';
   }
 }
+
+// Script for formchangepw.php
+function validChangePW(event) {
+  if (document.getElementById("new_pwd").value == "") {
+    alert("Password empty, please enter the password!");
+    event.preventDefault();
+  } else if (document.getElementById("new_pwd").value.length < 8) {
+    alert("Password too short, please create another password!");
+    event.preventDefault();
+  } else if (document.getElementById("new_pwd").value.length > 15) {
+    alert("Password too long, please create another password!");
+    event.preventDefault();
+  } else {
+    return true;
+  }
+}
