@@ -58,18 +58,15 @@
 
 
                         <div class="col-lg-12 mt-5 mt-lg-0" style="align-items: center;">
-                            <form action="proses_change_pass.php" onsubmit="verifikasiData(event)" method="POST" role="form" style="width: 30%">
-                                <!-- <div class="form-group mt-3">
-                                    <input type="text" class="input textEmail" name="loginemail" placeholder="Email" required></input>
-                                </div> -->
+                            <form action="proses_change_pass.php" onsubmit="validChangePW(event)" method="POST" role="form" style="width: 30%">
                                 <div class="form-group mt-3">
                                     <input type="email" class="input textPass" name="email" placeholder="Current Email" required></input>
                                 </div>
                                 <div class="form-group mt-3">
-                                    <input type="password" class="input textPass" name="pass" placeholder="New Password" required></input>
+                                    <input type="password" id="new_pwd" class="input textPass" name="pass" placeholder="New Password" required></input>
                                 </div>
                                 <div class="form-group mt-3">
-                                    <input type="password" class="input textPass" name="confirmpass" placeholder="Confirm New Password" required></input>
+                                    <input type="password" id="new_pwd" class="input textPass" name="confirmpass" placeholder="Confirm New Password" required></input>
                                 </div>
 
 

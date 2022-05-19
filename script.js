@@ -210,7 +210,7 @@ function validateCO(event) {
   }
 }
 
-// Script for formchangepw.php
+// Script for formchangepw.php and forget_pass.php
 function validChangePW(event) {
   if (document.getElementById("new_pwd").value == "") {
     alert("Password empty, please enter the password!");
