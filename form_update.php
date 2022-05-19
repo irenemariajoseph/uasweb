@@ -78,6 +78,7 @@ $row = $hasil->fetch();
                                         <select class="textPass" name="update_pickup">
                                             <option value="Belum Siap">Belum Siap</option>
                                             <option value="Pending">Pending</option>
+                                            <option value="Pending">On Going</option>
                                             <option value="Ready">Ready</option>
                                         </select>
                                     </div>
@@ -96,7 +97,6 @@ $row = $hasil->fetch();
                                 <br>
                                 <div class="text-center"><button class="button login" type="submit">Update</button></div>
                             </form>
-
 
                         </div>
                     </div>

@@ -285,7 +285,7 @@ hr.new3 {
     font-weight: bold;
     color: var(--primary);
     float: right;
-    margin-right: 6%;
+
 }
 
 .tulisan {
@@ -293,7 +293,7 @@ hr.new3 {
     font-weight: bold;
     color: var(--primary);
     float: left;
-    margin-right: 6%;
+
 }
 
 

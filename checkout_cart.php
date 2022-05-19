@@ -11,7 +11,7 @@ $tgl_pickup = $_POST['tgl_pickup'];
 $jam_pickup = $_POST['jam_pickup'];
 $pemb_status = 'Tidak Terverifikasi';
 $pickup_status = 'Belum Siap';
-$foto_pemb = 'Belum Ada';
+$foto_pemb = 'images/nophoto.png';
 
 $query_get_cart = "SELECT * FROM tbl_cart WHERE user_id = ?";
 $result_cart = $conn->prepare($query_get_cart);
@@ -39,8 +39,8 @@ while ($cart_data = $result_cart->fetch()) {
     $grand_total = $sub_total + $pajak;
 
     $query_insert_transaksi = "INSERT INTO 
-                tbl_pesan(prod_id, user_id, username, email, no_telp, jenis_pemb, cara_pickup, tgl_pickup, jam_pickup, pemb_status, pickup_status, jmlh_brg, subtotal, pajak, harga_total, foto_pemb)
-            VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                tbl_pesan(prod_id, user_id, username, email, no_telp, jenis_pemb, cara_pickup, tgl_pickup, jam_pickup, pemb_status, pickup_status, jmlh_brg, subtotal, pajak, harga_total, foto_pemb, trans_date)
+            VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?, now())";
     $prepare_insert_transaksi = $connInsertTransaksi->prepare($query_insert_transaksi);
     $prepare_insert_transaksi->execute([
         $cart_data['prod_id'],

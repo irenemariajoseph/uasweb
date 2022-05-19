@@ -59,65 +59,68 @@ $hasil->execute([$user_id]);
 
     </header>
 
-    <div class="pilproduk" style="margin:20rem 10rem;" id="">
-        <center><button style="margin:0rem auto"> <a style="margin:0rem auto" href="upload_form.php" style="color:inherit"> UPLOAD FORM</a></button>
-        </center> <br>
-        <br>
-        <br>
+    <div class="pilproduk" style="margin:11rem 10rem;" id="">
+        <center>
+            <h3 style="color:var(--primary)">Rekening Ngeprint: 2732873</h3>
+            <h3 style="color:var(--primary); margin-bottom:1rem">Others Transaction: 0847384749</h3>
+            <button style="margin:0rem auto"> <a style="margin:0rem auto" href="upload_form.php" style="color:inherit"> UPLOAD FORM</a></button>
 
-        <div class="table-responsive">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <td>Order #</td>
-                        <td>Customer Name</td>
-                        <td>Email</td>
-                        <td>Product </td>
-                        <td>Kuantitas</td>
-                        <td>Cara Pick Up</td>
-                        <td>Tanggal Pick Up</td>
-                        <td>Pick Up Status</td>
-                        <td>Status Pembayaran</td>
-                        <td>Transaction Photo</td>
 
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    $i = 1;
-                    while ($row = $hasil->fetch()) :
-                    ?>
+            <br>
+            <br>
+            <br>
+
+            <div style="margin:0 auto; text-align:center;vertical-align: baseline;" class=" table-responsive">
+                <table class="table table-striped">
+                    <thead>
                         <tr>
-                            <td><?php echo $row['pesan_id'] ?></td>
-                            <td><?php echo $row['username'] ?></td>
-                            <td><?php echo $row['email'] ?></td>
-                            <td><?php echo $row['prod_id'] ?></td>
-                            <td><?php echo $row['jmlh_brg'] ?></td>
-                            <td><?php echo $row['cara_pickup'] ?></td>
-                            <td><?php echo $row['tgl_pickup'] ?></td>
+                            <td>Order #</td>
+                            <td>Customer Name</td>
+                            <td>Email</td>
+                            <td>Cara Pick Up</td>
+                            <td>Tanggal Pick Up</td>
+                            <td>Pick Up Status</td>
+                            <td>Status Pembayaran</td>
+                            <td>Transaction Photo</td>
+                            <td>Transaction Detail</td>
 
-                            <!-- <td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $i = 1;
+                        while ($row = $hasil->fetch()) :
+                        ?>
+                            <tr>
+                                <td><?php echo $row['pesan_id'] ?></td>
+                                <td><?php echo $row['username'] ?></td>
+                                <td><?php echo $row['email'] ?></td>
+
+                                <td><?php echo $row['cara_pickup'] ?></td>
+                                <td><?php echo $row['tgl_pickup'] ?></td>
+
+                                <!-- <td>
                             <select class="form-select" aria-label="Default select example">
                                 <option selected>Pending</option>
                                 <option value="1">Ready</option>
                             </select>
                         </td> -->
 
-                            <td><?php echo $row['pickup_status'] ?></td>
-                            <td><?php echo $row['pemb_status'] ?></td>
+                                <td><?php echo $row['pickup_status'] ?></td>
+                                <td><?php echo $row['pemb_status'] ?></td>
 
 
-                            <td><img style="  max-width: 100px;" src="<?php echo $row['foto_pemb'] ?>" /></td>
-
-                        </tr>
-                </tbody>
-            <?php
-                        $i++;
-                    endwhile;
-            ?>
-            </table>
-        </div>
-
+                                <td><img style="  max-width: 100px;" src="<?php echo $row['foto_pemb'] ?>" /></td>
+                                <td> <a class="LinkButton" href="invoice.php?pesan_id=<?php echo $row['pesan_id'] ?>">View Invoice</a></td>
+                            </tr>
+                    </tbody>
+                <?php
+                            $i++;
+                        endwhile;
+                ?>
+                </table>
+            </div>
+        </center>
     </div>
 
     <footer class="text-lg-start text-muted" id="footerkonten">
@@ -174,5 +177,33 @@ $hasil->execute([$user_id]);
         background-color: white;
         border: 3px solid var(--primary);
         color: var(--primary);
+    }
+
+    td,
+    input {
+        vertical-align: middle;
+    }
+
+    a.LinkButton {
+        border-style: solid;
+        border-width: 1px 1px 1px 1px;
+        text-decoration: none;
+        padding: 1rem 1rem;
+        border-color: var(--primary);
+        margin: 1 rem 1rem;
+        color: var(--primary);
+        border-radius: 2rem;
+        background-color: white;
+
+    }
+
+    a.LinkButton:hover {
+        border-style: solid;
+        border-width: 1px 1px 1px 1px;
+        text-decoration: none;
+        background-color: white;
+        border: 3px solid var(--primary);
+        color: var(--primary);
+
     }
 </style>

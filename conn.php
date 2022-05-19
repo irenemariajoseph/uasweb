@@ -45,8 +45,20 @@ function alert($msg)
     window.location.href='formregist.php';</script>";
 }
 
+function alertlogin($msg)
+{
+    echo "<script type='text/javascript'>alert('$msg')
+    window.location.href='formlogin.php';</script>";
+}
+
 function alert2($msg)
 {
     echo "<script type='text/javascript'>alert('$msg')
     window.location.href='formchangepw.php';</script>";
+}
+
+function alertforgot($msg)
+{
+    echo "<script type='text/javascript'>alert('$msg')
+    window.location.href='forget_pass.php';</script>";
 }
