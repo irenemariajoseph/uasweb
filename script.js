@@ -73,7 +73,7 @@ function clearhistory() {
 }
 
 function simulate() {
-  let run = false;
+  let run = 0;
 
   var waktu1 = 0;
   var waktu2 = 0;
@@ -93,7 +93,7 @@ function simulate() {
   if (arrJenisProduk.indexOf(jenisProduk) < 0){
     window.alert("Produk yang anda masukkan tidak ada");
   } else {
-    run = true;
+    run = run + 1;
     switch (jenisProduk) {
       case "paper":
         waktu1 = waktu1 + 1;
@@ -116,7 +116,7 @@ function simulate() {
   if (arrJenisKertas.indexOf(jenisKertas) < 0){
     window.alert("Kertas yang anda masukkan tidak ada");
   } else {
-    run = true;
+    run = run + 1;
     switch (jenisKertas) {
       case "matte":
         waktu2 = waktu2 + 2;
@@ -133,7 +133,7 @@ function simulate() {
   if (arrUkuran.indexOf(ukuran) < 0){
     window.alert("Ukuran yang anda masukkan tidak ada");
   } else {
-    run = true;
+    run = run + 1;
     switch (ukuran) {
       case "a4":
         waktu3 = waktu3 + 2;
@@ -169,7 +169,7 @@ function simulate() {
     waktu4 = 4;
   }
 
-  if (run == true){
+  if (run == 3){
     hasiljam = waktu1 + waktu2 + waktu3 + waktu4;
 
     var elemName = document.createElement("div");
