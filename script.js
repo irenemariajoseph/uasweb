@@ -160,23 +160,25 @@ function simulate() {
 
 
   if (jumlahCetakan == 0) {
-    waktu4 = 0;
+    window.alert("Masukkan jumlah cetakan");
   } else if (jumlahCetakan <= 50){
+    run = run + 1;
     waktu4 = 1;
   } else if (jumlahCetakan <= 100){
+    run = run + 1;
     waktu4 = 2;
   } else if (jumlahCetakan <= 500){
+    run = run + 1;
     waktu4 = 4;
   }
 
-  if (run == 3){
+  if (run == 4){
     hasiljam = waktu1 + waktu2 + waktu3 + waktu4;
 
     var elemName = document.createElement("div");
     elemName.innerHTML = "<div id = simulate-result><h1>Your Product Would Be Done In</h1><u><b><h2>" + hasiljam + " hours</h2></b></u><img class=img-simulate src=images/simulateit.png> <br> <br> <div class=produkbutton> <button type=button onclick= clearhistory()>I understand</button> </div>";
     document.getElementById("resulthours").appendChild(elemName);
   }
-
 }
 
 // Script for formregist.php
