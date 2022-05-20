@@ -216,6 +216,7 @@ if (isset($_SESSION['user_id'])) {
                 </div>
             </form>
         </div>
+        <div id="resulthours"></div>
     </div>
     <section class="aboutus" id="aboutus">
         <h1>Service With <span>Us</span></h1>
