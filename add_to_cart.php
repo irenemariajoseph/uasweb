@@ -1,20 +1,25 @@
 <?php
-    require "conn.php";
-    require "struct.php";
-    $conn = GetConnection();
-    $checkCartConn = GetConnection();
+require "conn.php";
+require "struct.php";
+$conn = GetConnection();
+$checkCartConn = GetConnection();
 
-    header('Content-Type: application/json; charset=utf-8');
+header('Content-Type: application/json; charset=utf-8');
 
-    $inputJSON = file_get_contents('php://input');
-    $input = json_decode($inputJSON, TRUE);
+$inputJSON = file_get_contents('php://input');
+$input = json_decode($inputJSON, TRUE);
 
-    $product_id = $input['product_id'];
-    $qty = $input['qty'];
-    $user_id = $input['user_id'];
+$product_id = $input['product_id'];
+$qty = $input['qty'];
+$user_id = $input['user_id'];
+$stock = $input['stock'];
 
-    $res = new ResponseCart();
+$res = new ResponseCart();
 
+if ($stock < $qty) {
+    $res->msg = "Jumlah yang anda ingin order melebihi stock kami";
+    echo json_encode($res);
+} else {
     // check if cart with user and productid already exist
     $check_cart = "SELECT * FROM tbl_cart where user_id = ? AND prod_id = ?";
     $prepare_check_cart = $checkCartConn->prepare($check_cart);
@@ -47,4 +52,4 @@
 
     $res->msg = "Berhasil memasukkan kedalam cart";
     echo json_encode($res);
-?>
+}

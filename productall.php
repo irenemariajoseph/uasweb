@@ -121,7 +121,7 @@ $hasil->execute();
 
                             <input class="product_id" value=<?php echo $row['prod_id']; ?> style="display: none;" />
                             <input class="user_id" value=<?php echo $_SESSION['user_id']; ?> style="display: none;" />
-
+                            <input class="stock" value=<?php echo $row['stock']; ?> style="display: none;" />
 
                             <div class="form-group">
                                 <h4>Pilih Jenis Kertas</h4>
@@ -150,7 +150,8 @@ $hasil->execute();
                             <div class="form-group">
                                 <h4>Jumlah Kertas</h4>
                                 <div class="form-group col-md-11">
-                                    <input type="number" style="background-color:#36e367" class="form-control" id="jumlahp" name="name" required>
+                                    <input style="background-color:#36e367" type="number" class="form-control" id="jumlahp" name="name" oninput="this.value = 
+ !!this.value && Math.abs(this.value) >= 1 ? Math.abs(this.value) : null" required>
                                 </div>
                             </div>
 
@@ -227,10 +228,16 @@ $hasil->execute();
             var paperData = formData.getElementsByClassName("form-control");
             var qty = paperData[3].value;
 
+            // stock
+            var stockData = formData.getElementsByClassName("stock");
+            var stock = stockData[0].value;
+
+
             let data = {
                 product_id: productID,
                 qty: qty,
-                user_id: userID
+                user_id: userID,
+                stock: stock
             };
 
             let req = new XMLHttpRequest();
