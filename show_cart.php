@@ -112,8 +112,11 @@ $cart_data = json_decode($res);
     </header>
     <div class="pilproduk" id="">
         <h1>Your <span>Cart</span> Product</h1>
+
         <button id="btn_co"> <a href="#" style="color:inherit" onclick="validateCO(event);"> CHECK OUT</a></button>
         <button> <a href="pesanan.php" style="color:inherit"> PESANAN</a></button>
+        <br><br>
+        <h3>Grand Total Belum Termasuk Pajak 11%</h3>
         <br>
         <h3 style="margin-top:1.5rem">Grand Total (In Rupiah): </h3>
         <h3 id="subTotal"><?php echo $cart_data->total_price ?></h3>
