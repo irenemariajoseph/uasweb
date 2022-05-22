@@ -91,7 +91,7 @@ if (isset($_SESSION['user_id'])) {
                     <img src="images/pdk_stiker.png" alt="">
                     <div class="productDescription">
                         <p>STICKERS</p>
-                        <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal2">
                             i
                         </button>
                     </div>
@@ -107,7 +107,7 @@ if (isset($_SESSION['user_id'])) {
                     <img src="images/pdk_banner.png" alt="">
                     <div class="productDescription">
                         <p>LARGE FORMAT</p>
-                        <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal3">
                             i
                         </button>
                     </div>
@@ -121,7 +121,7 @@ if (isset($_SESSION['user_id'])) {
                     <img src="images/pdk_kemasan.png" alt="">
                     <div class="productDescription">
                         <p>PRODUCT</p>
-                        <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal4">
                             i
                         </button>
                     </div>
@@ -279,6 +279,49 @@ if (isset($_SESSION['user_id'])) {
         </div>
     </div>
 
+    <!-- Modal -->
+    <div class="modal" style="overflow: hidden;  padding-right: 0rem;" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"><b>Product Detail</b></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Menyetak stiker sesuai kebutuhan anda. Kami telah banyak memproduksi stiker besar/meteran, beberapa kegunaannya yaitu digunakan sebagai stiker label produk, stiker kendaraan motor mobil, dinding rumah, kaca, meja, stand booth event, pemberitahuan informasi, iklan dan promosi. Tersedia berbagai jenis stiker sesuai kebutuhan seperti Vinyl China, Ritrama, Quantac, Transparan, dan Sandblast. Selain itu tersedia finishing cutting dan laminating glossy/doff.
+                    Tinta dan bahan stiker sudah memiliki ketahanan terhadap air, dan daya perekat yang kuat
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal" style="overflow: hidden;  padding-right: 0rem;" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"><b>Product Detail</b></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Pencetakan Large Format terdiri dari x banner, roll up banner, spanduk, dan flag banner. Cetakan large format akan sesuai dengan custom desain dan ukuran yang di inginkan oleh customer. Kami menggunakan tiga jenis mesin untuk melakukan pencetakan large format yaitu menggunakan Printer dengan tinta pigment, printer dengan tinta solvent dan printer dengan tinta UV. Untuk bahannya Tersedia dalam bahan Flexy, Albatros, Luster, Banner Cloth, Easy Banner, Kanvas, dan PVC. Bahan yang kita gunakan dijamin dengan kualitas terbaik sehingga kuat dan tahan lama.
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal" style="overflow: hidden;  padding-right: 0rem;" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"><b>Product Detail</b></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Cetak kemasan produk dengan custom desain dan ukuran sesuai dengan keinginan customer. Mulai dari soft box, hardbox, hingga corrugated box. Beberapa jenis kertas yang digunakan dalam proses cetak packaging dan kemasan custom di antaranya adalah ivory, duplex/dupleks, karton, food grade grease paper, kraft, samson, linen, jasmine, hingga cardboard. Pelayanan online cepat, mudah, bergaransi, dan terpercaya. Melayani pengiriman se-Indonesia.
+                </div>
+            </div>
+        </div>
+    </div>
 
     <footer class="text-lg-start text-muted" id="footerkonten">
         <section class="">
