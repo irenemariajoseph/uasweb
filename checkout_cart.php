@@ -39,8 +39,8 @@ while ($cart_data = $result_cart->fetch()) {
     $grand_total = $sub_total + $pajak;
 
     $query_insert_transaksi = "INSERT INTO 
-                tbl_pesan(prod_id, user_id, username, email, no_telp, jenis_pemb, cara_pickup, tgl_pickup, jam_pickup, pemb_status, pickup_status, jmlh_brg, subtotal, pajak, harga_total, foto_pemb, trans_date)
-            VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?, now())";
+                tbl_pesan(prod_id, user_id, username, email, no_telp, jenis_pemb, cara_pickup, tgl_pickup, jam_pickup, pemb_status, pickup_status, jmlh_brg, subtotal, pajak, harga_total, foto_pemb, trans_date, upload_custom)
+            VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?, now(), ?)";
     $prepare_insert_transaksi = $connInsertTransaksi->prepare($query_insert_transaksi);
     $prepare_insert_transaksi->execute([
         $cart_data['prod_id'],
@@ -58,6 +58,7 @@ while ($cart_data = $result_cart->fetch()) {
         $sub_total,
         $pajak,
         $grand_total,
+        $foto_pemb,
         $foto_pemb
     ]);
 
