@@ -85,7 +85,7 @@ $row = $result
     <div class="pilproduk" style="margin:20rem 10rem;" id="">
         <center>
             <h3 class=" fw-bold mb-4">
-                MOHON ADMIN MELIHAT INVOICE UNTUK EMMASTIKAN APAKAH ADA NOTES TAMBAHAN
+                MOHON ADMIN MELIHAT INVOICE UNTUK MEMASTIKAN APAKAH ADA NOTES TAMBAHAN
             </h3>
         </center>
         <br>
