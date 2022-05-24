@@ -9,11 +9,7 @@ $url = "http://localhost/xampp/uasweb/get_cart.php?user_id=" . $user_id;
 $res = file_get_contents($url);
 $cart_data = json_decode($res);
 
-// $sql = "select tbl_produk.* , tbl_cart.* from tbl_produk RIGHT join tbl_cart on tbl_produk.prod_id = tbl_cart.prod_id where user_id = ?;";
-// $con = GetConnection();
 
-// $hasil = $con->prepare($sql);
-// $hasil->execute([$user_id]);
 ?>
 
 <!DOCTYPE html>

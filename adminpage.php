@@ -22,21 +22,6 @@ $result->execute();
 $row = $result
 
 
-
-
-
-
-// if ($role == "admin") {
-//     // return alert('admin');
-
-//     header('Location: adminpage.php');
-// } else {
-
-
-//     header('Location: userpage.php');
-// }
-
-
 ?>
 
 
