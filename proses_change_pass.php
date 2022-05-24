@@ -25,7 +25,7 @@ try{
             }
         }
     } else {
-        echo "<script type='text/javascript'>alert('Error 404')
+        echo "<script type='text/javascript'>alert('Email tidak ditemukan')
         window.location.href='forget_pass.php';</script>";
     }
 

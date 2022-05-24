@@ -73,89 +73,112 @@ function clearhistory() {
 }
 
 function simulate() {
+  let run = 0;
+
   var waktu1 = 0;
   var waktu2 = 0;
   var waktu3 = 0;
   var waktu4 = 0;
   var hasiljam = 0;
 
+  const arrJenisProduk = ["paper","sticker","largeformat","product"];
+  const arrUkuran = ["a4","f4","4r","small","large"];
+  const arrJenisKertas = ["matte","glossy"];
+
   var jenisProduk = document.getElementById("jenisproduk").value;
   var ukuran = document.getElementById("ukuran").value;
   var jenisKertas = document.getElementById("jeniskertas").value;
   var jumlahCetakan = document.getElementById("jumlahcetakan").value;
 
-  switch (jenisProduk) {
-    case "paper":
-      waktu1 = waktu1 + 1;
-      break;
-    case "sticker":
-      waktu1 = waktu1 + 1;
-      break;
-    case "largeformat":
-      waktu1 = waktu1 + 1;
-      break;
-    case "product":
-      waktu1 = waktu1 + 1;
-      break;
-    default:
-      waktu1 = 0;
-      break;
-  }
-
-  switch (jenisKertas) {
-    case "art paper":
-      waktu2 = waktu2 + 1;
-      break;
-    case "art cartoon":
-      waktu2 = waktu2 + 2;
-      break;
-    case "hvs":
-      waktu2 = waktu2 + 3;
-      break;
-    case "bw cartoon":
-      waktu2 = waktu2 + 4;
-      break;
-    case "linen jepang":
-      waktu2 = waktu2 + 5;
-      break;
-    default:
-      waktu2 = 0;
-      break;
-  }
-
-  switch (ukuran) {
-    case "a1":
-      waktu3 = waktu3 + 5;
-      break;
-    case "a2":
-      waktu3 = waktu3 + 4;
-      break;
-    case "a3":
-      waktu3 = waktu3 + 3;
-      break;
-    case "a4":
-      waktu3 = waktu3 + 2;
-      break;
-    case "a5":
-      waktu3 = waktu3 + 1;
-      break;
-    default:
-      waktu3 = 0;
-      break;
-  }
-
-  if (jumlahCetakan >= 50) {
-    waktu4 = 1;
+  if (arrJenisProduk.indexOf(jenisProduk) < 0){
+    window.alert("Produk yang anda masukkan tidak ada");
   } else {
-    waktu4 = 0;
+    run = run + 1;
+    switch (jenisProduk) {
+      case "paper":
+        waktu1 = waktu1 + 1;
+        break;
+      case "sticker":
+        waktu1 = waktu1 + 1;
+        break;
+      case "largeformat":
+        waktu1 = waktu1 + 3;
+        break;
+      case "product":
+        waktu1 = waktu1 + 4;
+        break;
+      default:
+        waktu2 = 0;
+        break;
+    }
   }
 
-  hasiljam = waktu1 + waktu2 + waktu3 + waktu4;
+  if (arrJenisKertas.indexOf(jenisKertas) < 0){
+    window.alert("Kertas yang anda masukkan tidak ada");
+  } else {
+    run = run + 1;
+    switch (jenisKertas) {
+      case "matte":
+        waktu2 = waktu2 + 2;
+        break;
+      case "glossy":
+        waktu2 = waktu2 + 3;
+        break;
+      default:
+        waktu2 = 0;
+        break;
+    }
+  }
 
-  var elemName = document.createElement("div");
-  elemName.innerHTML = "<div id = simulate-result><h1>Your Product Would Be Done In</h1><u><b><h2>" + hasiljam + " hours</h2></b></u><img class=img-simulate src=images/simulateit.png> <br> <br> <div class=produkbutton> <button type=button onclick= clearhistory()>I understand</button> </div>";
-  document.getElementById("resulthours").appendChild(elemName);
+  if (arrUkuran.indexOf(ukuran) < 0){
+    window.alert("Ukuran yang anda masukkan tidak ada");
+  } else {
+    run = run + 1;
+    switch (ukuran) {
+      case "a4":
+        waktu3 = waktu3 + 2;
+        break;
+      case "f4":
+        waktu3 = waktu3 + 3;
+        break;
+      case "4r":
+        waktu3 = waktu3 + 3;
+        break;
+      case "small":
+        waktu3 = waktu3 + 2;
+        break;
+      case "large":
+        waktu3 = waktu3 + 4;
+        break;
+      default:
+        waktu3 = 0;
+        break;
+    }
+  }
 
+
+
+
+  if (jumlahCetakan == 0) {
+    window.alert("Masukkan jumlah cetakan");
+  } else if (jumlahCetakan <= 50){
+    run = run + 1;
+    waktu4 = 1;
+  } else if (jumlahCetakan <= 100){
+    run = run + 1;
+    waktu4 = 2;
+  } else if (jumlahCetakan <= 500){
+    run = run + 1;
+    waktu4 = 4;
+  }
+
+  if (run == 4){
+    hasiljam = waktu1 + waktu2 + waktu3 + waktu4;
+
+    var elemName = document.createElement("div");
+    elemName.innerHTML = "<div id = simulate-result><h1>Your Product Would Be Done In</h1><u><b><h2>" + hasiljam + " hours</h2></b></u><img class=img-simulate src=images/simulateit.png> <br> <br> <div class=produkbutton> <button type=button onclick= clearhistory()>I understand</button> </div>";
+    document.getElementById("resulthours").appendChild(elemName);
+  }
 }
 
 // Script for formregist.php
