@@ -64,6 +64,7 @@ $hasil->execute([$user_id]);
             <h3 style="color:var(--primary)">Rekening Ngeprint: 2732873</h3>
             <h3 style="color:var(--primary); margin-bottom:1rem">Others Transaction: 0847384749</h3>
             <button style="margin:0rem auto"> <a style="margin:0rem auto" href="upload_form.php" style="color:inherit"> UPLOAD FORM</a></button>
+            <button style="margin:0rem auto"> <a style="margin:0rem auto" href="upload_custom.php" style="color:inherit"> UPLOAD CUSTOM</a></button>
 
 
             <br>
@@ -82,6 +83,7 @@ $hasil->execute([$user_id]);
                             <td>Pick Up Status</td>
                             <td>Status Pembayaran</td>
                             <td>Transaction Photo</td>
+                            <td>Custom Photo</td>
                             <td>Transaction Detail</td>
 
                         </tr>
@@ -111,6 +113,7 @@ $hasil->execute([$user_id]);
 
 
                                 <td><img style="  max-width: 100px;" src="<?php echo $row['foto_pemb'] ?>" /></td>
+                                <td><img style="  max-width: 100px;" src="<?php echo $row['upload_custom'] ?>" /></td>
                                 <td> <a class="LinkButton" href="invoice.php?pesan_id=<?php echo $row['pesan_id'] ?>">View Invoice</a></td>
                             </tr>
                     </tbody>

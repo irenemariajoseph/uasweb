@@ -38,22 +38,13 @@ $row = $hasil->fetch();
     <header class="header">
         <a href="#" class="logo"><img src="images/logo_landscape.png" alt=""> </a>
 
-        <nav class="navbar">
-            <ul>
-                <a href="home.php#up">Home</a>
-                <a href="home.php#products">Product</a>
-                <a href="home.php#testimony">Testimony</a>
-                <a href="home.php#simulate">Simulation</a>
-                <a href="home.php#aboutus">About Us</a>
-            </ul>
-        </nav>
 
         <div class="icons">
             <div class="fas fa-bars" id="menu-btn"></div>
-            <a href="show_cart.php">
-                <div class="fas fa-shopping-cart" id="shop-btn"></div>
+            <a href="adminpage.php">
+                <div class="fas fa-info" id="shop-btn"></div>
             </a>
-            <a href="userpage.php">
+            <a href="admininfo.php">
                 <div class="fas fa-user" id="login-btn"></div>
             </a>
 
@@ -62,7 +53,7 @@ $row = $hasil->fetch();
 
     <div class="card">
         <form class="form">
-            <h2>User Profile</h2>
+            <h2>Admin Profile</h2>
 
             <div class="form-group">
                 <label for="email">Full Name:</label>
@@ -94,9 +85,9 @@ $row = $hasil->fetch();
             <br>
             <br>
             <div class="text-center">
+                <!-- 
+                <button class="movebtn movebtnblack" type="Submit"><a href="formedituser.php" style="text-decoration: none; color: black;"> Edit Info <i class="fa fa-edit"></a></i></button> -->
 
-                <button class="movebtn movebtnblack" type="Submit"><a href="formedituser.php" style="text-decoration: none; color: black;"> Edit Info <i class="fa fa-edit"></a></i></button>
-                <button class="movebtn movebtnblack" style="width: 15rem;" type="Submit"><a href="formchangepw.php" style="text-decoration: none; color: black;"> Change Password <i class="fa fa-key" aria-hidden="true"></a></i></button>
             </div>
 
         </form>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 21, 2022 at 04:39 PM
+-- Generation Time: May 24, 2022 at 11:48 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 7.3.29
 
@@ -58,18 +58,23 @@ CREATE TABLE `tbl_pesan` (
   `pajak` varchar(50) DEFAULT NULL,
   `harga_total` varchar(50) DEFAULT NULL,
   `foto_pemb` varchar(50) DEFAULT NULL,
-  `trans_date` datetime DEFAULT NULL
+  `trans_date` datetime DEFAULT NULL,
+  `upload_custom` varchar(100) DEFAULT NULL,
+  `notes` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbl_pesan`
 --
 
-INSERT INTO `tbl_pesan` (`pesan_id`, `prod_id`, `user_id`, `username`, `email`, `no_telp`, `jenis_pemb`, `cara_pickup`, `tgl_pickup`, `jam_pickup`, `pemb_status`, `pickup_status`, `jmlh_brg`, `subtotal`, `pajak`, `harga_total`, `foto_pemb`, `trans_date`) VALUES
-(1, 2, 2, 'user', 'user@gmail.com', '1234567891011', 'Shopee Pay', 'Ambil Pribadi', '2022-06-03', '01:21', 'Tidak Terverifikasi', 'Belum Siap', '3', '750', '82.5', '832.5', 'images/nophoto.png', '2022-05-19 00:00:00'),
-(2, 3, 2, 'user', 'user@gmail.com', '1234567891011', 'Shopee Pay', 'Ambil Pribadi', '2022-06-03', '01:21', 'Tidak Terverifikasi', 'Belum Siap', '4', '1000', '110', '1110', 'images/nophoto.png', '2022-05-19 00:00:00'),
-(3, 2, 2, 'user', 'user@gmail.com', '1234567891011', 'Shopee Pay', 'Grab', '2022-05-27', '02:15', 'Tidak Terverifikasi', 'Belum Siap', '3', '750', '82.5', '832.5', 'images/nophoto.png', '2022-05-19 00:00:00'),
-(4, 17, 2, 'user', 'user@gmail.com', '1234567891011', 'OVO', 'Grab', '2022-05-20', '02:21', 'Tidak Terverifikasi', 'Belum Siap', '4', '140000', '15400', '155400', 'images/nophoto.png', '2022-05-19 02:17:28');
+INSERT INTO `tbl_pesan` (`pesan_id`, `prod_id`, `user_id`, `username`, `email`, `no_telp`, `jenis_pemb`, `cara_pickup`, `tgl_pickup`, `jam_pickup`, `pemb_status`, `pickup_status`, `jmlh_brg`, `subtotal`, `pajak`, `harga_total`, `foto_pemb`, `trans_date`, `upload_custom`, `notes`) VALUES
+(1, 2, 2, 'user', 'user@gmail.com', '1234567891011', 'Shopee Pay', 'Ambil Pribadi', '2022-06-03', '01:21', 'Terverifikasi', 'Ready', '3', '750', '82.5', '832.5', 'images/nophoto.png', '2022-05-19 00:00:00', 'images/nophoto.png', NULL),
+(2, 3, 2, 'user', 'user@gmail.com', '1234567891011', 'Shopee Pay', 'Ambil Pribadi', '2022-06-03', '01:21', 'Tidak Terverifikasi', 'Belum Siap', '4', '1000', '110', '1110', 'images/nophoto.png', '2022-05-19 00:00:00', 'images/nophoto.png', NULL),
+(3, 2, 2, 'user', 'user@gmail.com', '1234567891011', 'Shopee Pay', 'Grab', '2022-05-27', '02:15', 'Tidak Terverifikasi', 'Belum Siap', '3', '750', '82.5', '832.5', 'images/nophoto.png', '2022-05-19 00:00:00', 'images/nophoto.png', NULL),
+(4, 17, 2, 'user', 'user@gmail.com', '1234567891011', 'OVO', 'Grab', '2022-05-20', '02:21', 'Tidak Terverifikasi', 'Belum Siap', '4', '140000', '15400', '155400', 'images/nophoto.png', '2022-05-19 02:17:28', 'images/nophoto.png', NULL),
+(5, 2, 2, 'user', 'user@gmail.com', '1234567891011', 'DANA', 'Ambil Pribadi', '2022-06-07', '13:56', 'Tidak Terverifikasi', 'Belum Siap', '4', '1000', '110', '1110', 'images/nophoto.png', '2022-05-24 13:52:03', 'upload_custom/5.png', 'ada 7 gambar 1 kertas ya pak'),
+(6, 1, 3, ' reyhan', 'reyhan@gmail.com', ' 122362626632', 'Bank Transfer', 'Grab', '2022-05-27', '17:15', 'Tidak Terverifikasi', 'Belum Siap', '6', '1500', '165', '1665', 'upload_trans/6.png', '2022-05-24 14:12:10', 'upload_custom/6.png', '6 biji ya kak 1 kertas'),
+(7, 2, 3, ' reyhan', 'reyhan@gmail.com', ' 122362626632', 'Bank Transfer', 'Grab', '2022-05-27', '17:15', 'Tidak Terverifikasi', 'Belum Siap', '4', '1000', '110', '1110', 'upload_trans/7.jpg', '2022-05-24 14:12:10', 'images/nophoto.png', NULL);
 
 -- --------------------------------------------------------
 
@@ -93,8 +98,8 @@ CREATE TABLE `tbl_produk` (
 --
 
 INSERT INTO `tbl_produk` (`prod_id`, `prod_category`, `prod_name`, `type_ppr`, `uk_ppr`, `stock`, `price`, `foto_produk`) VALUES
-(1, 'paper', 'brosur', 'matte', 'A4', '3996', '250', 'fotoproduk/produk1.jpg'),
-(2, 'paper', 'brosur', 'matte', 'F4', '1483', '250', 'fotoproduk/produk2.jpg'),
+(1, 'paper', 'brosur', 'matte', 'A4', '3990', '250', 'fotoproduk/produk1.jpg'),
+(2, 'paper', 'brosur', 'matte', 'F4', '1475', '250', 'fotoproduk/produk2.jpg'),
 (3, 'paper', 'brosur', 'glossy', 'A4', '1496', '250', 'fotoproduk/produk3.jpg'),
 (4, 'paper', 'brosur', 'glossy', 'F4', '1500', '250', 'fotoproduk/produk4.jpg'),
 (5, 'paper', 'undangan', 'matte', 'A4', '1000', '300', 'fotoproduk/produk5.jpg'),
@@ -141,7 +146,9 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `email`, `pass`, `no_telp`, `role`) VALUES
 (1, 'admin', 'admin@gmail.com', '$2y$10$yEDEU19QLg69Pe3oZq7MXODoFVtj.2UZjwE.j8encOxAVn2PIb4Z2', '1234567891011', 'admin'),
-(2, 'user', 'user@gmail.com', '$2y$10$6Jsw69Ae.c3S3hYQGRnB7eOCFkL3165xIug7LyakiVHcw/a9qopeG', '1234567891011', 'user');
+(2, 'user', 'user@gmail.com', '$2y$10$6Jsw69Ae.c3S3hYQGRnB7eOCFkL3165xIug7LyakiVHcw/a9qopeG', '1234567891011', 'user'),
+(3, ' reyhan', 'reyhan@gmail.com', '$2y$10$B3GRJ8shcioATJ8KJjah1OF3QhXcMMVsv.KDJ0C4N12ht5/.l6CZO', ' 122362626632', 'user'),
+(4, 'ADMIN2', 'admin2@gmail.com', '$2y$10$08RPuVJjzPmD0hToALGc4.q4tVTX7qguzpIRtanmwyzpS3YSbTV2a', '123412345678', 'admin');
 
 --
 -- Indexes for dumped tables
@@ -183,13 +190,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `tbl_cart`
 --
 ALTER TABLE `tbl_cart`
-  MODIFY `id_cart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_cart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tbl_pesan`
 --
 ALTER TABLE `tbl_pesan`
-  MODIFY `pesan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `pesan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tbl_produk`
@@ -201,7 +208,7 @@ ALTER TABLE `tbl_produk`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables

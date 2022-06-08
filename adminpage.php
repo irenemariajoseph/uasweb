@@ -22,21 +22,6 @@ $result->execute();
 $row = $result
 
 
-
-
-
-
-// if ($role == "admin") {
-//     // return alert('admin');
-
-//     header('Location: adminpage.php');
-// } else {
-
-
-//     header('Location: userpage.php');
-// }
-
-
 ?>
 
 
@@ -67,12 +52,13 @@ $row = $result
         <a href="#" class="logo"><img src="images/logo_landscape.png" alt=""> </a>
 
 
+
         <div class="icons">
             <div class="fas fa-bars" id="menu-btn"></div>
             <a href="adminpage.php">
-                <div class="fas fa-shopping-cart" id="shop-btn"></div>
+                <div class="fas fa-info" id="shop-btn"></div>
             </a>
-            <a href="userpage.php">
+            <a href="admininfo.php">
                 <div class="fas fa-user" id="login-btn"></div>
             </a>
 
@@ -81,9 +67,13 @@ $row = $result
 
     </header>
 
-
     <div class="pilproduk" style="margin:20rem 10rem;" id="">
-        <!-- <form action="proses_update.php" method="POST"> -->
+        <center>
+            <h3 class=" fw-bold mb-4">
+                MOHON ADMIN MELIHAT INVOICE UNTUK MEMASTIKAN APAKAH ADA NOTES TAMBAHAN
+            </h3>
+        </center>
+        <br>
         <div class="table-responsive">
             <table class="table table-striped">
                 <thead>
@@ -97,6 +87,7 @@ $row = $result
                         <td>Pick Up Status </td>
                         <td>Total Bayar </td>
                         <td>Transaction Photo</td>
+                        <td>Custom Photo</td>
                         <td>Aksi</td>
                         <td>Aksi</td>
                     </tr>
@@ -123,12 +114,14 @@ $row = $result
 
 
                             <td><img style="  max-width: 100px;" src="<?php echo $row['foto_pemb'] ?>" /></td>
+                            <td><img style="  max-width: 100px;" src="<?php echo $row['upload_custom'] ?>" /></td>
+
                             <td>
                                 <div class="col text-center">
                                     <a class="LinkButton" href="form_update.php?pesan_id=<?php echo $row['pesan_id'] ?>">Update</a>
                                 </div>
                             </td>
-                            <td> <a class="LinkButton" href="invoice.php?pesan_id=<?php echo $row['pesan_id'] ?>">View Invoice</a></td>
+                            <td> <a class="LinkButton" href="invoiceadmin.php?pesan_id=<?php echo $row['pesan_id'] ?>">View Invoice</a></td>
                         </tr>
 
 
