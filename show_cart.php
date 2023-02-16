@@ -4,7 +4,7 @@ SessionActive();
 
 $user_id = $_SESSION['user_id'];
 
-$url = "http://localhost/xampp/uasweb/get_cart.php?user_id=" . $user_id;
+$url = "http://localhost/uasweb/get_cart.php?user_id=" . $user_id;
 
 $res = file_get_contents($url);
 $cart_data = json_decode($res);
